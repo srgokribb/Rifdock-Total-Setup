@@ -18,15 +18,16 @@
   (2) Download GCC 5.4.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/)./
   (3) Move the tar.gz file to rosetta folder and unzip with "**> tar -xvzf gcc-5.4.0.tar.gz.**"
   (4) Install GCC-5.4.0. (Ref: https://gcc.gnu.org/wiki/InstallingGCC)\
-     $ cd gcc-5.4.0
-     $ ./contrib/download_prerequisites
-     $ cd ..
-     $ mkdir objdir
-     $ cd objdir
-     $../configure --prefix=$srgo/GCC-5.4.0 --enable-languages=c,c++,fortran,go
-     $ make
-     $ make install
-
+     $ cd gcc-5.4.0\
+     $ ./contrib/download_prerequisites\
+     $ cd ..\
+     $ mkdir objdir\
+     $ cd objdir\
+     $../configure --prefix=$srgo/GCC-5.4.0 --enable-languages=c,c++,fortran,go\
+     $ make\
+     $ make install\
+  (5)Change gcc version to the installed version(?)\
+#### 2) 
 
 
 
