@@ -52,10 +52,10 @@
      $ ./b2 install
 - The installation process will took quite long time. 
 
-### 3. Build a Rosetta cxx11_omp
+### 3. Build a Rosetta cxx11_omp and rifdock
 #### 1) Install Ninja and set the proper PATH
 - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
- (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref: https://github.com/ninja-build/ninja) \
+ (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref:https://github.com/ninja-build/ninja/wiki, https://github.com/ninja-build/ninja) \
  
 ##### (2) Install Ninja
      $ tar xvzf- ninja-1.10.2.tar.gz
@@ -75,7 +75,27 @@
 
 ##### (5) Enter to 'source' folder and build rosetta cxx11_omp using Ninja
      $ cd rosetta_src_release_bundle/main/source
-     
+     $ CXX=/usr/bin/c++ CC=/usr/bin/gcc ./ninja_build.py cxx11_omp -t rosetta_scripts -remake
+
+##### (6) Copy rifdock repository 
+     $ cd rifdock
+     $ mkdir build
+     $ cd build
+     $ CXX=/usr/bin/c++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/Path/to/a/rosetta/main cmake -DCMAKE_BUILD_TYPE=Release
+     $ make -j3 rif_dock_test rifgen
+- If the rifdock is not link against cxx11_omp build, add "CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_my_custom_build_type" behind CMAKE_ROSETTA_PATH flag. \
+
+##### (7) Unit Test
+     $ make test_libscheme
+
+### 4. Running Rifdock
+##### The executable files for RifDock are built at:
+- $ rifdock/build/apps/rosetta/rifgen
+- $ rifdock/build/apps/rosetta/rif_dock/test
+
+##### The unit tests executable file is at:
+- $ rifdock/build/schemelib/test/test_libscheme
+
 
 
 
