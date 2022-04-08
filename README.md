@@ -59,11 +59,7 @@
      $ make install
  
  - I used "$../configure --prefix=$srgo/rosetta/GCC-5.4.0 --enable-languages=c,c++,fortran,go" because of the authority limitation.
- - In later stage, "CXX=/my/g++/version CC=/my/gcc/version ./ninja_build.py" will be used to build Rosetta cxx11_omp. For now, I'm not sure wheather it is really need to change entire gcc environment to alternative version.
-
-##### (6) Change gcc version to the installed version
-     $ 
-
+ - In later stage, "CXX=/my/g++/version CC=/my/gcc/version ./ninja_build.py" will be used to build Rosetta cxx11_omp. For now, I'm not sure wheather it is really need to change entire gcc environment to alternative version.   
 
 #### 2) Install Boost 
 ##### (1) Download Boost version 1.65.1 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_1.html). 
