@@ -10,11 +10,12 @@
  (2) 'Scons.py' which is the software needed to compile Rosetta is already included in rosetta bundle(in main/source folder). \
  (3) Compile rosetta in MPI format(Massage Passing Interface) which is compatible to jobscheduler of CAE-module.\
      "**> ./scons.py -j 10 mode=release bin/rosetta_scripts.mpi.linuxgccrelease extras=mpi**" -j 10 means using 10 cores of CPU for compiling, mode=release means compile with optimizations to produce faster version of rosetta. mode=debug or not menthioning any mode include additional checks which slows down Rosetta runs(not recommanded)\
- (4) 
+     This compiling process will took about 1h.\
+ (4) ab
 
 
 
 
-
+compile: 
 bin: bin stands for binary file which is "non-text file". Binary file is compiled files which 
 cxx: C++
