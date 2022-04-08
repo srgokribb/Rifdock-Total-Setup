@@ -13,6 +13,8 @@
 - The installation takes 10~20 min and rosetta_scr_2018.60072_bundle folder is generated.
  
 #### 2) Compile Rosetta using Scons
+- GCC/g++: Version 4.8 or later(https://gcc.gnu.org/releases.html)
+- Clang/llvm on Linux: Version 3.3 or later(https://releases.llvm.org/download.html)
 ##### (1) Move to 'source' folder by using command 
     $ cd rosetta_src_release_bundle/main/source
 
@@ -119,7 +121,7 @@
      $ cd rifdock
      $ mkdir build
      $ cd build
-     $ CXX=/usr/bin/c++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/Path/to/a/rosetta/main cmake -DCMAKE_BUILD_TYPE=Release
+     $ CXX=/usr/bin/c++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/Path/to/a/rosetta/main cmake .. -DCMAKE_BUILD_TYPE=Release
      $ make -j3 rif_dock_test rifgen
 - If the rifdock is not link against cxx11_omp build, add "CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_my_custom_build_type" to the behind of the CMAKE_ROSETTA_PATH flag. 
 
