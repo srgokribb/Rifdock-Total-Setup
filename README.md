@@ -15,7 +15,7 @@
 
 
 
-#### <Basic programming concepts>
+#### + Basic programming concepts
 compile: Change a file written in an language to another lanhuage\
 bin: bin stands for binary file which is "non-text file". Binary file is compiled files which \
 cxx: C++\
