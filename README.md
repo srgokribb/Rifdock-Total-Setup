@@ -6,7 +6,7 @@
 #### 1) Get liscence from RosettaCommons and download Rosetta 3.9
  (1) Go to Rosetta commons homepage-Software-License and Download and apply for academic liscence. \
  (2) After login with ID and password of the liscence, go to 'Downloads' and enter to Rosetta 3.9 - Download Rosetta 3.9. \
- (3) Download Rosetta 3.9 source(2.8G) file(rosetta_src_3.9_bundle.tgz) and copy the source file to the folder on linux computer where the Rosetta 3.9 will be installed. \
+ (3) Download Rosetta 3.9 source(2.8G) file(rosetta_src_3.9_bundle.tgz) and copy the source file to the folder on linux computer where the Rosetta 3.9 will be installed. 
  ##### (4) Install Rosetta by
      $ tar -xvzf rosetta_src_3.9_bundle.tgz
 - The installation takes 10~20 min and rosetta_scr_2018.60072_bundle folder is generated.
@@ -14,12 +14,12 @@
 #### 2) Compile Rosetta using Scons
 ##### (1) Move to 'source' folder by using command 
     $ cd rosetta_src_release_bundle/main/source
- (2) Check 'Scons.py' in the source folder. This file is the software needed to compile Rosetta (already included in rosetta bundle in main/source folder). \
+ (2) Check 'Scons.py' in the source folder. This file is the software needed to compile Rosetta (already included in rosetta bundle in main/source folder). 
  ##### (3) Compile rosetta in MPI format(Massage Passing Interface) which is compatible to jobscheduler of CAE-simulator system.
     $ ./scons.py -j 10 mode=release bin/rosetta_scripts.mpi.linuxgccrelease extras=mpi
-- '-j 10' means using 10 cores of CPU for compiling \
-- 'mode=release' means compile with optimizations to produce faster version of rosetta \
-- 'mode=debug' or not menthioning any mode include additional checks which slows down Rosetta runs (not recommanded).\
+- '-j 10' means using 10 cores of CPU for compiling 
+- 'mode=release' means compile with optimizations to produce faster version of rosetta 
+- 'mode=debug' or not menthioning any mode include additional checks which slows down Rosetta runs (not recommanded).
 - This compiling process will took about 1h. The time could be reduced by increasing the number of CPU('-j 20' or more)
      
 ### 2. Install compatible GCC and Boost
@@ -41,7 +41,7 @@
   (5)Change gcc version to the installed version(?)
   
 ##### 2) Install Boost 
- (1) Download Boost version 1.65.1 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_1.html). \
+ (1) Download Boost version 1.65.1 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_1.html). 
 ##### (2) Move the downloaded file to the folder to install and unzip the file.
      $ cd rosetta/boost_1_65_1 
 ##### (3) Check the explanations and detailed options by
@@ -55,7 +55,7 @@
 ### 3. Build a Rosetta cxx11_omp and rifdock
 #### 1) Install Ninja and set the proper PATH
 - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
- (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref:https://github.com/ninja-build/ninja/wiki, https://github.com/ninja-build/ninja) \
+ (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref:https://github.com/ninja-build/ninja/wiki, https://github.com/ninja-build/ninja) 
  
 ##### (2) Install Ninja
      $ tar xvzf- ninja-1.10.2.tar.gz
@@ -67,7 +67,7 @@
      $ cp ninja /usr/bin/
      $ echo $PATH
 
-##### (4) Check the location of C++ and GCC. \
+##### (4) Check the location of C++ and GCC. 
      $ which -a c++
      $ which -a cc
      $ which -a gcc
@@ -85,7 +85,7 @@
      $ cd build
      $ CXX=/usr/bin/c++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/Path/to/a/rosetta/main cmake -DCMAKE_BUILD_TYPE=Release
      $ make -j3 rif_dock_test rifgen
-- If the rifdock is not link against cxx11_omp build, add "CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_my_custom_build_type" behind CMAKE_ROSETTA_PATH flag. 
+- If the rifdock is not link against cxx11_omp build, add "CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_my_custom_build_type" to the behind of the CMAKE_ROSETTA_PATH flag. 
 
 ##### (7) Unit Test
      $ make test_libscheme
