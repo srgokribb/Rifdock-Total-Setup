@@ -63,8 +63,10 @@
      $ ./configure.py --bootstrap
      
 ##### (3) Set the proper PATH of Ninja
+     $ echo $PATH
      $ cp ninja /usr/bin/
-     
+     $ echo $PATH
+
 ##### (4) Check the location of C++ and GCC. \
      $ which -a c++
      $ which -a cc
