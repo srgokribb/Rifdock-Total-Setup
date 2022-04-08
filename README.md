@@ -15,7 +15,7 @@
 ##### (1) Move to 'source' folder by using command 
     $ cd rosetta_src_release_bundle/main/source
  (2) Check 'Scons.py' in the source folder. This file is the software needed to compile Rosetta (already included in rosetta bundle in main/source folder). 
- ##### (3) Compile rosetta in MPI format(Massage Passing Interface) which is compatible to jobscheduler of CAE-simulator system.
+ ##### (3) Compile rosetta in MPI format(Massage Passing Interface) which is compatible to job-scheduler of CAE-simulator system.
     $ ./scons.py -j 10 mode=release bin/rosetta_scripts.mpi.linuxgccrelease extras=mpi
 - '-j 10' means using 10 cores of CPU for compiling 
 - 'mode=release' means compile with optimizations to produce faster version of rosetta 
