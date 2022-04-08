@@ -99,7 +99,7 @@
      $ echo $PATH
 - export PATH=$PATH:new_adress_to_add
 - Adding current working directory to PATH with 'export' is not permenant, so if the permetant registration is needed, .bashrc file is should be revices after back-up.
-- Inside of the node of the CAE-simulator, hpckorea.sh should be used to equally update the PATH in main and sub-nodes.
+- Inside of the node of the CAE-simulator, **'hpckorea.sh'** should be used to equally update the PATH in main and sub-nodes.
 
 ##### (4) Check the location of C++ and GCC (Ref: https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support). 
      $ which -a c++
