@@ -23,7 +23,7 @@
 - 'extras=static' builds static binaries which could be useful to copy or run the apps on other systems.
 - 'extras=mpi' compiles Rosetta in Massage Passing Interface format which support MPI run(Recommanded for CAE-Simulator system)
 - If the extra option is mpi, use "bin/rosetta_scripts.mpi.linuxgccrelease", but if the option is static, then use "bin/rosetta_scripts.default.linuxgccrelease".
-- There are additianl option to compile with specific cxx version. In that case use the form like "$ ./scons.py -j 10 mode=release bin cxx=clang cxx_ver=4.5".
+- There are additianl option to compile with specific cxx version. In that case, use the form like "$ ./scons.py -j 10 mode=release bin cxx=clang cxx_ver=4.5".
 - This compiling process will took about 1h. The time could be reduced by increasing the number of CPU('-j 20' or more)
 - It is general to compile Rosetta bundle with at least two version(static and mpi).
      
