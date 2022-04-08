@@ -8,5 +8,5 @@
  (1) Go to Rosetta commons homepage-Software-License and Download and apply for academic liscence.\
  (2) After login with ID and password of the liscence, go to 'Downloads' and enter to Rosetta 3.9 - Download Rosetta 3.9.\
  (3) Download Rosetta 3.9 source(2.8G) file(rosetta_src_3.9_bundle.tgz) and copy the source file to the folder on linux computer where the Rosetta 3.9 will be installed.\
- (4) Install Rosetta by > tar -xvzf rosetta_src_3.9_bundle.tar.gz\
+ (4) Install Rosetta by > tar -xvzf rosetta_src_3.9_bundle.tar.gz \
 #### 3) 
