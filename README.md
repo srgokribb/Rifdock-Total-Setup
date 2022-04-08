@@ -35,7 +35,7 @@
      $ cd ..
      $ mkdir objdir
      $ cd objdir
-     $../configure --prefix=$srgo/GCC-5.4.0 --enable-languages=c,c++,fortran,go
+     $../configure --prefix=$/srgo/rosetta/GCC-5.4.0 --enable-languages=c,c++,fortran,go
      $ make
      $ make install
   (5)Change gcc version to the installed version(?)
