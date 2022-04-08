@@ -1,6 +1,6 @@
 # Rifdock_install
 Install protocol for Rosetta 3.9 and Rifdock with basic explanation of computational concepts 
-1. Download and build Rosetta 3.9(currently compatible version with Rifdock) on linux computer.
+1. Download and build Rosetta 3.9(currently compatible version with Rifdock) on linux computer. n\
 1)) Download latest version of Scons and Ninja which are need to install Rosetta and Rifdock.
  (1) Scons(https://sourceforge.net/projects/scons/files/)
  (2) Ninja(https://github.com/ninja-build/ninja/releases)
