@@ -13,6 +13,7 @@
 - The installation takes 10~20 min and rosetta_scr_2018.60072_bundle folder is generated.
  
 #### 2) Compile Rosetta using Scons
+##### Rosetta3 is compatible with below compilers
 - GCC/g++: Version 4.8 or later (https://gcc.gnu.org/releases.html)
 - Clang/llvm on Linux: Version 3.3 or later (https://releases.llvm.org/download.html)
 ##### (1) Move to 'source' folder by using command 
