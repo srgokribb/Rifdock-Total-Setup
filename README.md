@@ -13,10 +13,10 @@
      "**> ./scons.py -j 10 mode=release bin/rosetta_scripts.mpi.linuxgccrelease extras=mpi**" -j 10 means using 10 cores of CPU for compiling, mode=release means compile with optimizations to produce faster version of rosetta. mode=debug or not menthioning any mode include additional checks which slows down Rosetta runs (not recommanded).\
      This compiling process will took about 1h.\
 ### 2. Install compatible GCC and Boost
-#### 1) Install GCC >= 5.0 \
-  (1) Check the version of GCC which is compatible with Boost_1.65.1. The compatible GCC version is 5.4.0./
-  (2) Download GCC 5.4.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/)./
-  (3) Move the tar.gz file to rosetta folder and unzip with "**> tar -xvzf gcc-5.4.0.tar.gz.**"
+#### 1) Install GCC >= 5.0
+  (1) Check the version of GCC which is compatible with Boost_1.65.1. The compatible GCC version is 5.4.0.\
+  (2) Download GCC 5.4.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/).\
+  (3) Move the tar.gz file to rosetta folder and unzip with "**> tar -xvzf gcc-5.4.0.tar.gz.**"\
   (4) Install GCC-5.4.0. (Ref: https://gcc.gnu.org/wiki/InstallingGCC)\
      $ cd gcc-5.4.0\
      $ ./contrib/download_prerequisites\
