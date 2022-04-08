@@ -23,7 +23,9 @@
 - This compiling process will took about 1h. The time could be reduced by increasing the number of CPU('-j 20' or more)
      
 ### 2. Install compatible GCC and Boost
-
+- **To build RifDock, optain a copy of gcc with version >= 5.0**
+- **Install Boost version 1.65 or later**
+- Build a Rosetta cxx11_omp build with Ninja and cmake (Will be done in later stage)
 #### 1) Install GCC >= 5.0
  (1) Check the version of GCC which is compatible with Boost_1.65.1. The compatible GCC version is 5.4.0.\
  (2) Download GCC 5.4.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/). \
@@ -38,7 +40,8 @@
      $../configure --prefix=$srgo/rosetta/GCC-5.4.0 --enable-languages=c,c++,fortran,go
      $ make
      $ make install
-  (5)Change gcc version to the installed version(?)
+##### (5)Change gcc version to the installed version
+     $ 
   
 ##### 2) Install Boost 
  (1) Download Boost version 1.65.1 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_1.html). 
@@ -53,8 +56,11 @@
 - The installation process will took quite long time. 
 
 ### 3. Build a Rosetta cxx11_omp and rifdock
+- To build RifDock, optain a copy of gcc with version >= 5.0
+- Install Boost version 1.65 or later
+- **Build a Rosetta cxx11_omp build with Ninja and cmake**
 #### 1) Install Ninja and set the proper PATH
-- In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
+###### - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
  (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref:https://github.com/ninja-build/ninja/wiki, https://github.com/ninja-build/ninja) 
  
 ##### (2) Install Ninja
@@ -64,9 +70,10 @@
      
 ##### (3) Set the proper PATH of Ninja
      $ echo $PATH
-     $ cp ninja /usr/bin/
+     $ export PATH=$PATH:/srgo/rosetta/ninja-1.10.2/
      $ echo $PATH
-
+- export PATH=$PATH:new_adress_to_add
+- Add PATH using 'export' is not permenant, so 
 ##### (4) Check the location of C++ and GCC. 
      $ which -a c++
      $ which -a cc
