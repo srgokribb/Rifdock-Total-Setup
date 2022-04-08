@@ -13,14 +13,14 @@
  
 #### 2) Compile Rosetta using Scons
 ##### (1) Move to 'source' folder by using command 
-    $ cd rosetta*/main/source
- (2) 'Scons.py' which is the software needed to compile Rosetta is already included in rosetta bundle(in main/source folder). \
- ##### (3) Compile rosetta in MPI format(Massage Passing Interface) which is compatible to jobscheduler of CAE-module.
+    $ cd rosetta_src_release_bundle/main/source
+ (2) Check 'Scons.py' in the source folder. This file is the software needed to compile Rosetta (already included in rosetta bundle in main/source folder). \
+ ##### (3) Compile rosetta in MPI format(Massage Passing Interface) which is compatible to jobscheduler of CAE-simulator system.
     $ ./scons.py -j 10 mode=release bin/rosetta_scripts.mpi.linuxgccrelease extras=mpi
 - '-j 10' means using 10 cores of CPU for compiling \
-- mode=release means compile with optimizations to produce faster version of rosetta \
-- mode=debug or not menthioning any mode include additional checks which slows down Rosetta runs (not recommanded).\
-- This compiling process will took about 1h.
+- 'mode=release' means compile with optimizations to produce faster version of rosetta \
+- 'mode=debug' or not menthioning any mode include additional checks which slows down Rosetta runs (not recommanded).\
+- This compiling process will took about 1h. The time could be reduced by increasing the number of CPU('-j 20' or more)
      
 ### 2. Install compatible GCC and Boost
 
@@ -52,7 +52,13 @@
      $ ./b2 install
 - The installation process will took quite long time. 
 
-#### 3) Implant Rosetta
+### 3. Build a Rosetta cxx11_omp
+#### 1) Install Ninja and set the proper PATH
+- In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
+ (1) Download Ninja from Git-hub(https://github.com/ninja-build/ninja/releases) https://github.com/ninja-build/ninja)
+ 
+##### (2) Enter to 'source' folder and build rosetta cxx11_omp using Ninja
+     $ 
 
 
 
