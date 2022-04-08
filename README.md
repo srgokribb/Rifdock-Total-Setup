@@ -42,8 +42,8 @@
      $ make
      $ make install
  - I used "$../configure --prefix=$srgo/rosetta/GCC-5.4.0 --enable-languages=c,c++,fortran,go" because of the authority limitation.
- 
-##### (5)Change gcc version to the installed version
+ - In later stage, "CXX=/my/g++/version CC=/my/gcc/version ./ninja_build.py" will be used to build Rosetta cxx11_omp. It is really need to change entire gcc environment to alternative version.
+##### (5) Change gcc version to the installed version
      $ 
   
 #### 2) Install Boost 
@@ -77,17 +77,20 @@
      $ echo $PATH
 - export PATH=$PATH:new_adress_to_add
 - Add PATH using 'export' is not permenant, so 
-##### (4) Check the location of C++ and GCC. 
+##### (4) Check the location of C++ and GCC (Ref: https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support). 
      $ which -a c++
      $ which -a cc
      $ which -a gcc
+- Those below are the returns of each commands.
 - /usr/bin/C++
 - /usr/bin/cc
 - /usr/bin/gcc
 
-##### (5) Enter to 'source' folder and build rosetta cxx11_omp using Ninja
+##### (5) Enter to 'source' folder and build rosetta cxx11_omp using Ninja(Ref: See 'Extra tools' in https://ninja-build.org/manual.html)
      $ cd rosetta_src_release_bundle/main/source
      $ CXX=/usr/bin/c++ CC=/usr/bin/gcc ./ninja_build.py cxx11_omp -t rosetta_scripts -remake
+- If the basic versio of C++ and gcc are compatible to build Rosetta cxx11_omp, use the basic address('/usr/bin/*')
+- If there are specific requirement for alternative version of C++ or gcc, then install the compatible verison of compilers and change the address of the C++ and gcc to build rosetta cxx11_omp to alternative ones. - Not examined yet. 
 
 ##### (6) Copy rifdock repository 
      $ cd rifdock
@@ -123,7 +126,8 @@ $ rifdock/build/schemelib/test/test_libscheme
 
 
 #### + Basic programming concepts
-compile: Change a file written in an language to another lanhuage\
+compile: Change a file written in an language to another language\
+build: a compiled version of a program \
 bin: bin stands for binary file which is "non-text file". Binary file is compiled files which \
 cxx: C++\
 gcc: GNU Compiler Collection includes front ends(like UI for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...).\
