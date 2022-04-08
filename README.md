@@ -9,9 +9,9 @@
  (1) Move to 'source' folder by using command "**> cd rosetta*/main/source**" \
  (2) 'Scons.py' which is the software needed to compile Rosetta is already included in rosetta bundle(in main/source folder). \
  (3) Compile rosetta in MPI format(Massage Passing Interface) which is compatible to jobscheduler of CAE-module.\
-     "**> ./scons.py -j 10 mode=release bin/rosetta_scripts.mpi.linuxgccrelease extras=mpi**" -j 10 means using 10 cores of CPU for compiling, mode=release means compile with optimizations to produce faster version of rosetta. mode=debug or not menthioning any mode include additional checks which slows down Rosetta runs(not recommanded)\
+     "**> ./scons.py -j 10 mode=release bin/rosetta_scripts.mpi.linuxgccrelease extras=mpi**" -j 10 means using 10 cores of CPU for compiling, mode=release means compile with optimizations to produce faster version of rosetta. mode=debug or not menthioning any mode include additional checks which slows down Rosetta runs (not recommanded).\
      This compiling process will took about 1h.\
- (4) ab
+ (4) 
 
 
 
@@ -22,3 +22,4 @@ cxx: C++\
 gcc: GNU Compiler Collection includes front ends(like UI for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...).\
 front end: Front part of the system which is close to user. Starting point or input part of the system. GUI, FEP, etc.\
 back end: The part that support the system on the backside like database. Only accessible to programmer or administor.\
+MPI: Massage Passing Interface is a standardized and implantable message-passing standard which is designed to function of paralled computing architectures.
