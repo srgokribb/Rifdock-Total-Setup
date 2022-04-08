@@ -55,10 +55,27 @@
 ### 3. Build a Rosetta cxx11_omp
 #### 1) Install Ninja and set the proper PATH
 - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
- (1) Download Ninja from Git-hub(https://github.com/ninja-build/ninja/releases) https://github.com/ninja-build/ninja)
+ (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref: https://github.com/ninja-build/ninja) \
  
-##### (2) Enter to 'source' folder and build rosetta cxx11_omp using Ninja
-     $ 
+##### (2) Install Ninja
+     $ tar xvzf- ninja-1.10.2.tar.gz
+     $ cd ninja-1.10.2
+     $ ./configure.py --bootstrap
+     
+##### (3) Set the proper PATH of Ninja
+     $ cp ninja /usr/bin/
+     
+##### (4) Check the location of C++ and GCC. \
+     $ which -a c++
+     $ which -a cc
+     $ which -a gcc
+- /usr/bin/C++
+- /usr/bin/cc
+- /usr/bin/gcc
+
+##### (5) Enter to 'source' folder and build rosetta cxx11_omp using Ninja
+     $ cd rosetta_src_release_bundle/main/source
+     
 
 
 
