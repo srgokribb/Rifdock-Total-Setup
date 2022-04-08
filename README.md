@@ -42,7 +42,7 @@
      $ make
      $ make install
  - I used "$../configure --prefix=$srgo/rosetta/GCC-5.4.0 --enable-languages=c,c++,fortran,go" because of the authority limitation.
- - In later stage, "CXX=/my/g++/version CC=/my/gcc/version ./ninja_build.py" will be used to build Rosetta cxx11_omp. It is really need to change entire gcc environment to alternative version.
+ - In later stage, "CXX=/my/g++/version CC=/my/gcc/version ./ninja_build.py" will be used to build Rosetta cxx11_omp. For now, I'm not sure wheather it is really need to change entire gcc environment to alternative version.
 ##### (5) Change gcc version to the installed version
      $ 
   
