@@ -83,7 +83,7 @@
      $ cd build
      $ CXX=/usr/bin/c++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/Path/to/a/rosetta/main cmake -DCMAKE_BUILD_TYPE=Release
      $ make -j3 rif_dock_test rifgen
-- If the rifdock is not link against cxx11_omp build, add "CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_my_custom_build_type" behind CMAKE_ROSETTA_PATH flag. \
+- If the rifdock is not link against cxx11_omp build, add "CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_my_custom_build_type" behind CMAKE_ROSETTA_PATH flag. 
 
 ##### (7) Unit Test
      $ make test_libscheme
