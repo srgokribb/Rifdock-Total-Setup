@@ -16,6 +16,9 @@
 
 
 
-compile: 
-bin: bin stands for binary file which is "non-text file". Binary file is compiled files which 
-cxx: C++
+compile: Change a file written in an language to another lanhuage\
+bin: bin stands for binary file which is "non-text file". Binary file is compiled files which \
+cxx: C++\
+gcc: GNU Compiler Collection includes front ends(like UI for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...).\
+front end: Front part of the system which is close to user. Starting point or input part of the system. GUI, FEP, etc.\
+back end: The part that support the system on the backside like database. Only accessible to programmer or administor.\
