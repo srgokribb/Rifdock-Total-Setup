@@ -43,7 +43,13 @@
  (1) Download Boost version 1.65.1 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_1.html). \
  (2) Move the downloaded file to the folder to install and unzip the file. \
      $ cd rosetta/boost_1_65_1 \
-     
+ (3) Check the explanations and detailed options by \
+     $ ./bootstrap.sh --help \
+ (4) Select the location to install the boost by using \
+     $ ./bootstrap.sh --prefix=srgo/rosetta/boost_build_1.65.1 \
+ (5) Start installation \
+     $ ./b2 install \
+     The installation process will took quite long time. \
 
 
 
