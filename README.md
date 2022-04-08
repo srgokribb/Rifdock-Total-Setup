@@ -4,8 +4,8 @@
 ### 1. Install Rosetta 3.9 on linux
 
 #### 1) Get liscence from RosettaCommons and download Rosetta 3.9
-##### (1) Go to Rosetta commons homepage-Software-License and Download and apply for academic liscence. \
-##### (2) After login with ID and password of the liscence, go to 'Downloads' and enter to Rosetta 3.9 - Download Rosetta 3.9. \
+##### (1) Go to Rosetta commons homepage-Software-License and Download and apply for academic liscence. 
+##### (2) After login with ID and password of the liscence, go to 'Downloads' and enter to Rosetta 3.9 - Download Rosetta 3.9. 
 ##### (3) Download Rosetta 3.9 source (2.8G) file (rosetta_src_3.9_bundle.tgz) and copy the source file to the folder on linux computer where the Rosetta 3.9 will be installed. 
  ##### (4) Install Rosetta by
      $ tar -xvzf rosetta_src_3.9_bundle.tgz
@@ -27,8 +27,8 @@
 - **Install Boost version 1.65 or later**
 - Build a Rosetta cxx11_omp build with Ninja and cmake (Will be done in later stage)
 #### 1) Install GCC >= 5.0
-##### (1) Check the version of GCC which is compatible with Boost_1.65.1. The compatible GCC version is 5.4.0.\
-##### (2) Download GCC 5.4.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/). \
+##### (1) Check the version of GCC which is compatible with Boost_1.65.1. The compatible GCC version is 5.4.0.
+##### (2) Download GCC 5.4.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/). 
 ##### (3) Move the tar.gz file to rosetta folder and unzip the file with below command.
      $ tar -xvzf gcc-5.4.0.tar.gz
      
