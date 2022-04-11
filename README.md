@@ -2,7 +2,7 @@
 ## Install protocol for Rosetta 3.9 and Rifdock with basic explanation of computational concepts 
 
 ### 1. Install Rosetta 3.9 on linux
-
+- Check whether the version of compilers in your machine and environment support Rosetta before the installation (https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support).
 #### 1) Get liscence from RosettaCommons and download Rosetta 3.9
 ##### (1) Go to Rosetta commons and apply for academic liscence (https://www.rosettacommons.org/software/license-and-download). 
 ##### (2) After login with ID and password of the liscence, go to 'Downloads' and enter to Rosetta 3.9 - Download Rosetta 3.9. 
