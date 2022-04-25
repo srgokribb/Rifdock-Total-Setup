@@ -51,10 +51,9 @@
 ##### (5) Install GCC-5.4.0. (Ref: https://gcc.gnu.org/wiki/InstallingGCC)
      $ cd gcc-5.4.0
      $ ./contrib/download_prerequisites
-     $ cd ..
      $ mkdir objdir
      $ cd objdir
-     $../configure --prefix=$HOME/GCC-5.4.0 --enable-languages=c,c++,fortran,go
+     $../configure --prefix=$HOME/GCC-5.4.0 --enable-languages=c,c++ --disble-multilib
      $ make
      $ make install
  
