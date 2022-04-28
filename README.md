@@ -228,7 +228,7 @@ $ unzip patch_dock_download.zip
      $ CXX=/usr/bin/g++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/Path/to/a/rosetta/main CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_cxx11_omp cmake .. -DCMAKE_BUILD_TYPE=Release
      $ make -j10 rif_dock_test rifgen
      
-##### [The overall process to build rifdock will be like this]
+##### [If you build the RifDock correctly, you can see the process like this.]
     [srgo@anode0 rifdock]$ mkdir build
     [srgo@anode0 rifdock]$ cd build/
     [srgo@anode0 build]$ CXX=/usr/bin/g++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/home/users/srgo/rosetta/rosetta_src_2018.09.60072_bundle/main CMAKE_FINAL_ROSETTA_PATH=/home/users/srgo/rosetta/rosetta_src_2018.09.60072_bundle/main/source/cmake/build_cxx11_omp cmake .. -DCMAKE_BUILD_TYPE=Release
