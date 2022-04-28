@@ -218,7 +218,8 @@ $ unzip patch_dock_download.zip
      $ which -a c++
      $ which -a cc
      $ which -a gcc
- 
+- It is not necessary to compile rosetta 3.9 with HDF5 or others while building RifDock.
+
 #### 2) Build RifDock
 ##### (1) Copy rifdock repository and build Rifdock (https://github.com/rifdock/rifdock)
      $ unzip rifdock-master.zip
