@@ -219,7 +219,7 @@ $ unzip patch_dock_download.zip
      $ which -a gcc
  
 #### 2) Build RifDock
-##### (1) Copy rifdock repository and build Rifdock
+##### (1) Copy rifdock repository and build Rifdock (https://github.com/rifdock/rifdock)
      $ unzip rifdock-master.zip
      $ mv rifdock-master rifdock
      $ cd rifdock
