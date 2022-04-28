@@ -1,7 +1,7 @@
 # RifDock Setup Protocol by srgokribb
 - Setup protocol to build Rosetta and RifDock
 - Tested on Red Hat 8.3.1 CentOS 8 
-- Written by SeongRyeong Go
+- Written by SeongRyeong Go on 28 Apr 2022.
 
 ## Install Rosetta 3.13, all misc files, and Rifdock
 - Rosetta_3.13 compiled with HDF5
@@ -127,7 +127,6 @@ $ unzip patch_dock_download.zip
     $ cd example
     $ runpsipred example.fasta
 - If you didn't installed PSI-BLAST, there will be error that cannot find .blast files to run the psipred.
-
 
 #### 2) Install PSI-BLAST and Impala from NCBI toolkit
 
