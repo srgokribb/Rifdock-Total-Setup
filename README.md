@@ -1,4 +1,4 @@
-# RifDock setup protocol
+# RifDock Setup Protocol by Srgo
 - Setup protocol for recent Rosetta and RifDock
 - Tested on Red Hat 8.3.1 CentOS 8 
 - Written by SeongRyeong Go
