@@ -16,7 +16,7 @@
 - RifDock (Boost 1.65.0 is needed)
 
 ### 1. Install HDF5 and Rosetta 3.13
-#### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL
+#### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
 ##### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1
 
 ##### (2) Move the downloaded file to the directory to install the file and unzip the file by
