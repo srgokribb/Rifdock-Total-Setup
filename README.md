@@ -24,7 +24,7 @@
 
 ##### (3) Compile HDF5 with C++
     # cd hdf5-1.12.1
-    # ./configure --prefix=/usr/local/hdf5 --enable-cxx
+    # ./configure --enable-cxx
     
 ##### (4) Build HDF5, check, and install
     # make
