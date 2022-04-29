@@ -367,22 +367,23 @@ $ unzip patch_dock_download.zip
 
 
 
-#### + Basic programming concepts
+#### Basic programming concepts
 - compile: Change a file written in an language to another language
 - build: a compiled version of a program
-- bin: bin stands for binary file which is "non-text file". Binary file is compiled files which 
+- bin: bin stands for binary file which is "non-text file". Binary file is compiled files which could be directly understood and used by computer.
 - cxx: C++\
-- gcc: GNU Compiler Collection includes front ends(like UI for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...).
+- gcc: GNU Compiler Collection includes front ends(like UI for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). It is basic compiler of Unix and linux based system.
 - front end: Front part of the system which is close to user. Starting point or input part of the system. GUI, FEP, etc.
 - back end: The part that support the system on the backside like database. Only accessible to programmer or administor.
 - MPI: Massage Passing Interface is a standardized and implantable message-passing standard which is designed to function of paralled computing architectures.
 - Bash: Bourne Again Shell(BASH) is the free-software that replace Bourne shell. BASH is the basic UNIX shell of GNU, linux, Mac OS X. Shell is the interface that used when execute the command and program. Shell connects the kernel and user, it receives the command from user and execute the program.
 - UNIX: A multitasking, multiuser computer operating system(OS)
 - Kernel: The core program of OS. It manages Security, Resoruce, Memory, and Abstraction of complecated information.
-- CMAKE: The program which generates build files that build a specific project. It is not the build program itslef, but it is program to generate build files. CMakeList.txt --(CMake)--> Makefile --(make)--> Excutalbles 
+- CMAKE: The program which generates build files(such as Makefile) that build a specific project. It is not the build program itslef, but it is program to generate build files. CMakeList.txt --(CMake)--> Makefile --(make)--> Excutalbles 
 In CMakeList.txt, there are two kind of information. One is the minimum required version of cmake and another is the information of the project. For CMake has been changed from previous old ones(especially ver. 2.x), you need to identify whether the cmake which is installed in your computer is compatible to do it's proper function.
-
-#### Basic concepts to set the PATH
+- make: File Maganement Utility which execute compile based on the dependencies described in "Makefile"
+- makefile: Setting file for make program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependancies to do compile with make command.
+#### Basic concepts to install program in linux
 - / - root directory
 - ./ - current directory
 - ../ - superior directory
@@ -390,7 +391,8 @@ In CMakeList.txt, there are two kind of information. One is the minimum required
 - ./program - run 'program' in current directory
 - program - run 'program' in available address
 - cp file1 /path/to/the/directory1 - cp file1 to directory1
-- rm -fr directory1 - Remove directory1 and it all files under the directory without asking any questions.
+- rm -rf file1 - Remove file1 without asking any questions.
+- rm -rf directory1 - Remove directory1 and it all files under the directory without asking any questions.
 - /usr - Univeral System Resources
 - export PATH=$PATH:/path/to/the/file - add the specific address(/path/to/the/file) to $PATH 
 - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/the/file - add the specific address (of library) to $LD_LIBRARY_PATH
