@@ -216,9 +216,9 @@ $ unzip patch_dock_download.zip
      $ cd rosetta_src_release_bundle/main/source
      $ CXX=/usr/bin/g++ CC=/usr/bin/gcc ./ninja_build.py cxx11_omp -t rosetta_scripts -remake
 - You can check the location of C++ and GCC by
-    $ which -a c++
-    $ which -a cc
-    $ which -a gcc
+     $ which -a c++
+     $ which -a cc
+     $ which -a gcc
 - It is not necessary to compile rosetta 3.9 with HDF5 or others while building RifDock.
 
 #### 2) Build RifDock
