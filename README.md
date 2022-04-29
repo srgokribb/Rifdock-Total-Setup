@@ -173,6 +173,7 @@ $ unzip patch_dock_download.zip
      # ./b2 install
 - The installation process will took quite long time. 
 - Eventhough there could be some minor error like "warning: unnecessary parentheses in declaration of 'assert_mot_arg' [-Wparentheses]", it did't make any error during compiling Rifdock.
+- **Caution: If multipe version of boost are installed, it makes error when compile RifDock. So, if you want to use another version of boost, it is recommaneded to delete previous boost (check /usr/local/include /usr/local/lib /usr/lib) and install new one.**
 
 #### 2) Install re2c - Needed to run Ninja
 ##### (1) Download re2c from downloading site (https://opensuse.pkgs.org/15.3/opensuse-oss-x86_64/re2c-1.0.3-1.18.aarch64.rpm.html).
