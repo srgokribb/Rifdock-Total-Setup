@@ -337,89 +337,10 @@ $ unzip patch_dock_download.zip
 ##### (2) Do Unit Test to check wether the build was successful.
      $ make test_libscheme
      
-##### [If you build the RifDock correctly, you can see the check process like this.]     
-      
-    [srgo@anode0 build]$ make test_libscheme
-    Scanning dependencies of target scheme
-    [  0%] Building CXX object schemelib/test/CMakeFiles/scheme.dir/__/scheme/rosetta/score/EtableParams_init.lib.cc.o
-    [  1%] Building CXX object schemelib/test/CMakeFiles/scheme.dir/__/scheme/rosetta/atype_map.lib.cc.o
-    [  3%] Building CXX object schemelib/test/CMakeFiles/scheme.dir/__/scheme/chemical/ligand_factory.lib.cc.o
-    [  5%] Linking CXX static library libscheme.a
-    [  5%] Built target scheme
-    Scanning dependencies of target gmock
-    [  7%] Building CXX object external/gmock/CMakeFiles/gmock.dir/gtest/src/gtest-all.cc.o
-    [  7%] Building CXX object external/gmock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
-    [  9%] Linking CXX static library libgmock.a
-    [  9%] Built target gmock
-    Scanning dependencies of target test_libscheme
-    [ 11%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/main_test.cc.o
-    [ 13%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/actor/BackboneActor.gtest.cc.o
-    [ 15%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/chemical/ligand_factory.gtest.cc.o
-    [ 15%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/chemical/ligand_factory.lib.cc.o
-    [ 17%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/chemical/stub.gtest.cc.o
-    [ 19%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/io/dump_pdb_atom.gtest.cc.o
-    [ 21%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/kinematics/Director.gtest.cc.o
-    [ 21%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/kinematics/Scene.gtest.cc.o
-    [ 23%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/kinematics/SceneIterator.gtest.cc.o
-    [ 25%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/kinematics/Scene_test_eigen.gtest.cc.o
-    [ 27%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/kinematics/Scene_test_objective.gtest.cc.o
-    [ 27%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/MultiNEST.gtest.cc.o
-    [ 29%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/NEST.gtest.cc.o
-    [ 31%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/NEST_neighbor.gtest.cc.o
-    [ 31%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/numeric/FixedPoint.gtest.cc.o
-    [ 33%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/numeric/bcc_lattice.gtest.cc.o
-    [ 35%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/numeric/bcc_lattice_orientation.gtest.cc.o
-    [ 37%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/numeric/cube_to_sphere.gtest.cc.o
-    [ 37%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/numeric/euler_angles.gtest.cc.o
-    [ 39%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/numeric/geom_4d.gtest.cc.o
-    [ 41%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/numeric/rand_xform.gtest.cc.o
-    [ 43%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/numeric/xform_perf.gtest.cc.o
-    [ 43%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/ObjectiveFunction.gtest.cc.o
-    [ 45%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/rosetta/atype_map.lib.cc.o
-    [ 47%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/search/HackPack.gtest.cc.o
-    [ 49%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/search/SpatialBandB.gtest.cc.o
-    [ 49%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/SimpleArray.gtest.cc.o
-    [ 50%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/StoragePolicy.gtest.cc.o
-    [ 52%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/bloom.gtest.cc.o
-    [ 54%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/dilated_int.gtest.cc.o
-    [ 54%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/hash.gtest.cc.o
-    [ 56%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/hash_thread.gtest.cc.o
-    [ 58%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/template_loop.gtest.cc.o
-    [ 58%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/pmap/EulerAnglesMap.gtest.cc.o
-    [ 60%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/pmap/HecatonicosachoronMap.gtest.cc.o
-    [ 62%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/pmap/OriTransMap.gtest.cc.o
-    [ 64%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/pmap/QuaternionMap.gtest.cc.o
-    [ 64%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/pmap/Rotation1DMap.gtest.cc.o
-    [ 66%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/pmap/SphereDodec.gtest.cc.o
-    [ 68%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/pmap/SphereQuad.gtest.cc.o
-    [ 70%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/pmap/TetracontoctachoronMap.gtest.cc.o
-    [ 70%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/pmap/parameter_maps.gtest.cc.o
-    [ 72%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/nest/pmap/parameter_maps_test_nbrcell.gtest.cc.o
-    [ 74%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/hash/XformHash.gtest.cc.o
-    [ 76%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/hash/XformHashFromNest.gtest.cc.o
-    [ 76%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/hash/XformHashNeighbors.gtest.cc.o
-    [ 78%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/hash/XformMap.gtest.cc.o
-    [ 80%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/integration/SceneObjective.gtest.cc.o
-    [ 80%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/methods/hbond_5dof.gtest.cc.o
-    [ 82%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/storage/RotamerScores.gtest.cc.o
-    [ 84%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/storage/TwoBodyTable.gtest.cc.o
-    [ 86%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/voxel/FieldCache.gtest.cc.o
-    [ 86%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/objective/voxel/VoxelArray.gtest.cc.o
-    [ 88%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/rosetta/score/AnalyticEvaluation.gtest.cc.o
-    [ 90%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/rosetta/score/EtableParams_init.lib.cc.o
-    [ 92%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/rosetta/score/RosettaField.gtest.cc.o
-    [ 92%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/container/ContainerInteractions.gtest.cc.o
-    [ 94%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/meta/InstanceMap.gtest.cc.o
-    [ 96%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/meta/InstanceMap_container.gtest.cc.o
-    [ 98%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/meta/InstanceMap_numeric.gtest.cc.o
-    [ 98%] Building CXX object schemelib/test/CMakeFiles/test_libscheme.dir/__/scheme/util/meta/util.gtest.cc.o
-    [100%] Linking CXX executable test_libscheme
-    [100%] Built target test_libscheme
-
 ### 8. Running Rifdock
 ##### 1) The executable files for RifDock are built at:
     $ rifdock/build/apps/rosetta/rifgen
-    $ rifdock/build/apps/rosetta/rif_dock/test
+    $ rifdock/build/apps/rosetta/rif_dock_test
     
     [srgo@anode0 build]$ ls
     apps            CMakeFiles           external  schemelib
