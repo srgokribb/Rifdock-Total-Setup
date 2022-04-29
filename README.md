@@ -30,6 +30,7 @@
     # make
     # make check
     # make install
+- Testing("make check") will take very long time, but it is safer to check before execute "make install".
 
 #### 2) Download Rosetta 3.13
 - Check whether the version of compilers in your machine and environment support Rosetta before the installation (https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support).
