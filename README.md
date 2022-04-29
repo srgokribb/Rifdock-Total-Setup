@@ -5,22 +5,22 @@
 - **If you want to directly see the method to build RifDock, see #7(https://url.kr/e8jszh)**
 
 ### These are the required files to design protein binders with RifDock
-- Rosetta_3.13 (Recent Rosetta later than 2020) compiled with HDF5
+- Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
 - DAIphaBall(Part of Rosetta)
 - PyRosetta4
 - PatchDock
 - PsiPred
 - silent_tools
 - motif_clustering/cluster
-- Rosetta_3.9 compiled as cxx11_omp with Ninja
-- RifDock (Boost 1.65.0 needed)
+- Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)
+- RifDock (Boost 1.65.0 is needed)
 
 ### 1. Install HDF5 and Rosetta 3.13
 #### 1) Install HDF5 and set the PATH
 ##### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1
 
 ##### (2) Move the downloaded file to the directory to install the file and unzip the file by
-    $ tar -xvzf hdf-51.8.21-Std-centos7-x86_64-shared_64.tar.gz
+    $ tar -xvzf hdf5-1.12.1.tar.gz
 
 ##### (3) Set the location of HDF5 to PATH.
     $ export PATH=$PATH:/path/to/hdf5-1.12.1/bin
