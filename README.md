@@ -382,7 +382,7 @@ $ unzip patch_dock_download.zip
 - CMAKE: The program which generates build files(such as Makefile) that build a specific project. It is not the build program itslef, but it is program to generate build files. CMakeList.txt --(CMake)--> Makefile --(make)--> Excutalbles 
 In CMakeList.txt, there are two kind of information. One is the minimum required version of cmake and another is the information of the project. For CMake has been changed from previous old ones(especially ver. 2.x), you need to identify whether the cmake which is installed in your computer is compatible to do it's proper function.
 - make: File Maganement Utility which execute compile based on the dependencies described in "Makefile"
-- makefile: Setting file for make program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependancies to do compile with make command.
+- makefile: Setting file for "make" program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependancies to compile source files with make command.
 #### Basic concepts to install program in linux
 - / - root directory
 - ./ - current directory
