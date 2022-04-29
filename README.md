@@ -16,14 +16,20 @@
 - RifDock (Boost 1.65.0 is needed)
 
 ### 1. Install HDF5 and Rosetta 3.13
-#### 1) Install HDF5 and set the PATH
+#### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL
 ##### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1
 
 ##### (2) Move the downloaded file to the directory to install the file and unzip the file by
-    $ tar -xvzf hdf5-1.12.1-Std-centos8_64.tar.gz
+    # tar -xvzf hdf5-1.12.1.tar.gz
 
-##### (3) Set the location of HDF5 to PATH.
-    $ export PATH=$PATH:/path/to/hdf5-1.12.1/bin
+##### (3) Compile HDF5 with C++
+    # cd hdf5-1.12.1
+    # ./configure --prefix=/usr/local/hdf5 --enable-cxx
+    
+##### (4) Build HDF5, check, and install
+    # make
+    # make check
+    # make install
 
 #### 2) Download Rosetta 3.13
 - Check whether the version of compilers in your machine and environment support Rosetta before the installation (https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support).
