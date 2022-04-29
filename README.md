@@ -4,16 +4,16 @@
 - Written by SeongRyeong Go on 28 Apr 2022.
 - **If you want to directly see the method to build RifDock, see #7(https://url.kr/e8jszh)**
 
-## Install Rosetta 3.13, all misc files, and Rifdock
-- Rosetta_3.13 compiled with HDF5
-- Rosetta_3.9 compiled as cxx11_omp with Ninja
+### These are the required files to design protein binders with RifDock
+- Rosetta_3.13 (Recent Rosetta later than 2020) compiled with HDF5
 - DAIphaBall(Part of Rosetta)
 - PyRosetta4
 - PatchDock
-- RifDock (Boost 1.65.0 needed)
 - PsiPred
 - silent_tools
 - motif_clustering/cluster
+- Rosetta_3.9 compiled as cxx11_omp with Ninja
+- RifDock (Boost 1.65.0 needed)
 
 ### 1. Install HDF5 and Rosetta 3.13
 #### 1) Install HDF5 and set the PATH
