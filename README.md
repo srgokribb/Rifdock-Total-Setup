@@ -164,6 +164,7 @@ $ unzip patch_dock_download.zip
 **Notification: I recommand you to login as "root" or administer to the properly install boost.**
 
 ##### (1) Download Boost version 1.65.0 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_0.html). 
+- Latest version of Boost(1.74.0 or 1.78.0) was not compatible with Rifdock.
 
 ##### (2) Move the downloaded file to the folder to install and unpack the file (Ref: https://valelab4.ucsf.edu/svn/3rdpartypublic/boost/more/getting_started/windows.html).
      # cd /root/
