@@ -35,7 +35,7 @@
         /usr/local/
         bin/   lib/  include/   hdf5/
 
-- These are the major directories which are involve in setting up rifdock
+- These are the major directories which are involved in setting up rifdock
 
 ### 1. Install HDF5 and Rosetta 3.13
 #### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
