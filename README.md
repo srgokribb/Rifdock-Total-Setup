@@ -184,26 +184,30 @@
 
 ### 5. Install PsiPred
 #### 1) Install PsiPred
+- PSIPRED Version 4.0 By David Jones, January 2016
 ##### (1) Download PsiPred source code from Git-hub pirspred/pirspred (https://github.com/psipred/psipred).
-
+- The file name will be "psipred-master.zip".
 ##### (2) Move the zip file to the directory to install psipred in the Linux computer.
 
 ##### (3) Unpack the zip file by
-    $ unzip psipred.zip
-    
-##### (4) Compile the software by
-    $ cd psipred
+    $ unzip psipred-master.zip
+    $ mv psipred-master PSIPRED
+
+##### (4) Compile and install psipred.
+    $ cd PSIPRED
     $ cd src
     $ make
     $ make install
     $ export PATH=$PATH:/path/to/psipred
-
+- If the installation is finished, executable "psipred" will be in bin directory
+- You can use "runpsipred" to run psipred program.
+- 
 ##### (5) Test whether the psipred is run
     $ cd example
     $ runpsipred example.fasta
 - If you didn't install PSI-BLAST, there will be the error that cannot find .blast files to run the psipred.
 
-#### 2) Install PSI-BLAST and Impala from the NCBI toolkit
+#### 2) Install PSI-BLAST
 ##### (1) Download Standalone PSI-BLAST from NCBI FTP server (https://ftp.ncbi.nih.gov/blast/executables/blast+/LATEST/).
 ##### (2) Unpack ncbi-blast.tar.gz file.
     $ cd rosetta
@@ -221,8 +225,32 @@
     ...
     update_blastdb.pl
     windowmasker
-   
-#### 3) Install Sequence Data Bank (UNIREF90)
+
+##### 3) Install NCBI Software Development Toolkit
+- This package can install NCBI Blast and Impala which are needed to run psipred.
+
+##### (1) Download NCBI software development toolkit from NCBI FTP server (https://ftp.ncbi.nih.gov/toolbox/ncbi_tools/)
+- ncbi.tar.gz
+
+##### (2) Unpack tar file and change the name of the directory
+    $ mkdir NCBI_TOOLKIT
+    $ cd NCBI_TOOLKIT
+    $ tar -xvzf ncbi.tar.gz
+- the unpacked directory name will be "ncbi". In order to install NCBI Toolkit, you shouldn't change the name of this directory.
+
+##### (3) Check the guide in the README file.
+    $ vi README
+
+##### (4) In order to build NCBI toolkit for Linux, see make/readme.unx
+    $ vi make/readme.unx
+
+##### (5) Install NCBI ToolKit
+    $ ./ncbi/make/makedis.csh
+
+##### 4) Install Impala from NCBI development tool kit 
+
+
+#### 4) Install Sequence Data Bank (UNIREF90)
 ##### (1) Download UNIREF90 from Uniprot DB server https://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/).
 - The size of uniref90.fasta.gz is 32.0G and that of uniref90.xml.gz is 49.1G. So, it will take a few hours to download the DB files.
 
@@ -231,7 +259,9 @@
     $ cd uniref90
     $ gzip -d uniref90.fasta.gz
     $ gzip -d uniref90.xml.gz
-    
+
+
+
 #### 4) Run psipred
     $ runpsipred example.fasta
 
