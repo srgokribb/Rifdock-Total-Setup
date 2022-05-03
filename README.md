@@ -16,14 +16,30 @@
 - RifDock (Boost 1.65.0 is needed)
 
 ### Notice
-- In this protocol the command line which starts with "#" means "root" or "administer account", and the command line which starts with "$" means "local user".
+- In this protocol, the command line which starts with "#" means "root" or "administer", and the command line which starts with "$" means "local user".
 
+### Directory Structure
+        
+        bin/    home/   root/    usr/    boot/  
+
+        /root/packages/
+        hdf5-1.12.1/     boost-1.65.0/    
+
+        /home/users/local_user/packages/
+        ninja-1.10.2/    re2c-1.0.3/
+
+        /home/users/local_user/rosetta/
+        rosetta_src_release_3.9/     PyRosetta4/      rosetta_src_release_3.13/    rifdock/     
+        psipred/     PatchDock/       ppi_tools/       silent_tools/      ncbi-blast/    ncbi_tools/
+
+        /usr/local/
+        bin/   lib/  include/  src/   etc/    hdf5/
 
 ### 1. Install HDF5 and Rosetta 3.13
 #### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
 ##### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1.
 
-##### (2) Login as administer and make the 'packages' directory(This directory will be used to install new libraries or compilers).
+##### (2) Login as administer and make the "packages" directory (This directory will be used to install new libraries, compilers, and etc).
     # mkdir packages
     # cd packages          // pwd is /root/packages/
      
