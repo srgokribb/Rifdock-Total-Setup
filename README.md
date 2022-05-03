@@ -42,6 +42,29 @@
 ##### (6) Login as local user and set the PATH in .bashrc
     $ cd ~
     $ vi .bashrc
+- Add the address of hdf5/bin to PATH, and add hdf5/include and hdf5/lib to LD_LIBRARY_PATH
+    
+            # .bashrc
+
+            # Source global definitions
+            if [ -f /etc/bashrc ]; then
+                . /etc/bashrc
+            fi
+
+            # User specific environment
+            PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+            export PATH
+            PATH=$PATH:/usr/local/hdf5/bin
+            export PATH
+
+            LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/hdf5/lib:/usr/local/hdf5/include
+            export LD_LIBRARY_PATH
+
+
+            # Uncomment the following line if you don't like systemctl's auto-paging feature:
+            # export SYSTEMD_PAGER=
+
+            # User specific aliases and functions
     
 
 #### 2) Download Rosetta 3.13
