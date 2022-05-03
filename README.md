@@ -16,7 +16,7 @@
 - RifDock (Boost 1.65.0 is needed)
 
 ### Notice
-- In this protocol the command line which start with "#" means "root" or "administer account", and the command line which start with "$" means "local user".
+- In this protocol the command line which starts with "#" means "root" or "administer account", and the command line which starts with "$" means "local user".
 
 
 ### 1. Install HDF5 and Rosetta 3.13
@@ -34,7 +34,7 @@
     # cd hdf5-1.12.1
     # ./configure --prefix=/usr/local/hdf5
 
-- If you compile HDF5 without any option("--enable-cxx" or "--enable-fortran"), it will use basic compiler in your environment (like GCC) and the most of the other options will be set as "disable". 
+- If you compile HDF5 without any option("--enable-cxx" or "--enable-fortran"), it will use a basic compiler in your environment (like GCC) and most of the other options will be set as "disable". 
 - If you want to see more options use "./configure --help".
 - You can specify the location to install HDF5 bin, include, lib by using "--prefix=/path/to/install/hdf5/" flag. 
 
@@ -42,9 +42,9 @@
     # make
     # make install
     
-- There could be some warnning messages during the make step, but it will be okey if no "ERROR:~" or "fatal error" messages came out.
+- There could be some warning messages during the make step, but it will be okay if no "ERROR:~" or "fatal error" messages came out.
 
-##### (5) Check wether the installation was successful.
+##### (5) Check whether the installation was successful.
     # cd /usr/local/hdf5
 - Check wether "bin", "include", "lib" directory and the files are generated under /usr/local/hdf5.
 
@@ -79,44 +79,45 @@
     $ echo $PATH
     $ echo $LD_LIBRARY_PATH
 - If PATH is updated correctly, you can proceed to rosetta install and compilation.
-- Do not add multiple version of hdf5 to PATH or LD_LIBRARY_PATH. It will make fatal error.
-- If you want install HDF5 more simply, then you can download "the pre-compiled HDF5 library" and use it without compile process. In this case, unpack the file to your local user directory and set the correct PATH to 'hdf5/bin' and LD_LIBRARY_PATH to 'hdf5/include' and 'hdf5/lib'.
+- Do not add multiple versions of hdf5 to PATH or LD_LIBRARY_PATH. It will make a fatal error.
+- If you want to install HDF5 more simply, then you can download "the pre-compiled HDF5 library" and use it without the compiling process. In this case, unpack the file to your local user directory and set the correct PATH to 'hdf5/bin' and LD_LIBRARY_PATH to 'hdf5/include' and 'hdf5/lib'.
+- Because the addresses are added to ".bashrc", it will be maintained after you close your terminal or open a new terminal. If you don't need hdf5 anymore, remove the address to hdf5 binary and library from ".bashrc".
 
 #### 2) Install Rosetta 3.13 and compile with HDF5
-- Check whether the version of compilers in your machine and environment support Rosetta before the installation (https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support).
+- Check whether the version of compilers in your machine and environment supports Rosetta before the installation (https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support).
 - GCC/g++: Version 4.8 or later (https://gcc.gnu.org/releases.html)
 - Clang/llvm on Linux: Version 3.3 or later (https://releases.llvm.org/download.html)
 
 ##### (1) Go to Rosetta commons and apply for academic liscence (https://www.rosettacommons.org/software/license-and-download). 
 
-##### (2) After login with ID and password of the liscence, go to 'Downloads' and enter to Rosetta 3.13 - Download Rosetta 3.13. 
+##### (2) After login in with the ID and password of the license, go to 'Downloads' and enter Rosetta 3.13 - Download Rosetta 3.13. 
 
-##### (3) Download Rosetta 3.13 source (5.2G) file (rosetta_src_3.13_bundle.tgz) and copy the source file to the folder on linux computer where the Rosetta 3.13 will be installed (https://www.rosettacommons.org/downloads/academic/3.13/). 
+##### (3) Download Rosetta 3.13 source (5.2G) file (rosetta_src_3.13_bundle.tgz) and copy the source file to the folder on the Linux computer where the Rosetta 3.13 will be installed (https://www.rosettacommons.org/downloads/academic/3.13/). 
 
 ##### (4) Unpack the tar file.
      $ tar -xvzf rosetta_src_3.13_bundle.tgz
-- The installation takes 20~30 min and rosetta_scr_release_bundle folder is generated.
+- The installation takes 20~30 min and rosetta_scr_release_bundle folder will be generated.
 
 ##### (5) Move to 'source' folder.
     $ cd rosetta_src_release_bundle/main/source
 
-##### (6) Check 'Scons.py' is in the source folder. This file is the software needed to compile Rosetta (already included in rosetta bundle in main/source folder). 
+##### (6) Check 'Scons.py' is in the source folder. This file is the software needed to compile Rosetta (already included in the rosetta bundle in main/source folder). 
 
 ##### (7) Compile rosetta in HDF5 format which is the basic form of Rosetta.
     $ ./scons.py -j10 mode=release extras=hdf5 rosetta_scripts
 
 - '-j 10' means using 10 cores of CPU for compiling 
-- 'mode=release' means compile with optimizations to produce faster version of rosetta
-- 'mode=debug' or not menthioning any mode include additional checks which slows down Rosetta runs (not recommanded).
+- 'mode=release' means compile with optimizations to produce a faster version of rosetta
+- 'mode=debug' or not mentioning any mode include additional checks which slow down Rosetta runs (not recommended).
 - 'extra=hdf5' option is used to build basic rosetta. If you use this option, add 'rosetta_scripts' at the end of the line.
 - 'extras=static' builds static binaries which could be useful to copy or run the apps on other systems.
-- 'extras=mpi' compiles Rosetta in Massage Passing Interface format which support MPI run(Recommanded for CAE-Simulator system)
+- 'extras=mpi' compiles Rosetta in Massage Passing Interface format which supports MPI run (Recommended for CAE-Simulator system)
 - If the extra option is mpi, use "bin/rosetta_scripts.mpi.linuxgccrelease", but if the option is static, then use "bin/rosetta_scripts.default.linuxgccrelease".
-- There are additianl option to compile with specific cxx version. In that case, use the form like "$ ./scons.py -j 10 mode=release bin cxx=clang cxx_ver=4.5".
-- This compiling process will took about 1h. The time could be reduced by increasing the number of CPU('-j 20' or more)
-- It is general to compile Rosetta bundle with at least two version(static and mpi).
+- There are additional option to compile with specific cxx version. In that case, use the form like "$ ./scons.py -j 10 mode=release bin cxx=clang cxx_ver=4.5".
+- This compiling process will take about 1h. The time could be reduced by increasing the number of CPUs ('-j 20' or more)
+- It is general to compile Rosetta bundle with at least two versions (static and mpi).
 
-##### (8) Check the compile result. if the compile is sccessfully done, the last sentence of the terminal shows the result like below.
+##### (8) Check the compile result. If the compile was successfully done, the last sentence of the terminal shows the result like below.
     "Install file: "build/src/release/linux/4.18/64/x86/gcc/8/default/rosetta_scripts.default.linuxgccrelease" as "bin/rosetta_scripts.default.linuxgccrelease"
     scons: done building targets.
     
@@ -131,15 +132,15 @@
 ### 3. Install PyRosetta
 ##### (1) Get the license for PyRosetta in Rosetta Commons(https://www.rosettacommons.org/software/license-and-download)
 
-##### (2) Check the Python version installed in linux computer.
+##### (2) Check the Python version installed on the Linux computer.
     $ python --version
     
 ##### (3) Download proper version of PyRosetta4 in PyRosetta server(https://graylab.jhu.edu/download/PyRosetta4/archive/release/)
 
 - Release : Speed optimized build for production runs.
-- MinSizeRel : Build optimized to reduce memory which could be suitable to low memory-systems.
-- Debug : Binaries compiled in debug mode with additioanl asserts enabled and with debug-infor compiled-in. Build for debugging
-- Python-x.x versions : PyRosetta build for specific Python version.
+- MinSizeRel : Build optimized to reduce memory which could be suitable for low memory systems.
+- Debug : Binaries compiled in debug mode with additional asserts enabled and with debug-info compiled in. Build for debugging
+- Python-x.x versions : The builds of PyRosetta for the specific Python version.
 - "PyRosetta4.Release.python36.linux.release-316.tar.bz2" is selected for installation.
 
 ##### (4) Move the downloaded file to the directory to install PyRosetta and unzip the file.
@@ -150,7 +151,7 @@
     $ python setup.py install
     
 - **This step requires administrative access. You need to sign in as administer or "root" account.**
-##### (6) Check whether the PyRosetta is succssfully installed. If it was succssful, you can see these sentense at the last sentence of the installation.
+##### (6) Check whether the PyRosetta is successfully installed. If it was successful, you can see these sentences in the last sentence of the installation.
     Installed /usr/local/lib/python3.6/site-package/pyrosetta-2022.14+release.d95c942-py3.6-linux-x86_64.egg
     Processing dependencies for pyrosetta==2022.14+release.d95c942
     Finished processing dependencies for pyrosetta==2022.14+release.d95c942
@@ -167,7 +168,7 @@
 #### 1) Install PsiPred
 ##### (1) Download PsiPred source code from Git-hub pirspred/pirspred (https://github.com/psipred/psipred).
 
-##### (2) Move the zip file to the directory to install psipred in linux computer.
+##### (2) Move the zip file to the directory to install psipred in the Linux computer.
 
 ##### (3) Unpack the zip file by
     $ unzip psipred.zip
@@ -182,9 +183,9 @@
 ##### (5) Test whether the psipred is run
     $ cd example
     $ runpsipred example.fasta
-- If you didn't installed PSI-BLAST, there will be error that cannot find .blast files to run the psipred.
+- If you didn't install PSI-BLAST, there will be the error that cannot find .blast files to run the psipred.
 
-#### 2) Install PSI-BLAST and Impala from NCBI toolkit
+#### 2) Install PSI-BLAST and Impala from the NCBI toolkit
 
 #### 3) Install Blast - need to be updated
     
@@ -204,12 +205,12 @@
     $ more example.horiz
 
 ### 6. Install compilers(Boost, Ninja) to build RifDock
-- To build RifDock, optain a copy of gcc with version >= 5.0
+- To build RifDock, obtain a copy of gcc with version >= 5.0
 - Install Boost version 1.65 or later
 - Tested CentOS8(Red Hat gcc 8.3.1) with Boost-1.65.0
 
 #### 1) Install Boost
-**Notification: I recommand you to login as "root" or administer to the properly install boost.**
+**Notification: I recommend you to log in as "root" or administer to the properly install boost.**
 
 ##### (1) Download Boost version 1.65.0 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_0.html). 
 - Latest version of Boost (1.74.0 or 1.78.0) was not compatible with Rifdock.
@@ -227,9 +228,9 @@
 
 ##### (4) Start installation
      # ./b2 install
-- The installation process will took quite long time. 
-- Eventhough there could be some minor error like "warning: unnecessary parentheses in declaration of 'assert_mot_arg' [-Wparentheses]", it did't make any error during compiling Rifdock.
-- **Caution: If multipe version of boost are installed, it makes error when compile RifDock. So, if you want to use another version of boost, it is recommaneded to delete previous boost (check /usr/local/include /usr/local/lib /usr/lib) and install new one.**
+- The installation process will take a quite long time. 
+- Even though there could be some minor errors like "warning: unnecessary parentheses in the declaration of 'assert_mot_arg' [-Wparentheses]", it didn't make any error during compiling Rifdock.
+- **Caution: If multiple versions of boost are installed, it makes an error when compiling RifDock. So, if you want to use another version of boost, it is recommended to delete the previous boost (check /usr/local/include /usr/local/lib /usr/lib) and install a new one.**
 
 #### 2) Install re2c - Needed to run Ninja
 ##### (1) Download re2c from downloading site (https://opensuse.pkgs.org/15.3/opensuse-oss-x86_64/re2c-1.0.3-1.18.aarch64.rpm.html).
@@ -392,7 +393,7 @@
     [100%] Built target rifgen
     [srgo@anode0 rifdock]$
     
-##### (2) Do Unit Test to check wether the build was successful.
+##### (2) Do a Unit Test to check whether the build was successful.
      $ make test_libscheme
      
 ### 8. Running Rifdock
@@ -425,21 +426,23 @@
 
 
 #### Basic programming concepts
-- compile: Change a file written in an language to another language
+- compile: Change a file written in one language to another language
 - build: a compiled version of a program
-- bin: bin stands for binary file which is "non-text file". Binary file is compiled files which could be directly understood and used by computer.
+- bin: bin stands for the binary file which is a "non-text file". A Binary file is compiled file which could be directly understood and used by a computer.
 - cxx: C++\
-- gcc: GNU Compiler Collection includes front ends(like UI for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). It is basic compiler of Unix and linux based system.
-- front end: Front part of the system which is close to user. Starting point or input part of the system. GUI, FEP, etc.
-- back end: The part that support the system on the backside like database. Only accessible to programmer or administor.
-- MPI: Massage Passing Interface is a standardized and implantable message-passing standard which is designed to function of paralled computing architectures.
-- Bash: Bourne Again Shell(BASH) is the free-software that replace Bourne shell. BASH is the basic UNIX shell of GNU, linux, Mac OS X. Shell is the interface that used when execute the command and program. Shell connects the kernel and user, it receives the command from user and execute the program.
+- gcc: GNU Compiler Collection includes front ends(like UI for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). It is the basic compiler of Unix and Linux-based systems.
+- front end: Front part of the system which is close to the user. The starting point or input part of the system. GUI, FEP, etc.
+- back end: The part that supports the system on the backside like the database. Only accessible to programmers or administer.
+- MPI: Massage Passing Interface is a standardized and implantable message-passing standard that is designed to function in paralleled computing architectures.
+- Bash: Bourne Again Shell(BASH) is the free software that replaces Bourne shell. BASH is the basic UNIX shell of GNU, Linux, Mac OS X. Shell is the interface that is used when executing the command and program. Shell connects the kernel and user, it receives the command from the user and executes the program.
 - UNIX: A multitasking, multiuser computer operating system(OS)
-- Kernel: The core program of OS. It manages Security, Resoruce, Memory, and Abstraction of complecated information.
-- CMAKE: The program which generates build files(such as Makefile) that build a specific project. It is not the build program itslef, but it is program to generate build files. CMakeList.txt --(CMake)--> Makefile --(make)--> Excutalbles 
-In CMakeList.txt, there are two kind of information. One is the minimum required version of cmake and another is the information of the project. For CMake has been changed from previous old ones(especially ver. 2.x), you need to identify whether the cmake which is installed in your computer is compatible to do it's proper function.
+- Kernel: The core program of OS. It manages Security, Resource, Memory, and Abstraction of complicated information.
+- CMake: The program which generates build files(such as Makefile) that build a specific project. It is not the building program itself, but it is a program to generate build files. CMakeList.txt --(CMake)--> Makefile --(make)--> Excutalbles 
+In CMakeList.txt, there are two kinds of information. One is the minimum required version of CMake and another is the information about the project. For CMake has been changed from previous old ones(especially ver. 2.x), you need to identify whether the CMake which is installed in your computer is compatible to do its proper function.
 - make: File Maganement Utility which execute compile based on the dependencies described in "Makefile"
 - makefile: Setting file for "make" program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependancies to compile source files with make command.
+
+
 #### Basic concepts to install program in linux
 - / - root directory
 - ./ - current directory
