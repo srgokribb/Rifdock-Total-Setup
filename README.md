@@ -20,7 +20,7 @@
 
 ### Directory Structure
         
-        bin/    home/   root/    usr/    boot/  
+        bin/    home/   root/    usr/  
 
         /root/packages/
         hdf5-1.12.1/     boost-1.65.0/    
@@ -33,7 +33,9 @@
         psipred/     PatchDock/       ppi_tools/       silent_tools/      ncbi-blast/    ncbi_tools/
 
         /usr/local/
-        bin/   lib/  include/  src/   etc/    hdf5/
+        bin/   lib/  include/   hdf5/
+
+- These are the major directories which are involve in setting up rifdock
 
 ### 1. Install HDF5 and Rosetta 3.13
 #### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
