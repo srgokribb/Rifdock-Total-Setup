@@ -246,13 +246,28 @@
 
 ##### (5) Install NCBI ToolKit
     $ ./ncbi/make/makedis.csh
+- During installation, the program cannot find -ltspi , -lunistring, -lidn2 and the install was stopped because of the error.
 
-##### 4) Install Impala from NCBI development tool kit 
+        /usr/bin/ld: cannot find -ltspi
+        /usr/bin/ld: cannot find -lunistring
+        /usr/bin/ld: cannot find -lidn2
+        collect2: error: ld returned 1 exit status
+        make: *** [makenet.unx:1268: idfetch] Error 1
+        FAILURE primary make status = 0, demo = 0, threaded_demo = 0, net = 2
+        #######
+        #        #####   #####    ####   #####
+        #        #    #  #    #  #    #  #    #
+        #####    #    #  #    #  #    #  #    #
+        #        #####   #####   #    #  #####
+        #        #   #   #   #   #    #  #   #
+        #######  #    #  #    #   ####   #    #
 
+#### 4) Install Impala from NCBI development tool kit 
+- Even though the README file in psipred said that Impala is need to run psipred, there is no file README.imp in ncbi/doc. So, it is unable to install impala currenty.
 
-#### 4) Install Sequence Data Bank (UNIREF90)
+#### 5) Install Sequence Data Bank (UNIREF90)
 ##### (1) Download UNIREF90 from Uniprot DB server https://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/).
-- The size of uniref90.fasta.gz is 32.0G and that of uniref90.xml.gz is 49.1G. So, it will take a few hours to download the DB files.
+- The size of uniref90.fasta.gz is 32.0G and that of uniref90.xml.gz is 49.1G. So, it will take a few hours to download the files.
 
 ##### (2) make uniref90 directory and unpack gz files.
     $ mkdir uniref90
@@ -260,9 +275,7 @@
     $ gzip -d uniref90.fasta.gz
     $ gzip -d uniref90.xml.gz
 
-
-
-#### 4) Run psipred
+#### 6) Run psipred
     $ runpsipred example.fasta
 
     Running PSI-BLAST with sequence example.fasta ...
