@@ -25,7 +25,7 @@
 
 ##### (2) Login as administer and make the 'packages' directory(This directory will be used to install new libraries or compilers).
     # mkdir packages
-     # cd packages          // pwd is /root/packages/
+    # cd packages          // pwd is /root/packages/
      
 ##### (3) Move the downloaded file to the directory to install the file and unpack the tar file.             
     # tar -xvzf hdf5-1.12.1.tar.gz
