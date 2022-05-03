@@ -23,14 +23,19 @@
 #### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
 ##### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1.
 
-##### (2) (Login as administer) Move the downloaded file to the directory to install the file and unpack the tar file.
+##### (2) Login as administer and make the 'packages' directory(This directory will be used to install new libraries or compilers).
+    # mkdir packages
+     # cd packages          // pwd is /root/packages/
+     
+##### (3) Move the downloaded file to the directory to install the file and unpack the tar file.             
     # tar -xvzf hdf5-1.12.1.tar.gz
 
 ##### (3) Compile HDF5.
     # cd hdf5-1.12.1
     # ./configure --prefix=/usr/local/hdf5
 
-- If you compile HDF5 without any option("--enable-cxx" or "--enable-fortran"), it will use basic compiler in your environment (like GCC). 
+- If you compile HDF5 without any option("--enable-cxx" or "--enable-fortran"), it will use basic compiler in your environment (like GCC) and the most of the other options will be set as "disable". 
+- If you want to see more options use "./configure --help".
 - You can specify the location to install HDF5 bin, include, lib by using "--prefix=/path/to/install/hdf5/" flag. 
 
 ##### (4) Build and install HDF5
