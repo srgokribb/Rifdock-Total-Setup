@@ -22,15 +22,27 @@
 ##### (2) Move the downloaded file to the directory to install the file and unzip the file by
     # tar -xvzf hdf5-1.12.1.tar.gz
 
-##### (3) Compile HDF5 with C++
+##### (3) Compile HDF5
     # cd hdf5-1.12.1
-    # ./configure --enable-cxx
-    
+    # ./configure --prefix=/usr/local/hdf5
+
+- If you compile HDF5 without any option("--enable-cxx" or "--enable-fortran"), it will use basic compiler in your environment (like GCC). 
+- You can specify the location to install HDF5 bin, include, lib by using "--prefix=/path/to/install/hdf5/" flag. 
+
 ##### (4) Build HDF5, check, and install
     # make
-    # make check
     # make install
-- Testing("make check") will take very long time, but it is safer to check before execute "make install".
+    
+- There could be some wornning messages during the make step, but it will be okey if no "ERROR:~" or "fatal error" messages came out.
+
+##### (5) Check wether the installation was successful.
+    # cd /usr/local/hdf5
+- Check wether bin, include, lib directory and the files are generated under /usr/local/hdf5.
+
+##### (6) Login as local user and set the PATH in .bashrc
+    $ cd ~
+    $ vi .bashrc
+    
 
 #### 2) Download Rosetta 3.13
 - Check whether the version of compilers in your machine and environment support Rosetta before the installation (https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support).
@@ -111,7 +123,7 @@
 ###### (1) Download PatchDock from PatchDock server(https://bioinfo3d.cs.tau.ac.il/PatchDock/).
 
 ###### (2) Unzip the file by
-$ unzip patch_dock_download.zip
+    $ unzip patch_dock_download.zip
 
 ###### (3) PatchDock do not require further install process. Read 'README.md' to run PatchDock.
 
