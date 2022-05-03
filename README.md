@@ -15,29 +15,33 @@
 - Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)
 - RifDock (Boost 1.65.0 is needed)
 
+### Notice
+- In this protocol the command line which start with "#" means "root" or "administer account", and the command line which start with "$" means "local user".
+
+
 ### 1. Install HDF5 and Rosetta 3.13
 #### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
-##### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1
+##### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1.
 
-##### (2) Move the downloaded file to the directory to install the file and unzip the file by
+##### (2) Move the downloaded file to the directory to install the file and unpack the tar file.
     # tar -xvzf hdf5-1.12.1.tar.gz
 
-##### (3) Compile HDF5
+##### (3) Compile HDF5.
     # cd hdf5-1.12.1
     # ./configure --prefix=/usr/local/hdf5
 
 - If you compile HDF5 without any option("--enable-cxx" or "--enable-fortran"), it will use basic compiler in your environment (like GCC). 
 - You can specify the location to install HDF5 bin, include, lib by using "--prefix=/path/to/install/hdf5/" flag. 
 
-##### (4) Build HDF5, check, and install
+##### (4) Build and install HDF5
     # make
     # make install
     
-- There could be some wornning messages during the make step, but it will be okey if no "ERROR:~" or "fatal error" messages came out.
+- There could be some warnning messages during the make step, but it will be okey if no "ERROR:~" or "fatal error" messages came out.
 
 ##### (5) Check wether the installation was successful.
     # cd /usr/local/hdf5
-- Check wether bin, include, lib directory and the files are generated under /usr/local/hdf5.
+- Check wether "bin", "include", "lib" directory and the files are generated under /usr/local/hdf5.
 
 ##### (6) Login as local user and set the PATH and LD_LIBRARY_PATH in .bashrc
     $ cd ~
@@ -70,30 +74,30 @@
     $ echo $PATH
     $ echo $LD_LIBRARY_PATH
 - If PATH is updated correctly, you can proceed to rosetta install and compilation.
+- Do not add multiple version of hdf5 to PATH or LD_LIBRARY_PATH. It will make fatal error.
+- If you want install HDF5 more simply, then you can download "the pre-compiled HDF5 library" and use it without compile process. In this case, unpack the file to your local user directory and set the correct PATH to 'hdf5/bin' and LD_LIBRARY_PATH to 'hdf5/include' and 'hdf5/lib'.
 
-#### 2) Download Rosetta 3.13
+#### 2) Install Rosetta 3.13 and compile with HDF5
 - Check whether the version of compilers in your machine and environment support Rosetta before the installation (https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support).
+- GCC/g++: Version 4.8 or later (https://gcc.gnu.org/releases.html)
+- Clang/llvm on Linux: Version 3.3 or later (https://releases.llvm.org/download.html)
+
 ##### (1) Go to Rosetta commons and apply for academic liscence (https://www.rosettacommons.org/software/license-and-download). 
 
 ##### (2) After login with ID and password of the liscence, go to 'Downloads' and enter to Rosetta 3.13 - Download Rosetta 3.13. 
 
-##### (3) Download Rosetta 3.13 source (5.2G) file (rosetta_src_3.13_bundle.tgz) and copy the source file to the folder on linux computer where the Rosetta 3.13 will be installed(https://www.rosettacommons.org/downloads/academic/3.13/). 
+##### (3) Download Rosetta 3.13 source (5.2G) file (rosetta_src_3.13_bundle.tgz) and copy the source file to the folder on linux computer where the Rosetta 3.13 will be installed (https://www.rosettacommons.org/downloads/academic/3.13/). 
 
-#### 3) Compile Rosetta using Scons (extra = hdf5)
-##### Rosetta3 is compatible with below compilers
-- GCC/g++: Version 4.8 or later (https://gcc.gnu.org/releases.html)
-- Clang/llvm on Linux: Version 3.3 or later (https://releases.llvm.org/download.html)
-
-##### (1) Unpack the file by
+##### (4) Unpack the tar file.
      $ tar -xvzf rosetta_src_3.13_bundle.tgz
 - The installation takes 20~30 min and rosetta_scr_release_bundle folder is generated.
 
-##### (2) Move to 'source' folder by using command 
+##### (5) Move to 'source' folder.
     $ cd rosetta_src_release_bundle/main/source
 
-##### (3) Check 'Scons.py' is in the source folder. This file is the software needed to compile Rosetta (already included in rosetta bundle in main/source folder). 
+##### (6) Check 'Scons.py' is in the source folder. This file is the software needed to compile Rosetta (already included in rosetta bundle in main/source folder). 
 
-##### (4) Compile rosetta in HDF5 format which is the basic form of Rosetta.
+##### (7) Compile rosetta in HDF5 format which is the basic form of Rosetta.
     $ ./scons.py -j10 mode=release extras=hdf5 rosetta_scripts
 
 - '-j 10' means using 10 cores of CPU for compiling 
@@ -107,11 +111,11 @@
 - This compiling process will took about 1h. The time could be reduced by increasing the number of CPU('-j 20' or more)
 - It is general to compile Rosetta bundle with at least two version(static and mpi).
 
-##### (5) Check the compile result. if the compile is sccessfully done, the last sentence of the terminal shows the result like below.
+##### (8) Check the compile result. if the compile is sccessfully done, the last sentence of the terminal shows the result like below.
     "Install file: "build/src/release/linux/4.18/64/x86/gcc/8/default/rosetta_scripts.default.linuxgccrelease" as "bin/rosetta_scripts.default.linuxgccrelease"
     scons: done building targets.
     
-##### (6) If the compile was successful, there will be "rosetta_scripts.default.linuxgccrelease" and "rosetta_scripts.linuxgccrelease" in /main/source/bin.
+##### (9) If the compile was successful, there will be "rosetta_scripts.default.linuxgccrelease" and "rosetta_scripts.linuxgccrelease" in /main/source/bin.
 
 ### 2. Install DAIphaBall
 ##### (1) DAIphaBall is a part of Rosetta. Move to rosetta_src_release/main/source/external/DAIphaBall.
