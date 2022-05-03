@@ -202,7 +202,7 @@
     $ export PATH=$PATH:/path/to/psipred
 - If the installation is finished, executable "psipred" will be in bin directory
 - You can use "runpsipred" to run psipred program.
-- 
+
 ##### (5) Test whether the psipred is run
     $ cd example
     $ runpsipred example.fasta
