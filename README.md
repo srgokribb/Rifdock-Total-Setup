@@ -16,7 +16,7 @@
 - RifDock (Boost 1.65.0 is needed)
 
 ### Notice
-- In this protocol, the command line which starts with "#" means "root" or "administer", and the command line which starts with "$" means "local user".
+- In this protocol, the command line which starts with **"#"** means **"root"** or **"administer"**, and the command line which starts with **"$"** means **"local user"**.
 
 ### Directory Structure
         
