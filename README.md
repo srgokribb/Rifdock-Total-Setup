@@ -182,6 +182,7 @@
 
 ###### (3) PatchDock do not require further install process. Read 'README.md' to run PatchDock.
 
+
 ### 5. Install PsiPred
 #### 1) Install PsiPred
 - PSIPRED Version 4.0 By David Jones, January 2016
@@ -206,89 +207,91 @@
     $ cd example
     $ runpsipred example.fasta
 - If you didn't install PSI-BLAST, there will be the error that cannot find .blast files to run the psipred.
+- However, Rifdock only requires "runpsipred_single" executable file, so there could be no need to install PSI-Blast, NCBI Toolkit, UNIREF90 and etc. 
+- So, Step 5.2) to 5.6) would be unnecessary.
 
-#### 2) Install PSI-BLAST
-##### (1) Download Standalone PSI-BLAST from NCBI FTP server (https://ftp.ncbi.nih.gov/blast/executables/blast+/LATEST/).
-##### (2) Unpack ncbi-blast.tar.gz file.
-    $ cd rosetta
-    $ tar -xvzf ncbi-blast-2.13.0+-x64-linux.tar.gz
-    $ mv ncbi-blast-2.13.0+ blast                    // naming change from "ncbi~" to "blast"
-    
-##### (3) Check wether psiblast is in the bin directory.
-    $ cd blast
-    $ cd bin
-    blastdb_aliastool
-    blastdbcheck
-    blastcmd
-    ...
-    psiblast
-    ...
-    update_blastdb.pl
-    windowmasker
+        #### 2) Install PSI-BLAST
+        ##### (1) Download Standalone PSI-BLAST from NCBI FTP server (https://ftp.ncbi.nih.gov/blast/executables/blast+/LATEST/).
+        ##### (2) Unpack ncbi-blast.tar.gz file.
+            $ cd rosetta
+            $ tar -xvzf ncbi-blast-2.13.0+-x64-linux.tar.gz
+            $ mv ncbi-blast-2.13.0+ blast                    // naming change from "ncbi~" to "blast"
 
-##### 3) Install NCBI Software Development Toolkit
-- This package can install NCBI Blast and Impala which are needed to run psipred.
+        ##### (3) Check wether psiblast is in the bin directory.
+            $ cd blast
+            $ cd bin
+            blastdb_aliastool
+            blastdbcheck
+            blastcmd
+            ...
+            psiblast
+            ...
+            update_blastdb.pl
+            windowmasker
 
-##### (1) Download NCBI software development toolkit from NCBI FTP server (https://ftp.ncbi.nih.gov/toolbox/ncbi_tools/)
-- ncbi.tar.gz
+        ##### 3) Install NCBI Software Development Toolkit
+        - This package can install NCBI Blast and Impala which are needed to run psipred.
 
-##### (2) Unpack tar file and change the name of the directory
-    $ mkdir NCBI_TOOLKIT
-    $ cd NCBI_TOOLKIT
-    $ tar -xvzf ncbi.tar.gz
-- the unpacked directory name will be "ncbi". In order to install NCBI Toolkit, you shouldn't change the name of this directory.
+        ##### (1) Download NCBI software development toolkit from NCBI FTP server (https://ftp.ncbi.nih.gov/toolbox/ncbi_tools/)
+        - ncbi.tar.gz
 
-##### (3) Check the guide in the README file.
-    $ vi README
+        ##### (2) Unpack tar file and change the name of the directory
+            $ mkdir NCBI_TOOLKIT
+            $ cd NCBI_TOOLKIT
+            $ tar -xvzf ncbi.tar.gz
+        - the unpacked directory name will be "ncbi". In order to install NCBI Toolkit, you shouldn't change the name of this directory.
 
-##### (4) In order to build NCBI toolkit for Linux, see make/readme.unx
-    $ vi make/readme.unx
+        ##### (3) Check the guide in the README file.
+            $ vi README
 
-##### (5) Install NCBI ToolKit
-    $ ./ncbi/make/makedis.csh
-- During installation, the program cannot find -ltspi , -lunistring, -lidn2 and the install was stopped because of the error.
+        ##### (4) In order to build NCBI toolkit for Linux, see make/readme.unx
+            $ vi make/readme.unx
 
-        /usr/bin/ld: cannot find -ltspi
-        /usr/bin/ld: cannot find -lunistring
-        /usr/bin/ld: cannot find -lidn2
-        collect2: error: ld returned 1 exit status
-        make: *** [makenet.unx:1268: idfetch] Error 1
-        FAILURE primary make status = 0, demo = 0, threaded_demo = 0, net = 2
-        #######
-        #        #####   #####    ####   #####
-        #        #    #  #    #  #    #  #    #
-        #####    #    #  #    #  #    #  #    #
-        #        #####   #####   #    #  #####
-        #        #   #   #   #   #    #  #   #
-        #######  #    #  #    #   ####   #    #
+        ##### (5) Install NCBI ToolKit
+            $ ./ncbi/make/makedis.csh
+        - During installation, the program cannot find -ltspi , -lunistring, -lidn2 and the install was stopped because of the error.
 
-#### 4) Install Impala from NCBI development tool kit 
-- Even though the README file in psipred said that Impala is need to run psipred, there is no file README.imp in ncbi/doc. So, it is unable to install impala currenty.
+                /usr/bin/ld: cannot find -ltspi
+                /usr/bin/ld: cannot find -lunistring
+                /usr/bin/ld: cannot find -lidn2
+                collect2: error: ld returned 1 exit status
+                make: *** [makenet.unx:1268: idfetch] Error 1
+                FAILURE primary make status = 0, demo = 0, threaded_demo = 0, net = 2
+                #######
+                #        #####   #####    ####   #####
+                #        #    #  #    #  #    #  #    #
+                #####    #    #  #    #  #    #  #    #
+                #        #####   #####   #    #  #####
+                #        #   #   #   #   #    #  #   #
+                #######  #    #  #    #   ####   #    #
 
-#### 5) Install Sequence Data Bank (UNIREF90)
-##### (1) Download UNIREF90 from Uniprot DB server https://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/).
-- The size of uniref90.fasta.gz is 32.0G and that of uniref90.xml.gz is 49.1G. So, it will take a few hours to download the files.
+        #### 4) Install Impala from NCBI development tool kit 
+        - Even though the README file in psipred said that Impala is need to run psipred, there is no file README.imp in ncbi/doc. So, it is unable to install impala currenty.
 
-##### (2) make uniref90 directory and unpack gz files.
-    $ mkdir uniref90
-    $ cd uniref90
-    $ gzip -d uniref90.fasta.gz
-    $ gzip -d uniref90.xml.gz
+        #### 5) Install Sequence Data Bank (UNIREF90)
+        ##### (1) Download UNIREF90 from Uniprot DB server https://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/).
+        - The size of uniref90.fasta.gz is 32.0G and that of uniref90.xml.gz is 49.1G. So, it will take a few hours to download the files.
 
-#### 6) Run psipred
-    $ runpsipred example.fasta
+        ##### (2) make uniref90 directory and unpack gz files.
+            $ mkdir uniref90
+            $ cd uniref90
+            $ gzip -d uniref90.fasta.gz
+            $ gzip -d uniref90.xml.gz
 
-    Running PSI-BLAST with sequence example.fasta ...
-    Predicting secondary structure...
-    Pass1 ...
-    Pass2 ...
-    Cleaning up ...
-    Final output file: example.horiz
-    Finished.
+        #### 6) Run psipred
+            $ runpsipred example.fasta
 
-    That's it - you can then look at the output:
+            Running PSI-BLAST with sequence example.fasta ...
+            Predicting secondary structure...
+            Pass1 ...
+            Pass2 ...
+            Cleaning up ...
+            Final output file: example.horiz
+            Finished.
 
-    $ more example.horiz
+            That's it - you can then look at the output:
+
+            $ more example.horiz
 
 
 
