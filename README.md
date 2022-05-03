@@ -204,7 +204,24 @@
 - If you didn't install PSI-BLAST, there will be the error that cannot find .blast files to run the psipred.
 
 #### 2) Install PSI-BLAST and Impala from the NCBI toolkit
-
+##### (1) Download Standalone PSI-BLAST from NCBI FTP server (https://ftp.ncbi.nih.gov/blast/executables/blast+/LATEST/).
+##### (2) Unpack ncbi-blast.tar.gz file.
+    $ cd rosetta
+    $ tar -xvzf ncbi-blast-2.13.0+-x64-linux.tar.gz
+    $ mv ncbi-blast-2.13.0+ blast                    // naming change from "ncbi~" to "blast"
+    
+##### (3) Check wether psiblast is in the bin directory.
+    $ cd blast
+    $ cd bin
+    blastdb_aliastool
+    blastdbcheck
+    blastcmd
+    ...
+    psiblast
+    ...
+    update_blastdb.pl
+    windowmasker
+   
 #### 3) Install Blast - need to be updated
     
 #### 4) Run psipred
@@ -222,13 +239,13 @@
 
     $ more example.horiz
 
-### 6. Install compilers(Boost, Ninja) to build RifDock
+### 6. Install Boost and Ninja to build RifDock
 - To build RifDock, obtain a copy of gcc with version >= 5.0
 - Install Boost version 1.65 or later
 - Tested CentOS8(Red Hat gcc 8.3.1) with Boost-1.65.0
 
 #### 1) Install Boost
-**Notification: I recommend you to log in as "root" or administer to the properly install boost.**
+**Notification: I recommend you to log in as "root" or "administer" to the properly install boost.**
 
 ##### (1) Download Boost version 1.65.0 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_0.html). 
 - Latest version of Boost (1.74.0 or 1.78.0) was not compatible with Rifdock.
