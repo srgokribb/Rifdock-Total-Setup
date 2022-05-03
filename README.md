@@ -39,7 +39,7 @@
     # cd /usr/local/hdf5
 - Check wether bin, include, lib directory and the files are generated under /usr/local/hdf5.
 
-##### (6) Login as local user and set the PATH in .bashrc
+##### (6) Login as local user and set the PATH and LD_LIBRARY_PATH in .bashrc
     $ cd ~
     $ vi .bashrc
 - Add the address of hdf5/bin to PATH, and add hdf5/include and hdf5/lib to LD_LIBRARY_PATH
@@ -65,7 +65,11 @@
             # export SYSTEMD_PAGER=
 
             # User specific aliases and functions
-    
+
+##### (7) Check wether $PATH and $LD_LIBRARY_PATH are updated
+    $ echo $PATH
+    $ echo $LD_LIBRARY_PATH
+- If PATH is updated correctly, you can proceed to rosetta install and compilation.
 
 #### 2) Download Rosetta 3.13
 - Check whether the version of compilers in your machine and environment support Rosetta before the installation (https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support).
