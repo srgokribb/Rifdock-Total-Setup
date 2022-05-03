@@ -222,7 +222,15 @@
     update_blastdb.pl
     windowmasker
    
-#### 3) Install Blast - need to be updated
+#### 3) Install Sequence Data Bank (UNIREF90)
+##### (1) Download UNIREF90 from Uniprot DB server https://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/).
+- The size of uniref90.fasta.gz is 32.0G and that of uniref90.xml.gz is 49.1G. So, it will take a few hours to download the DB files.
+
+##### (2) make uniref90 directory and unpack gz files.
+    $ mkdir uniref90
+    $ cd uniref90
+    $ gzip -d uniref90.fasta.gz
+    $ gzip -d uniref90.xml.gz
     
 #### 4) Run psipred
     $ runpsipred example.fasta
@@ -238,6 +246,9 @@
     That's it - you can then look at the output:
 
     $ more example.horiz
+
+
+
 
 ### 6. Install Boost and Ninja to build RifDock
 - To build RifDock, obtain a copy of gcc with version >= 5.0
