@@ -14,6 +14,7 @@
 - motif_clustering/cluster
 - Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)
 - RifDock (Boost 1.65.0 is needed)
+- Scaffolds
 
 ### Notice
 - In this protocol, the command line which starts with **"#"** means **"root"** or **"administer"**, and the command line which starts with **"$"** means **"local user"**.
@@ -29,7 +30,7 @@
         ninja-1.10.2/    re2c-1.0.3/
 
         /home/users/local_user/rosetta/
-        rosetta_src_release_3.9/     PyRosetta4/      rosetta_src_release_3.13/    rifdock/     
+        rosetta_src_release_3.9/     PyRosetta4/      rosetta_src_release_3.13/    rifdock/    scaffolds/    
         psipred/     PatchDock/       ppi_tools/       silent_tools/      ncbi-blast/    ncbi_tools/
 
         /usr/local/
@@ -507,14 +508,99 @@
 ##### 2) The unit tests executable file is at:
     $ rifdock/build/schemelib/test/test_libscheme
 
+### 9. Download misc(cao_2021_protocol, scilent_tools, ppi_tools, scaffolds) for RifDock
+#### 1) Download cao_2021_protocol
+##### (1) Download design scripts and main pdb files from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scripts_and_main_pdbs.tar.gz
+##### (2) Move the file to 'resources' directory and unpack the tar file.
+    $ cd resources
+    $ tar -xvzf scripts_and_main_pdbs.tar.gz
+    
+##### (3) Copy "cao_2021_protocl" directory to 'rosetta' directory.
+    $ cd scripts_and_main_pdbs/supplemental_files/
+    $ cp -r cao_2021_protocol/ ../../../rosetta
+  
+##### (4) Add the PATH to cao_2021_protocol to .bashrc (This will be covered in step #10).
+
+#### 2) Download scilent_tools and ppi_tools
+##### (1) scilent_tools and ppi_tools are in cao_2021_protocol/github_backup. So, copy them to rosetta directory.
+    $ cd cao_2021_protocol/github_backup/
+    $ cp -r scilent_tools ../../
+    $ cp -r ppi_tools ../../
+- Currnt working directory is $HOME/rosetta/cao_2021_protocol/github_backup/
+
+##### (2) Add the PATH to scilent_toosl and ppi_tools to .bashrc (This will be covered in step #10).
+
+#### 3) Download Miniprotein Scaffold Library
+##### (1) Download all the scaffolds from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scaffolds.tar.gz
+##### (2) Move the file to 'resources' directory and unpack the tar file.
+    $ cd resources
+    $ tar -xvzf scaffolds.tar.gz
+- If you unpack the tar file, it will generate "supplemental_files" directory.
+
+##### (3) Copy scaffold directory to rosetta directory.
+    $ cp -r supplemental_files/scaffolds ../rosetta
+
+##### (4) Add the PATH scaffold directory to .bashrc (This will be covered in step #10).
 
 
+### 10. Set the proper PATH to all binaries
+##### (1) Move to $HOME and open .bashrc
+    $cd ~
+    $vi .bashrc
+- It is strongly recommended to copy the .bashrc to backup directory for safe.
+
+##### (2) Set the cusor in the empty line and change to "insert mode" by press "Shift + S" buttons and add the PATH.
+
+from 
+
+        # .bashrc
+
+        # Source global definitions
+        if [ -f /etc/bashrc ]; then
+                . /etc/bashrc
+        fi
+
+        # User specific environment
+        PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
 
+        # Uncomment the following line if you don't like systemctl's auto-paging feature:
+        # export SYSTEMD_PAGER=
+
+        # User specific aliases and functions
 
 
+to
+
+        # .bashrc
+
+        # Source global definitions
+        if [ -f /etc/bashrc ]; then
+                . /etc/bashrc
+        fi
+
+        # User specific environment
+        PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+        export PATH
+        PATH=$PATH:/home/users/srgo/rosetta/rosetta_src_3.13_bundle/main/source:/home/users/srgo/rosetta/rosetta_src_3.13_bundle/main/source/bin:/home/users/srgo/rosetta/rifdock/build/apps/rosetta:/home/users/srgo/rosetta/scaffolds:/home/users/srgo/rosetta/cao_2021_protocol:/home/users/srgo/rosetta/psipred:/home/users/srgo/rosetta/psipred/bin:/home/users/srgo/rosetta/PatchDock:/home/users/srgo/rosetta/silent_tools:/home/users/srgo/rosetta/NCBI/BLAST/bin
+        export PATH
+
+        LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+        export LD_LIBRARY_PATH
 
 
+        # Uncomment the following line if you don't like systemctl's auto-paging feature:
+        # export SYSTEMD_PAGER=
+
+        # User specific aliases and functions
+
+##### (3) If you finished the revision, press "ESC" button to exit from "insert mode" and press ":" button and type "wq" and press "Enter" button to save the changes and exit from the file.
+        :wq
+        (Enter)
+##### (4) Refresh the PATH by "source .bashrc" command and check wether the PATH is sucessfully added.
+    $ source .bashrc
+    $ echo $PATH
+    
 
 
 #### Basic programming concepts
