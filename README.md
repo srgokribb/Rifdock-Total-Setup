@@ -142,6 +142,8 @@
     
 ##### (9) If the compile was successful, there will be "rosetta_scripts.default.linuxgccrelease" and "rosetta_scripts.linuxgccrelease" in /main/source/bin.
 
+##### **I tried to use recent rosetta compiled with HDF5, but I used rosetta compiled with mpi because of some problems with zlib and our server environment.**
+
 ### 2. Install DAIphaBall
 ##### (1) DAIphaBall is a part of Rosetta. Move to rosetta_src_release/main/source/external/DAIphaBall.
 
