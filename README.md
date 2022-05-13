@@ -382,7 +382,7 @@
      $ cd build
      $ CXX=/usr/bin/g++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/Path/to/a/rosetta/main CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_cxx11_omp cmake .. -DCMAKE_BUILD_TYPE=Release
      $ make -j10 rif_dock_test rifgen
-- When later version of Boost(Boost-1.74.0 or Boost-1.78.0) was used insted of Boost-1.65.0, it made BOOST_BITMASK error during "make" step.
+- When later version of Boost(Boost-1.74.0 or Boost-1.78.0) was used instead of Boost-1.65.0, it made BOOST_BITMASK error during "make" step.
 
 ##### [If you build the RifDock correctly, you can see the building process like this.]
     [srgo@anode0 rifdock]$ mkdir build
