@@ -335,8 +335,9 @@
     $ mkdir build
     $ cd build
     $ ../configure && make && make install
-##### (3) Check whether the installation was successful.
-    $ make test
+    
+##### (3) Add the path to executable re2c
+    $ export PATH=$PATH:/path/to/re2c-1.0.3/build
     
 #### 3) Install Ninja
 ###### - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
