@@ -511,6 +511,9 @@
 ##### 2) The unit tests executable file is at:
     $ rifdock/build/schemelib/test/test_libscheme
 
+##### #7 and #8 were tested more than two times.
+
+
 ### 9. Download misc(cao_2021_protocol, scilent_tools, ppi_tools, scaffolds) for RifDock
 #### 1) Download cao_2021_protocol
 ##### (1) Download design scripts and main pdb files from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scripts_and_main_pdbs.tar.gz
