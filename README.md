@@ -511,7 +511,9 @@
 ##### 2) The unit tests executable file is at:
     $ rifdock/build/schemelib/test/test_libscheme
 
-##### #7 and #8 were tested more than two times.
+##### Step #7 and #8 were tested more than two times.
+
+
 
 
 ### 9. Download misc(cao_2021_protocol, scilent_tools, ppi_tools, scaffolds) for RifDock
