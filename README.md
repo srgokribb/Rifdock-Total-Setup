@@ -2,7 +2,7 @@
 - Setup protocol to build Rosetta and RifDock
 - Tested on Red Hat 8.3.1 CentOS 8 
 - Written by SeongRyeong Go on 28 Apr 2022.
-- **If you want to directly see the method to build RifDock, see step #7(https://url.kr/e8jszh)**
+- **If you want to directly see the method to build RifDock, see the step #7(https://url.kr/e8jszh)**
 
 ### These are the required files to design protein binders with RifDock
 - Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
