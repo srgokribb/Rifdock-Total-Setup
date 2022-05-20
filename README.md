@@ -47,30 +47,44 @@
     # cd packages          // pwd is /root/packages/
      
 ##### (3) Move the downloaded file to the directory to install the file and unpack the tar file.             
-    # tar -xvzf hdf5-1.12.1.tar.gz
+    # tar -xvzf hdf5-1.12.1-centos8_64.tar.gz
+- If you unpack the tar file, "hdf" directory will be generated.
 
-##### (3) Compile HDF5.
-    # cd hdf5-1.12.1
-    # ./configure --prefix=/usr/local/hdf5
-
-- If you compile HDF5 without any option("--enable-cxx" or "--enable-fortran"), it will use a basic compiler in your environment (like GCC) and most of the other options will be set as "disable". 
-- If you want to see more options use "./configure --help".
-- You can specify the location to install HDF5 bin, include, lib by using "--prefix=/path/to/install/hdf5/" flag. 
-
-##### (4) Build and install HDF5
-    # make
-    # make install
+##### (3) Enter in to the unpacked directory and execute installer file(.sh).
+    # cd hdf
+    # ./HDF5-1.12.1-Linux.sh
+    There will be some explanation and notification for the lisence.
+    Keep pressing "Enter" to scroll down.
+    If you see the questions[y/n], type "y" and press "Enter".
+    # ls
+    # cd HDF_Group/HDF5/1.12.1
+    # ls
+    bin/ include/ lib/ share/
     
-- There could be some warning messages during the make step, but it will be okay if no "ERROR:~" or "fatal error" messages came out.
+- You can see the new direictory is generated. At the lowest location of the directory, there are "bin", "include", "lib", "and "Share".
+- "bin" directory: Executables
+- "include" directory: Header files
+- "lib" directory: Library files and linkers(.so)
+- Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to set your files (/usr/local/bin /include /lib). If there are some files which could be overwitten, backup the files to other location and continue to the next step. It is important to keep your previous environment and avoid any fatal mistakes. 
 
-##### (5) Check whether the installation was successful.
-    # cd /usr/local/hdf5
-- Check wether "bin", "include", "lib" directory and the files are generated under /usr/local/hdf5.
+##### (4) Copy the files to proper directory. /usr/local/bin/ user/local/include/ usr/local/lib/
+    # cd bin
+    # cp -r * /usr/local/bin
+    # cd ../include
+    # cp -r * /usr/local/include
+    # cd ../lib
+    # cp -r * /usr/local/lib
+
+##### (5) (Optioanl) Refresh the shared library cache with "ldconfig".
+    # ldconfig
+- If your computer have other programs which refreshes the shared library cache, this step could be skipped.
+- If there are some jobs which were already running and should be maintained, it is safer to execute this command after the jobs are finished.
+- ldconfig command only could be executed by administer.
 
 ##### (6) Login as local user and set the PATH and LD_LIBRARY_PATH in .bashrc
     $ cd ~
     $ vi .bashrc
-- Add the address of hdf5/bin to PATH, and add hdf5/include and hdf5/lib to LD_LIBRARY_PATH
+- Add the address of /usr/local/bin to PATH, and add /usr/local/include and /usr/local/lib to LD_LIBRARY_PATH.
     
             # .bashrc
 
@@ -82,10 +96,10 @@
             # User specific environment
             PATH="$HOME/.local/bin:$HOME/bin:$PATH"
             export PATH
-            PATH=$PATH:/usr/local/hdf5/bin
+            PATH=$PATH:/usr/local/bin
             export PATH
 
-            LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/hdf5/lib:/usr/local/hdf5/include
+            LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/include
             export LD_LIBRARY_PATH
 
 
@@ -94,12 +108,16 @@
 
             # User specific aliases and functions
 
-##### (7) Check wether $PATH and $LD_LIBRARY_PATH are updated
+##### (7) Apply the changed environment.
+    $ source .bashrc
+    
+- After you execute this command, close the terminal and open a new terminal.
+
+##### (8) Check wether $PATH and $LD_LIBRARY_PATH are updated.
     $ echo $PATH
     $ echo $LD_LIBRARY_PATH
 - If PATH is updated correctly, you can proceed to rosetta install and compilation.
 - Do not add multiple versions of hdf5 to PATH or LD_LIBRARY_PATH. It will make a fatal error.
-- If you want to install HDF5 more simply, then you can download "the pre-compiled HDF5 library" and use it without the compiling process. In this case, unpack the file to your local user directory and set the correct PATH to 'hdf5/bin' and LD_LIBRARY_PATH to 'hdf5/include' and 'hdf5/lib'.
 - Because the addresses are added to ".bashrc", it will be maintained after you close your terminal or open a new terminal. If you don't need hdf5 anymore, remove the address to hdf5 binary and library from ".bashrc".
 
 #### 2) Install Rosetta 3.13 and compile with HDF5
