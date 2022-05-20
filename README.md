@@ -21,20 +21,20 @@
 
 ### Directory Structure
         
-        bin/    home/   root/    usr/  
+        home/   root/    usr/  
 
         /root/packages/
-        hdf5-1.12.1/     boost-1.65.0/    
+                        hdf/     boost-1.65.0/    
 
         /home/users/local_user/packages/
-        ninja-1.10.2/    re2c-1.0.3/
+                         ninja-1.10.2/    re2c-1.0.3/
 
         /home/users/local_user/rosetta/
-        rosetta_src_release_3.9/     PyRosetta4/      rosetta_src_release_3.13/    rifdock/    scaffolds/    
-        psipred/     PatchDock/       ppi_tools/       silent_tools/      ncbi-blast/    ncbi_tools/
+                 rosetta_src_release_3.9/     PyRosetta4/      rosetta_src_release_3.13/    rifdock/    scaffolds/    
+                 psipred/     PatchDock/       ppi_tools/       silent_tools/      ncbi-blast/    ncbi_tools/
 
         /usr/local/
-        bin/   lib/  include/   hdf5/
+                 bin/   lib/  include/
 
 - These are the major directories which are involved in setting up rifdock
 
