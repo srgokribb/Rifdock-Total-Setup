@@ -651,9 +651,12 @@ In CMakeList.txt, there are two kinds of information. One is the minimum require
 - ~ - home directory which is the directory that login user can use.
 - ./program - run 'program' in current directory
 - program - run 'program' in available address
-- cp file1 /path/to/the/directory1 - cp file1 to directory1
+- cp file1 /path/to/the/directory1 - Copy file1 to directory1
+- cp -r direcroty1 /path/to/the/directory2 - Copy direcroty1 and it's all of subdirectories to direcroty 2 
 - rm -rf file1 - Remove file1 without asking any questions.
 - rm -rf directory1 - Remove directory1 and it all files under the directory without asking any questions.
-- /usr - Univeral System Resources
+- /usr - Univeral System Resources Basically most binary files and libraries are installed in here.
 - export PATH=$PATH:/path/to/the/file - add the specific address(/path/to/the/file) to $PATH 
 - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/the/file - add the specific address (of library) to $LD_LIBRARY_PATH
+- ldconfig: Refreshes shared library cache. It is needed to be used after changing LD_LIBRARY_PATH or adding .conf file to /etc/ld.so.conf.d/
+- pkg-config: The software which can search specific library which is needed to compile a program from the source code of the program. It uses "x.pc" file which contains the details about the library "x".
