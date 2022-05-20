@@ -1,4 +1,4 @@
-# RifDock Setup Protocol
+# RifDock Setup Protocol ver 1.0
 - Setup protocol to build Rosetta and RifDock
 - Tested on Red Hat 8.3.1 CentOS 8 
 - Written by SeongRyeong Go on 28 Apr 2022.
