@@ -111,7 +111,7 @@
 ##### (7) Apply the changed environment.
     $ source .bashrc
     
-- After you execute this command, close the terminal and open a new terminal.
+- After you execute this command, close the terminal and open a new terminal to continue.
 
 ##### (8) Check wether $PATH and $LD_LIBRARY_PATH are updated.
     $ echo $PATH
@@ -313,7 +313,6 @@
             That's it - you can then look at the output:
 
             $ more example.horiz
-
 
 
 
@@ -605,10 +604,10 @@ to
         # User specific environment
         PATH="$HOME/.local/bin:$HOME/bin:$PATH"
         export PATH
-        PATH=$PATH:/home/users/srgo/rosetta/rosetta_src_3.13_bundle/main/source:/home/users/srgo/rosetta/rosetta_src_3.13_bundle/main/source/bin:/home/users/srgo/rosetta/rifdock/build/apps/rosetta:/home/users/srgo/rosetta/scaffolds:/home/users/srgo/rosetta/cao_2021_protocol:/home/users/srgo/rosetta/psipred:/home/users/srgo/rosetta/psipred/bin:/home/users/srgo/rosetta/PatchDock:/home/users/srgo/rosetta/silent_tools:/home/users/srgo/rosetta/NCBI/BLAST/bin
+        PATH=$PATH:/home/users/srgo/rosetta/rosetta_src_2021.16.61629_bundle/main/source/bin:/home/users/srgo/rosetta/rifdock/build/apps/rosetta:/home/users/srgo/rosetta/scaffolds:/home/users/srgo/rosetta/cao_2021_protocol:/home/users/srgo/rosetta/psipred:/home/users/srgo/rosetta/psipred/bin:/home/users/srgo/rosetta/PatchDock:/home/users/srgo/rosetta/silent_tools:/home/users/srgo/rosetta/NCBI/BLAST/bin
         export PATH
 
-        LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+        LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
         export LD_LIBRARY_PATH
 
 
@@ -620,6 +619,7 @@ to
 ##### (3) If you finished the revision, press "ESC" button to exit from "insert mode" and press ":" button and type "wq" and press "Enter" button to save the changes and exit from the file.
         :wq
         (Enter)
+
 ##### (4) Refresh the PATH by "source .bashrc" command and check wether the PATH is sucessfully added.
     $ source .bashrc
     $ echo $PATH
