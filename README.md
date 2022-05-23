@@ -355,7 +355,8 @@
     
 ##### (3) Add the path to executable re2c
     $ export PATH=$PATH:/path/to/re2c-1.0.3/build
-    
+- Add the path to the dirctory where "re2c" executable is installed to $PATH.
+
 #### 3) Install Ninja
 ###### - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
 ##### (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref:https://github.com/ninja-build/ninja/wiki, https://github.com/ninja-build/ninja) 
