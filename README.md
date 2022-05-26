@@ -115,7 +115,7 @@
     
 - After you execute this command, close the terminal and open a new terminal to continue.
 
-##### (8) Check wether $PATH and $LD_LIBRARY_PATH are updated.
+##### (8) Check whether $PATH and $LD_LIBRARY_PATH are updated.
     $ echo $PATH
     $ echo $LD_LIBRARY_PATH
 - If PATH is updated correctly, you can proceed to rosetta install and compilation.
@@ -240,7 +240,7 @@
             $ tar -xvzf ncbi-blast-2.13.0+-x64-linux.tar.gz
             $ mv ncbi-blast-2.13.0+ blast                    // naming change from "ncbi~" to "blast"
 
-        ##### (3) Check wether psiblast is in the bin directory.
+        ##### (3) Check whether psiblast is in the bin directory.
             $ cd blast
             $ cd bin
             blastdb_aliastool
@@ -345,7 +345,7 @@
 
 ##### (2) Check the kernerl version of your system.
      $ uname -r
-- You need to check wether gcc-6.5.0 is compatible with the kernel version of your computer.
+- You need to check whether gcc-6.5.0 is compatible with the kernel version of your computer.
 
 ##### (3) Download GCC 6.5.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-6.5.0/). 
 ##### (4) Move the tar.gz file to rosetta folder and unpack the file..
@@ -719,7 +719,7 @@ to
         :wq
         (Enter)
 
-##### (4) Refresh the PATH by "source .bashrc" command and check wether the PATH is sucessfully added.
+##### (4) Refresh the PATH by "source .bashrc" command and check whether the PATH is sucessfully added.
     $ source .bashrc
     $ echo $PATH
     
