@@ -15,6 +15,8 @@
 - Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)
 - RifDock (Boost 1.65.0 is needed)
 - Scaffolds
+- Environment modules 4.1.4 (It is necessary to load other version of GCC.)
+- GCC-6.5.0 (Necessary to build and run rifdock)
 
 ### Notice
 - In this protocol, the command line which starts with **"#"** means **"root"** or **"administer"**, and the command line which starts with **"$"** means **"local user"**.
@@ -27,7 +29,7 @@
                         hdf/     boost-1.65.0/    
 
         /home/users/local_user/packages/
-                         ninja-1.10.2/    re2c-1.0.3/
+                         ninja-1.10.2/    re2c-1.0.3/   gcc-6.5.0/    gcc/
 
         /home/users/local_user/rosetta/
                  rosetta_src_release_3.9/     PyRosetta4/      rosetta_src_release_3.13/    rifdock/    scaffolds/    
