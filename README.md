@@ -317,10 +317,15 @@
             $ more example.horiz
             
 ### 6. Set the environment to install and run rifdock (Environment modules, gcc-6.5.0)
-#### 1) Install Environment Modules 4.1.4
+#### 1) Install Environment modules
+##### (1) Check whether your computer have Environment Modules.
+- **[Caution] Before you install Environment modules, it is critical to check whether there is already installed Environment modules. If you install additional module, the previous path settings of modules will be corrupted and it will make fatal problem.**
+- You can check whether you have moduels by below commands.
+    $ module --version
+    $ which module
+    $ whereis Module
 
-
-
+#### (2) Install Environment modules (Install only if you defiently don't have modules)
 
 #### 2) Install GCC 6.5.0
 ##### (1) Current GCC verison could be identified by using
@@ -353,7 +358,24 @@
      
  - In later stage, "CXX=/path/to/gcc/bin/g++ CC=/path/to/gcc/bin/gcc" option will be used to build rifdock.
 
-##### (7) Load new gcc using environment modules.
+##### (7) Make "modulefile" for new gcc in /user/share/Modules/modulefiles.
+     # cd /usr/share/Modules/modulefiles              //Go to the directory where Modules is installed.
+     # mkdir gcc
+     # cd gcc
+     # vi 6.5.0                                       //This file have basically same format of "modules" file in modulefiles directory.
+     
+        #%Module 1.0
+        #set    BASEDIR         /opt/[module-info name]
+        set     BASEDIR         /path/to/new/gcc
+        prepend-path    PATH            ${BASEDIR}/bin
+        prepend-path    CPATH           ${BASEDIR}/include
+        prepend-path    MANPATH         ${BASEDIR}/share/man
+        prepend-path    LD_LIBRARY_PATH ${BASEDIR}/lib64
+
+     # module avail                             //If you check the available modules, then you can see the modulefile of gcc is updated.
+     gcc/6.5.0
+     
+##### (8) Load new gcc using environment modules.
      $ module load gcc/6.5.0
      
     If you want to automatically load gcc-6.5.0, open .bashrc and add "module load gcc/6.5.0" at the end of the file.
