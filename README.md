@@ -325,12 +325,15 @@
      $ gcc --version
 - The version of other compilers also could be identified by using '--version'.
 
-##### (2) Check the version of GCC which is compatible with Boost_1.65.1. The compatible GCC version is 5.4.0.
+##### (2) Check the kernerl version of your system.
+     $ uname -r
+- You need to check wether gcc-6.5.0 is compatible with the kernel version of your computer.
+
 ##### (3) Download GCC 6.5.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-6.5.0/). 
-##### (4) Move the tar.gz file to rosetta folder and unzip the file with below command.
+##### (4) Move the tar.gz file to rosetta folder and unpack the file..
      $ tar -xvzf gcc-6.5.0.tar.gz
      
-##### (5) Install GCC-6.5.0. (Ref: https://gcc.gnu.org/wiki/InstallingGCC)
+##### (5) Install GCC-6.5.0. on the local directory (Ref: https://gcc.gnu.org/wiki/InstallingGCC).
      $ cd gcc-6.5.0
      $ ./contrib/download_prerequisites
      $ cd ..
@@ -340,18 +343,18 @@
      $ make
      $ make install
      $ cd ~ && vi .bashrc
-
+ - I used "$../configure --prefix=$/home/users/srgo/packages/gcc --enable-languages=c,c++,fortran --diable-multilib" to install gcc in local directory.
+ 
 ##### (6) Add the path to gcc/lib64 to LD_LIBRAY_PATH.
      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/users/srgo/packages/gcc/lib64
      export LD_LIBRARY_PATH
      
- - I used "$../configure --prefix=$/home/users/srgo/packages/gcc --enable-languages=c,c++,fortran --diable-multilib" to install gcc in local directory.
  - In later stage, "CXX=/path/to/gcc/bin/g++ CC=/path/to/gcc/bin/gcc" option will be used to build rifdock.
 
 ##### (7) Load new gcc using environment modules.
      $ module load gcc/6.5.0
      
-    If you want to automatically load gcc-6.5.0, open .bashrc and add "module load gcc/6.5.0"
+    If you want to automatically load gcc-6.5.0, open .bashrc and add "module load gcc/6.5.0" at the end of the file.
     
      $ vi .bashrc
      
