@@ -314,7 +314,7 @@
 
             $ more example.horiz
             
-### 6. Set the environment to install and run rifdock (Environment moudles, gcc-6.5.0)
+### 6. Set the environment to install and run rifdock (Environment modules, gcc-6.5.0)
 #### 1) Install Environment Modules 4.1.4
 
 
