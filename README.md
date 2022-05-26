@@ -414,7 +414,7 @@
 - If you don't want to load gcc-6.5.0, just add "#" infront of "module load gcc/6.5.0" and inactivate it.
 - You need to load gcc-6.5.0 when you build or run rifdock.
  
-### 6. Install Boost and Ninja to build RifDock
+### 7. Install Boost and Ninja to build RifDock
 - To build RifDock, obtain a copy of gcc with version >= 5.0
 - Install Boost version 1.65 or later
 - Tested CentOS8(Red Hat gcc 8.3.1) with Boost-1.65.0
@@ -470,7 +470,7 @@
      $ echo $PATH
 - You can add PATH by using "export PATH=$PATH:/new_adress_to_add"
 
-### 7. Build Rosetta cxx11_omp and RifDock
+### 8. Build Rosetta cxx11_omp and RifDock
 - This is the final stage of installing RifDock
 #### 1) Build Rosetta 3.9 as cxx11_omp using Ninja
 ##### (1) Download Rosetta 3.9 source (2.8G) file (rosetta_src_3.9_bundle.tgz) and copy the source file to the directory where the Rosetta 3.9 will be installed. 
@@ -608,7 +608,7 @@
 ##### (2) Do a Unit Test to check whether the build was successful.
      $ make test_libscheme
      
-### 8. Running Rifdock
+### 9. Running Rifdock
 ##### 1) The executable files for RifDock are built at:
     $ rifdock/build/apps/rosetta/rifgen
     $ rifdock/build/apps/rosetta/rif_dock_test
@@ -629,7 +629,7 @@
 ##### ※ Step #7 and #8 were tested more than two times.
  
 
-### 9. Download misc(cao_2021_protocol, scilent_tools, ppi_tools, scaffolds) for RifDock
+### 10. Download misc(cao_2021_protocol, scilent_tools, ppi_tools, scaffolds) for RifDock
 #### 1) Download cao_2021_protocol
 ##### (1) Download design scripts and main pdb files from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scripts_and_main_pdbs.tar.gz
 ##### (2) Move the file to 'resources' directory and unpack the tar file.
@@ -664,7 +664,7 @@
 ##### (4) Add the PATH scaffold directory to .bashrc (This will be covered in step #10).
 
 
-### 10. Set the proper PATH to all binaries
+### 11. Set the proper PATH to all binaries
 ##### (1) Move to $HOME and open .bashrc
     $cd ~
     $vi .bashrc
@@ -723,7 +723,9 @@ to
     $ source .bashrc
     $ echo $PATH
     
-
+### 12. Try rifdock_tutorial
+#### I'm still working to follow the cao's protocol who made rifgen and rifdock. 
+#### I will update the entire process when I stably setup and finiched to follow the protocol.
 
 #### Basic programming concepts
 - compile: Change a file written in one language to another language
