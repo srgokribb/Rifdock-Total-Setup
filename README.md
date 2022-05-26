@@ -325,7 +325,18 @@
     $ which module
     $ whereis Module
 
-#### (2) Install Environment modules (Install only if you defiently don't have modules)
+##### (2) Download source files of the modules (https://sourceforge.net/projects/modules/files/Modules/modules-4.1.4/).
+
+##### (3) Install Environment modules (Ref: https://www.admin-magazine.com/HPC/Articles/Environment-Modules).
+    # cd /usr/local
+    # mkdir Modules
+    # mkdir src
+    # cp modules-4.1.4.tar.gz /usr/local/Modules/src
+    # tar -xvzf modules-4.1.4.tar.gz
+    # cd modules-4.1.4
+    # ./configure
+    # make
+    # make install
 
 #### 2) Install GCC 6.5.0
 ##### (1) Current GCC verison could be identified by using
