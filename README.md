@@ -313,9 +313,69 @@
             That's it - you can then look at the output:
 
             $ more example.horiz
+            
+### 6. Set the environment to install and run rifdock (Environment moudles, gcc-6.5.0)
+#### 1) Install Environment Modules 4.1.4
 
 
 
+
+#### 2) Install GCC 6.5.0
+##### (1) Current GCC verison could be identified by using
+     $ gcc --version
+- The version of other compilers also could be identified by using '--version'.
+
+##### (2) Check the version of GCC which is compatible with Boost_1.65.1. The compatible GCC version is 5.4.0.
+##### (3) Download GCC 6.5.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-6.5.0/). 
+##### (4) Move the tar.gz file to rosetta folder and unzip the file with below command.
+     $ tar -xvzf gcc-6.5.0.tar.gz
+     
+##### (5) Install GCC-6.5.0. (Ref: https://gcc.gnu.org/wiki/InstallingGCC)
+     $ cd gcc-6.5.0
+     $ ./contrib/download_prerequisites
+     $ cd ..
+     $ mkdir objdir
+     $ cd objdir
+     $../configure --prefix=$HOME/GCC-6.5.0 --enable-languages=c,c++,fortran --disable-multilib
+     $ make
+     $ make install
+     $ cd ~ && vi .bashrc
+
+##### (6) Add the path to gcc/lib64 to LD_LIBRAY_PATH.
+     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/users/srgo/packages/gcc/lib64
+     export LD_LIBRARY_PATH
+     
+ - I used "$../configure --prefix=$/home/users/srgo/packages/gcc --enable-languages=c,c++,fortran --diable-multilib" to install gcc in local directory.
+ - In later stage, "CXX=/path/to/gcc/bin/g++ CC=/path/to/gcc/bin/gcc" option will be used to build rifdock.
+
+##### (7) Load new gcc using environment modules.
+     $ module load gcc/6.5.0
+     
+    If you want to automatically load gcc-6.5.0, open .bashrc and add "module load gcc/6.5.0"
+    
+     $ vi .bashrc
+     
+        if [ -f /etc/bashrc ]; then
+                . /etc/bashrc
+        fi
+
+        # User specific environment
+        PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+        export PATH
+        PATH=$PATH:/home/users/srgo/packages/re2c-1.0.3/build:/home/users/srgo/packages/ninja-1.10.2
+        export PATH
+
+        LD_LIBRARY_PATH=/home/users/srgo/packages/gcc/lib64:/opt/ompi/4.1.0-gt/lib:/opt/intel/mkl/8.1.1/lib/em64t:/opt/intel/mkl/8.1.1/lib/em64t
+        export LD_LIBRARY_PATH
+
+        # Uncomment the following line if you don't like systemctl's auto-paging feature:
+        # export SYSTEMD_PAGER=
+
+        # User specific aliases and functions
+        module load gcc/6.5.0
+- If you don't want to load gcc-6.5.0, just add "#" infront of "module load gcc/6.5.0" and inactivate it.
+- You need to load gcc-6.5.0 when you build or run rifdock.
+ 
 ### 6. Install Boost and Ninja to build RifDock
 - To build RifDock, obtain a copy of gcc with version >= 5.0
 - Install Boost version 1.65 or later
