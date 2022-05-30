@@ -5,7 +5,7 @@
 - Written by SeongRyeong Go on 28 Apr 2022.
 - **If you want to directly see the method to build RifDock, see the step #8**
 - This is the result that I struggled with compiling and installing Rifdock more than 1 month.
-- Basically I'm not an expert of computer science or Linux. So, you need to keep in mind there could be some errors that I missed.
+- Basically I'm not an expert of computer science or Linux. So, there could be some errors that I missed.
 
 ### These are the required files to design protein binders with RifDock
 - Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
