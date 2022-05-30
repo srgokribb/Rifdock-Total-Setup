@@ -46,17 +46,17 @@
 
 ## 1. Install HDF5 and Rosetta 3.13
 ### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
-##### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1.
+#### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1.
 
-##### (2) Login as administer and make the "packages" directory (This directory will be used to install new libraries, compilers, and etc).
+#### (2) Login as administer and make the "packages" directory (This directory will be used to install new libraries, compilers, and etc).
     # mkdir packages
     # cd packages          // pwd is /root/packages/
      
-##### (3) Move the downloaded file to the directory to install the file and unpack the tar file.             
+#### (3) Move the downloaded file to the directory to install the file and unpack the tar file.             
     # tar -xvzf hdf5-1.12.1-centos8_64.tar.gz
 - If you unpack the tar file, "hdf" directory will be generated.
 
-##### (3) Enter in to the unpacked directory and execute installer file(.sh).
+#### (3) Enter in to the unpacked directory and execute installer file(.sh).
     # cd hdf
     # ./HDF5-1.12.1-Linux.sh
     There will be some explanation and notification for the lisence.
@@ -73,7 +73,7 @@
 - "lib" directory: Library files and linkers(.so)
 - Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to set your files (/usr/local/bin /include /lib). If there are some files which could be overwitten, backup the files to other location and continue to the next step. It is important to keep your previous environment and avoid any fatal mistakes. 
 
-##### (4) Copy the files to proper directory. /usr/local/bin/ user/local/include/ usr/local/lib/
+#### (4) Copy the files to proper directory. /usr/local/bin/ user/local/include/ usr/local/lib/
     # cd bin
     # cp -r * /usr/local/bin
     # cd ../include
@@ -81,13 +81,13 @@
     # cd ../lib
     # cp -r * /usr/local/lib
 
-##### (5) (Optioanl) Refresh the shared library cache with "ldconfig".
+#### (5) (Optioanl) Refresh the shared library cache with "ldconfig".
     # ldconfig
 - If your computer have other programs which refreshes the shared library cache, this step could be skipped.
 - If there are some jobs which were already running and should be maintained, it is safer to execute this command after the jobs are finished.
 - ldconfig command only could be executed by administer.
 
-##### (6) Login as local user and set the PATH and LD_LIBRARY_PATH in .bashrc
+#### (6) Login as local user and set the PATH and LD_LIBRARY_PATH in .bashrc
     $ cd ~
     $ vi .bashrc
 - Add the address of /usr/local/bin to PATH, and add /usr/local/include and /usr/local/lib to LD_LIBRARY_PATH.
@@ -114,12 +114,12 @@
 
             # User specific aliases and functions
 
-##### (7) Apply the changed environment.
+#### (7) Apply the changed environment.
     $ source .bashrc
     
 - After you execute this command, close the terminal and open a new terminal to continue.
 
-##### (8) Check whether $PATH and $LD_LIBRARY_PATH are updated.
+#### (8) Check whether $PATH and $LD_LIBRARY_PATH are updated.
     $ echo $PATH
     $ echo $LD_LIBRARY_PATH
 - If PATH is updated correctly, you can proceed to rosetta install and compilation.
@@ -131,22 +131,22 @@
 - GCC/g++: Version 4.8 or later (https://gcc.gnu.org/releases.html)
 - Clang/llvm on Linux: Version 3.3 or later (https://releases.llvm.org/download.html)
 
-##### (1) Go to Rosetta commons and apply for academic liscence (https://www.rosettacommons.org/software/license-and-download). 
+#### (1) Go to Rosetta commons and apply for academic liscence (https://www.rosettacommons.org/software/license-and-download). 
 
-##### (2) After login in with the ID and password of the license, go to 'Downloads' and enter Rosetta 3.13 - Download Rosetta 3.13. 
+#### (2) After login in with the ID and password of the license, go to 'Downloads' and enter Rosetta 3.13 - Download Rosetta 3.13. 
 
-##### (3) Download Rosetta 3.13 source (5.2G) file (rosetta_src_3.13_bundle.tgz) and copy the source file to the folder on the Linux computer where the Rosetta 3.13 will be installed (https://www.rosettacommons.org/downloads/academic/3.13/). 
+#### (3) Download Rosetta 3.13 source (5.2G) file (rosetta_src_3.13_bundle.tgz) and copy the source file to the folder on the Linux computer where the Rosetta 3.13 will be installed (https://www.rosettacommons.org/downloads/academic/3.13/). 
 
-##### (4) Unpack the tar file.
+#### (4) Unpack the tar file.
      $ tar -xvzf rosetta_src_3.13_bundle.tgz
 - The installation takes 20~30 min and rosetta_scr_release_bundle folder will be generated.
 
-##### (5) Move to 'source' folder.
+#### (5) Move to 'source' folder.
     $ cd rosetta_src_release_bundle/main/source
 
-##### (6) Check 'Scons.py' is in the source folder. This file is the software needed to compile Rosetta (already included in the rosetta bundle in main/source folder). 
+#### (6) Check 'Scons.py' is in the source folder. This file is the software needed to compile Rosetta (already included in the rosetta bundle in main/source folder). 
 
-##### (7) Compile rosetta in HDF5 format which is the basic form of Rosetta.
+#### (7) Compile rosetta in HDF5 format which is the basic form of Rosetta.
     $ ./scons.py -j10 mode=release extras=hdf5 rosetta_scripts
 
 - '-j 10' means using 10 cores of CPU for compiling 
@@ -160,27 +160,27 @@
 - This compiling process will take about 1h. The time could be reduced by increasing the number of CPUs ('-j 20' or more)
 - It is general to compile Rosetta bundle with at least two versions (static and mpi).
 
-##### (8) Check the compile result. If the compile was successfully done, the last sentence of the terminal shows the result like below.
+#### (8) Check the compile result. If the compile was successfully done, the last sentence of the terminal shows the result like below.
     "Install file: "build/src/release/linux/4.18/64/x86/gcc/8/default/rosetta_scripts.default.linuxgccrelease" as "bin/rosetta_scripts.default.linuxgccrelease"
     scons: done building targets.
     
-##### (9) If the compile was successful, there will be "rosetta_scripts.default.linuxgccrelease" and "rosetta_scripts.linuxgccrelease" in /main/source/bin.
+#### (9) If the compile was successful, there will be "rosetta_scripts.default.linuxgccrelease" and "rosetta_scripts.linuxgccrelease" in /main/source/bin.
 
-##### **I tried to use recent rosetta compiled with HDF5, but I used rosetta compiled with mpi because of some problems with zlib and our server environment.**
+#### **I tried to use recent rosetta compiled with HDF5, but I used rosetta compiled with mpi because of some problems with zlib and our server environment.**
 
 ## 2. Install DAIphaBall
-##### (1) DAIphaBall is a part of Rosetta. Move to rosetta_src_release/main/source/external/DAIphaBall.
+#### (1) DAIphaBall is a part of Rosetta. Move to rosetta_src_release/main/source/external/DAIphaBall.
 
-##### (2) Type "make" to build DAIphaBall.
+#### (2) Type "make" to build DAIphaBall.
     $ make
 
 ## 3. Install PyRosetta
-##### (1) Get the license for PyRosetta in Rosetta Commons(https://www.rosettacommons.org/software/license-and-download)
+#### (1) Get the license for PyRosetta in Rosetta Commons(https://www.rosettacommons.org/software/license-and-download)
 
-##### (2) Check the Python version installed on the Linux computer.
+#### (2) Check the Python version installed on the Linux computer.
     $ python --version
     
-##### (3) Download proper version of PyRosetta4 in PyRosetta server(https://graylab.jhu.edu/download/PyRosetta4/archive/release/)
+#### (3) Download proper version of PyRosetta4 in PyRosetta server(https://graylab.jhu.edu/download/PyRosetta4/archive/release/)
 
 - Release : Speed optimized build for production runs.
 - MinSizeRel : Build optimized to reduce memory which could be suitable for low memory systems.
@@ -188,39 +188,39 @@
 - Python-x.x versions : The builds of PyRosetta for the specific Python version.
 - "PyRosetta4.Release.python36.linux.release-316.tar.bz2" is selected for installation.
 
-##### (4) Move the downloaded file to the directory to install PyRosetta and unzip the file.
+#### (4) Move the downloaded file to the directory to install PyRosetta and unzip the file.
     $ tar -vjxf PyRosetta4.Release.python36.linux.release-316.tar.bz2
     
-##### (5) Enter to PyRosetta directory and type
+#### (5) Enter to PyRosetta directory and type
     $ cd setup
     $ python setup.py install
     
 - **This step requires administrative access. You need to sign in as administer or "root" account.**
-##### (6) Check whether the PyRosetta is successfully installed. If it was successful, you can see these sentences in the last sentence of the installation.
+#### (6) Check whether the PyRosetta is successfully installed. If it was successful, you can see these sentences in the last sentence of the installation.
     Installed /usr/local/lib/python3.6/site-package/pyrosetta-2022.14+release.d95c942-py3.6-linux-x86_64.egg
     Processing dependencies for pyrosetta==2022.14+release.d95c942
     Finished processing dependencies for pyrosetta==2022.14+release.d95c942
 
 ## 4. Install PatchDock
-###### (1) Download PatchDock from PatchDock server(https://bioinfo3d.cs.tau.ac.il/PatchDock/).
+##### (1) Download PatchDock from PatchDock server(https://bioinfo3d.cs.tau.ac.il/PatchDock/).
 
-###### (2) Unzip the file by
+##### (2) Unzip the file by
     $ unzip patch_dock_download.zip
 
-###### (3) PatchDock do not require further install process. Read 'README.md' to run PatchDock.
+##### (3) PatchDock do not require further install process. Read 'README.md' to run PatchDock.
 
 
 ## 5. Install PsiPred
 - PSIPRED Version 4.0 By David Jones, January 2016
-##### (1) Download PsiPred source code from Git-hub pirspred/pirspred (https://github.com/psipred/psipred).
+#### (1) Download PsiPred source code from Git-hub pirspred/pirspred (https://github.com/psipred/psipred).
 - The file name will be "psipred-master.zip".
-##### (2) Move the zip file to the directory to install psipred in the Linux computer.
+#### (2) Move the zip file to the directory to install psipred in the Linux computer.
 
-##### (3) Unpack the zip file by
+#### (3) Unpack the zip file by
     $ unzip psipred-master.zip
     $ mv psipred-master PSIPRED
 
-##### (4) Compile and install psipred.
+#### (4) Compile and install psipred.
     $ cd PSIPRED
     $ cd src
     $ make
@@ -229,7 +229,7 @@
 - If the installation is finished, executable "psipred" will be in bin directory
 - You can use "runpsipred" to run psipred program.
 
-##### (5) Test whether the psipred is run
+#### (5) Test whether the psipred is run
     $ cd example
     $ runpsipred example.fasta
 - If you didn't install PSI-BLAST, there will be the error that cannot find .blast files to run the psipred.
@@ -321,17 +321,17 @@
             
 ## 6. Set the environment to install and run rifdock (Environment modules, gcc-6.5.0)
 ### 1) Install Environment modules
-##### (1) Check whether your computer have Environment Modules.
+#### (1) Check whether your computer have Environment Modules.
 - **[Caution] Before you install Environment modules, it is critical to check whether there is already installed Environment modules. If you install additional module, the previous path settings of modules will be corrupted and it will cause a lot of fatal problems.**
 - You can check whether you have moduels by below commands.
-#####
+####
     $ module --version
     $ which module
     $ whereis Module
 
-##### (2) Download source files of the modules (https://sourceforge.net/projects/modules/files/Modules/modules-4.5.2/).
+#### (2) Download source files of the modules (https://sourceforge.net/projects/modules/files/Modules/modules-4.5.2/).
 
-##### (3) Install Environment modules (Ref: https://www.admin-magazine.com/HPC/Articles/Environment-Modules).
+#### (3) Install Environment modules (Ref: https://www.admin-magazine.com/HPC/Articles/Environment-Modules).
     # cd /usr/local
     # mkdir Modules
     # mkdir src
@@ -343,19 +343,19 @@
     # make install
 
 ### 2) Install GCC 6.5.0
-##### (1) Current GCC verison could be identified by using
+#### (1) Current GCC verison could be identified by using
      $ gcc --version
 - The version of other compilers also could be identified by using '--version'.
 
-##### (2) Check the kernerl version of your system.
+#### (2) Check the kernerl version of your system.
      $ uname -r
 - You need to check whether gcc-6.5.0 is compatible with the kernel version of your computer.
 
-##### (3) Download GCC 6.5.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-6.5.0/). 
-##### (4) Move the tar.gz file to rosetta folder and unpack the file..
+#### (3) Download GCC 6.5.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-6.5.0/). 
+#### (4) Move the tar.gz file to rosetta folder and unpack the file..
      $ tar -xvzf gcc-6.5.0.tar.gz
      
-##### (5) Install GCC-6.5.0. on the local directory (Ref: https://gcc.gnu.org/wiki/InstallingGCC).
+#### (5) Install GCC-6.5.0. on the local directory (Ref: https://gcc.gnu.org/wiki/InstallingGCC).
      $ cd gcc-6.5.0
      $ ./contrib/download_prerequisites
      $ cd ..
@@ -367,13 +367,13 @@
      $ cd ~ && vi .bashrc
  - I used "$../configure --prefix=$/home/users/srgo/packages/gcc --enable-languages=c,c++,fortran --diable-multilib" to install gcc in local directory.
  
-##### (6) Add the path to gcc/lib64 to LD_LIBRAY_PATH.
+#### (6) Add the path to gcc/lib64 to LD_LIBRAY_PATH.
      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/users/srgo/packages/gcc/lib64
      export LD_LIBRARY_PATH
      
  - In later stage, "CXX=/path/to/gcc/bin/g++ CC=/path/to/gcc/bin/gcc" option will be used to build rifdock.
 
-##### (7) Make "modulefile" for new gcc in /user/share/Modules/modulefiles.
+#### (7) Make "modulefile" for new gcc in /user/share/Modules/modulefiles.
      # cd /usr/share/Modules/modulefiles              //Go to the directory where Modules is installed.
      # mkdir gcc
      # cd gcc
@@ -390,7 +390,7 @@
      # module avail                             //If you check the available modules, then you can see the modulefile of gcc is updated.
      gcc/6.5.0
      
-##### (8) Load new gcc using environment modules.
+#### (8) Load new gcc using environment modules.
      $ module load gcc/6.5.0
      
     If you want to automatically load gcc-6.5.0, open .bashrc and add "module load gcc/6.5.0" at the end of the file.
@@ -426,55 +426,55 @@
 ### 1) Install Boost
 **Notification: I recommend you to log in as "root" or "administer" to the properly install boost.**
 
-##### (1) Download Boost version 1.65.0 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_0.html). 
+#### (1) Download Boost version 1.65.0 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_0.html). 
 - Latest version of Boost (1.74.0 or 1.78.0) was not compatible with Rifdock.
 
-##### (2) Move the downloaded file to the folder to install and unpack the file (Ref: https://valelab4.ucsf.edu/svn/3rdpartypublic/boost/more/getting_started/windows.html).
+#### (2) Move the downloaded file to the folder to install and unpack the file (Ref: https://valelab4.ucsf.edu/svn/3rdpartypublic/boost/more/getting_started/windows.html).
      # cd /root/
      # mkdir packages
      # cd packages
      # tar -xvzf boost_1_65_0.tar.gz
      # cd boost_1_65_0 
 
-##### (3) Select the location to install the boost by using
+#### (3) Select the location to install the boost by using
      # ./bootstrap.sh --prefix=/path/to/install/boost/
 - **If you are logged in as "root" or administer and want to make them automatically added to /usr/local directory, you don't need to add --prefix option. Check whether libboost_xxx.so and libboost_xxx.so.1.65.0 files are generated in /usr/local/lib and /usr/local/include.**
 
-##### (4) Start installation
+#### (4) Start installation
      # ./b2 install
 - The installation process will take a quite long time. 
 - Even though there could be some minor errors like "warning: unnecessary parentheses in the declaration of 'assert_mot_arg' [-Wparentheses]", it didn't make any error during compiling Rifdock.
 - **Caution: If multiple versions of boost are installed, it makes an error when compiling RifDock. So, if you want to use another version of boost, it is recommended to delete the previous boost (check /usr/local/include /usr/local/lib /usr/lib) and install a new one.**
 
 ### 2) Load gcc-6.5.0 by modules.
-##### - From here to installing rifdock, I mounted gcc-6.5.0 by using Environment modules. See 6.2)-(8)
+#### - From here to installing rifdock, I mounted gcc-6.5.0 by using Environment modules. See 6.2)-(8)
     $ module load gcc/6.5.0
     $ which gcc
     ~/packages/gcc/bin/gcc
 
 ### 3) Install re2c - Needed to run Ninja
-##### (1) Download re2c from downloading site (https://opensuse.pkgs.org/15.3/opensuse-oss-x86_64/re2c-1.0.3-1.18.aarch64.rpm.html).
-##### (2) Install re2c by using following commands (Ref: https://re2c.org/build/build.html).
+#### (1) Download re2c from downloading site (https://opensuse.pkgs.org/15.3/opensuse-oss-x86_64/re2c-1.0.3-1.18.aarch64.rpm.html).
+#### (2) Install re2c by using following commands (Ref: https://re2c.org/build/build.html).
     $ tar -xvzf re2c-1.0.3.tar.gz
     $ cd re2c-1.0.3
     $ mkdir build
     $ cd build
     $ ../configure && make && make install
     
-##### (3) Add the path to executable re2c
+#### (3) Add the path to executable re2c
     $ export PATH=$PATH:/path/to/re2c-1.0.3/build
 - Add the path to the dirctory where "re2c" executable is installed to $PATH.
 
 ### 4) Install Ninja
-###### - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
-##### (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref:https://github.com/ninja-build/ninja/wiki, https://github.com/ninja-build/ninja) 
+#### - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
+#### (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref:https://github.com/ninja-build/ninja/wiki, https://github.com/ninja-build/ninja) 
  
-##### (2) Install Ninja
+#### (2) Install Ninja
      $ tar xvzf- ninja-1.10.2.tar.gz
      $ cd ninja-1.10.2
      $ ./configure.py --bootstrap
      
-##### (3) Set the proper PATH of Ninja (Necessary)
+#### (3) Set the proper PATH of Ninja (Necessary)
      $ echo $PATH
      $ export PATH=$PATH:/home/users/local/ninja-1.10.2/
      $ echo $PATH
@@ -483,15 +483,15 @@
 ## 8. Build Rosetta cxx11_omp and RifDock
 - This is the final stage of installing RifDock
 ### 1) Build Rosetta 3.9 as cxx11_omp using Ninja
-##### (1) Download Rosetta 3.9 source (2.8G) file (rosetta_src_3.9_bundle.tgz) and copy the source file to the directory where the Rosetta 3.9 will be installed. 
+#### (1) Download Rosetta 3.9 source (2.8G) file (rosetta_src_3.9_bundle.tgz) and copy the source file to the directory where the Rosetta 3.9 will be installed. 
 
-##### (2) Unpack Rosetta
+#### (2) Unpack Rosetta
      $ tar -xvzf rosetta_src_3.9_bundle.tgz
 
-##### (3) Move to main/source folder
+#### (3) Move to main/source folder
      $ cd rosetta_src_release_bundle/main/source
      
-##### (4) build rosetta cxx11_omp using Ninja(Ref: See 'Extra tools' in https://ninja-build.org/manual.html)
+#### (4) build rosetta cxx11_omp using Ninja(Ref: See 'Extra tools' in https://ninja-build.org/manual.html)
      $ cd rosetta_src_release_bundle/main/source
      $ CXX=/usr/bin/g++ CC=/usr/bin/gcc ./ninja_build.py cxx11_omp -t rosetta_scripts -remake
 - You can check the location of C++ and GCC by
@@ -501,7 +501,7 @@
 - It is not necessary to compile rosetta 3.9 with HDF5 or others while building RifDock.
 
 ### 2) Build RifDock
-##### (1) Copy rifdock repository and build Rifdock (https://github.com/rifdock/rifdock)
+#### (1) Copy rifdock repository and build Rifdock (https://github.com/rifdock/rifdock)
      $ unzip rifdock-master.zip
      $ mv rifdock-master rifdock
      $ cd rifdock
@@ -511,7 +511,7 @@
      $ make -j10 rif_dock_test rifgen
 - When later version of Boost(Boost-1.74.0 or Boost-1.78.0) was used instead of Boost-1.65.0, it made BOOST_BITMASK error during "make" step.
 
-##### [If you build the RifDock correctly, you can see the building process like this.]
+#### [If you build the RifDock correctly, you can see the building process like this.]
     [srgo@anode0 rifdock]$ mkdir build
     [srgo@anode0 rifdock]$ cd build/
     [srgo@anode0 build]$ CXX=/usr/bin/g++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/home/users/srgo/rosetta/rosetta_src_2018.09.60072_bundle/main CMAKE_FINAL_ROSETTA_PATH=/home/users/srgo/rosetta/rosetta_src_2018.09.60072_bundle/main/source/cmake/build_cxx11_omp cmake .. -DCMAKE_BUILD_TYPE=Release
@@ -615,11 +615,11 @@
     [100%] Built target rifgen
     [srgo@anode0 rifdock]$
     
-##### (2) Do a Unit Test to check whether the build was successful.
+#### (2) Do a Unit Test to check whether the build was successful.
      $ make test_libscheme
      
 ## 9. Running Rifdock
-#### 1) The executable files for RifDock are built at:
+### 1) The executable files for RifDock are built at:
     $ rifdock/build/apps/rosetta/rifgen
     $ rifdock/build/apps/rosetta/rif_dock_test
     
@@ -634,53 +634,53 @@
     CMakeFiles           Makefile  rif_dock_test  riflib
     cmake_install.cmake  python    rifgen
 
-#### 2) The unit tests executable file is at:
+### 2) The unit tests executable file is at:
     $ rifdock/build/schemelib/test/test_libscheme
-##### ※ Step #7 and #8 were tested more than two times.
+#### ※ Step #7 and #8 were tested more than two times.
  
 
 ## 10. Download misc(cao_2021_protocol, scilent_tools, ppi_tools, scaffolds) for RifDock
 ### 1) Download cao_2021_protocol
-##### (1) Download design scripts and main pdb files from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scripts_and_main_pdbs.tar.gz
-##### (2) Move the file to 'resources' directory and unpack the tar file.
+#### (1) Download design scripts and main pdb files from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scripts_and_main_pdbs.tar.gz
+#### (2) Move the file to 'resources' directory and unpack the tar file.
     $ cd resources
     $ tar -xvzf scripts_and_main_pdbs.tar.gz
     
-##### (3) Copy "cao_2021_protocl" directory to 'rosetta' directory.
+#### (3) Copy "cao_2021_protocl" directory to 'rosetta' directory.
     $ cd scripts_and_main_pdbs/supplemental_files/
     $ cp -r cao_2021_protocol/ ../../../rosetta
   
-##### (4) Add the PATH to cao_2021_protocol to .bashrc (This will be covered in step #10).
+#### (4) Add the PATH to cao_2021_protocol to .bashrc (This will be covered in step #10).
 
 ### 2) Download scilent_tools and ppi_tools
-##### (1) scilent_tools and ppi_tools are in cao_2021_protocol/github_backup. So, copy them to rosetta directory.
+#### (1) scilent_tools and ppi_tools are in cao_2021_protocol/github_backup. So, copy them to rosetta directory.
     $ cd cao_2021_protocol/github_backup/
     $ cp -r scilent_tools ../../
     $ cp -r ppi_tools ../../
 - Currnt working directory is $HOME/rosetta/cao_2021_protocol/github_backup/
 
-##### (2) Add the PATH to scilent_toosl and ppi_tools to .bashrc (This will be covered in step #10).
+#### (2) Add the PATH to scilent_toosl and ppi_tools to .bashrc (This will be covered in step #10).
 
 ### 3) Download Miniprotein Scaffold Library
-##### (1) Download all the scaffolds from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scaffolds.tar.gz
-##### (2) Move the file to 'resources' directory and unpack the tar file.
+#### (1) Download all the scaffolds from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scaffolds.tar.gz
+#### (2) Move the file to 'resources' directory and unpack the tar file.
     $ cd resources
     $ tar -xvzf scaffolds.tar.gz
 - If you unpack the tar file, it will generate "supplemental_files" directory.
 
-##### (3) Copy scaffold directory to rosetta directory.
+#### (3) Copy scaffold directory to rosetta directory.
     $ cp -r supplemental_files/scaffolds ../rosetta
 
-##### (4) Add the PATH scaffold directory to .bashrc (This will be covered in step #10).
+#### (4) Add the PATH scaffold directory to .bashrc (This will be covered in step #10).
 
 
 ## 11. Set the proper PATH to all binaries
-##### (1) Move to $HOME and open .bashrc
+#### (1) Move to $HOME and open .bashrc
     $cd ~
     $vi .bashrc
 - It is strongly recommended to copy the .bashrc to backup directory for safe.
 
-##### (2) Set the cusor in the empty line and change to "insert mode" by press "Shift + S" buttons and add the PATH.
+#### (2) Set the cusor in the empty line and change to "insert mode" by press "Shift + S" buttons and add the PATH.
 
 from 
 
@@ -725,11 +725,11 @@ to
 
         # User specific aliases and functions
 
-##### (3) If you finished the revision, press "ESC" button to exit from "insert mode" and press ":" button and type "wq" and press "Enter" button to save the changes and exit from the file.
+#### (3) If you finished the revision, press "ESC" button to exit from "insert mode" and press ":" button and type "wq" and press "Enter" button to save the changes and exit from the file.
         :wq
         (Enter)
 
-##### (4) Refresh the PATH by "source .bashrc" command and check whether the PATH is sucessfully added.
+#### (4) Refresh the PATH by "source .bashrc" command and check whether the PATH is sucessfully added.
     $ source .bashrc
     $ echo $PATH
     
@@ -737,7 +737,7 @@ to
 #### I'm still working to follow the cao's protocol who made rifgen and rifdock. 
 #### I will update the entire process when I stably setup and finiched to follow the protocol.
 
-#### Basic programming concepts
+### Basic programming concepts
 - compile: Change a file written in one language to another language
 - build: a compiled version of a program
 - bin: bin stands for the binary file which is a "non-text file". A Binary file is compiled file which could be directly understood and used by a computer.
@@ -755,7 +755,7 @@ In CMakeList.txt, there are two kinds of information. One is the minimum require
 - makefile: Setting file for "make" program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependancies to compile source files with make command.
 
 
-#### Basic concepts to install program in linux
+### Basic concepts to install program in linux
 - / - root directory
 - ./ - current directory
 - ../ - superior directory
