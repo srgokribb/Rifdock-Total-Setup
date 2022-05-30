@@ -1,8 +1,9 @@
 # RifDock Setup Protocol ver 1.0
 - Setup protocol to build Rosetta and RifDock
-- Tested on Red Hat 8.3.1 CentOS 8 
+- Tested on Red Hat 8.3.1 CentOS 8
+- GCC-6.5.0 loaded using Environment modules when building Rifdock
 - Written by SeongRyeong Go on 28 Apr 2022.
-- **If you want to directly see the method to build RifDock, see the step #7**
+- **If you want to directly see the method to build RifDock, see the step #8**
 
 ### These are the required files to design protein binders with RifDock
 - Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
@@ -15,7 +16,7 @@
 - Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)
 - RifDock (Boost 1.65.0 is needed)
 - Scaffolds
-- Environment modules 4.1.4 (It is necessary to load other version of GCC.)
+- Environment modules 4.5.2 (It is necessary to load other version of GCC.)
 - GCC-6.5.0 (Necessary to build and run rifdock)
 
 ### Notice
@@ -36,8 +37,11 @@
                  psipred/     PatchDock/       ppi_tools/       silent_tools/      ncbi-blast/    ncbi_tools/
 
         /usr/local/
-                 bin/   lib/  include/
-
+                 bin/   lib/  include/  share/
+        
+        /usr/share/Modules/
+                        modulefiles/gcc/6.5.0    <-- This "6.5.0" file is the modules file which could be loaded by Environment modules
+                        
 - These are the major directories which are involved in setting up rifdock
 
 ### 1. Install HDF5 and Rosetta 3.13
