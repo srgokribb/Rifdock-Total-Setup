@@ -397,7 +397,9 @@
 - You can add PATH by using "export PATH=$PATH:/new_adress_to_add"
 
 ## 8. Build Rosetta cxx11_omp and RifDock
-- This is the final stage of installing RifDock
+- Rifdock is made based on OpenMP(OMP) which is the compiler could make single thread program to multithread program.
+- Because Rifdock requires some libraries and resources in Rosetta, Rosetta also need to be build with OMP.
+
 ### 1) Build Rosetta 3.9 as cxx11_omp using Ninja
 #### (1) Download Rosetta 3.9 source (2.8G) file (rosetta_src_3.9_bundle.tgz) and copy the source file to the directory where the Rosetta 3.9 will be installed. 
 
@@ -653,6 +655,7 @@ to
 #### I'm still working to follow the cao's protocol who made rifgen and rifdock. 
 #### I will update the entire process when I stably setup and finiched to follow the protocol.
 
+## Glossaries
 ### Basic programming concepts
 - compile: Change a file written in one language to another language
 - build: a compiled version of a program
@@ -669,7 +672,10 @@ to
 In CMakeList.txt, there are two kinds of information. One is the minimum required version of CMake and another is the information about the project. For CMake has been changed from previous old ones(especially ver. 2.x), you need to identify whether the CMake which is installed in your computer is compatible to do its proper function.
 - make: File Maganement Utility which execute compile based on the dependencies described in "Makefile"
 - makefile: Setting file for "make" program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependancies to compile source files with make command.
-
+- C++11: New standard of C++. ISO assigned it at 12th Agust 2011. It made from gcc 4.3 to 4.8. Multi-threading programming API was standardized in this version. So, multi-thread programming could be performed without limitation of OS(Windows, Linux, IOS, and Android).\
+- API: 
+- OpenMP:
+- OpenMPI:
 
 ### Basic concepts to install program in linux
 - / - root directory
