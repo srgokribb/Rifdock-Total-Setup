@@ -319,21 +319,21 @@
 ### 6. Set the environment to install and run rifdock (Environment modules, gcc-6.5.0)
 #### 1) Install Environment modules
 ##### (1) Check whether your computer have Environment Modules.
-- **[Caution] Before you install Environment modules, it is critical to check whether there is already installed Environment modules. If you install additional module, the previous path settings of modules will be corrupted and it will make fatal problem.**
+- **[Caution] Before you install Environment modules, it is critical to check whether there is already installed Environment modules. If you install additional module, the previous path settings of modules will be corrupted and it will cause a lot of fatal problems.**
 - You can check whether you have moduels by below commands.
     $ module --version
     $ which module
     $ whereis Module
 
-##### (2) Download source files of the modules (https://sourceforge.net/projects/modules/files/Modules/modules-4.1.4/).
+##### (2) Download source files of the modules (https://sourceforge.net/projects/modules/files/Modules/modules-4.5.2/).
 
 ##### (3) Install Environment modules (Ref: https://www.admin-magazine.com/HPC/Articles/Environment-Modules).
     # cd /usr/local
     # mkdir Modules
     # mkdir src
-    # cp modules-4.1.4.tar.gz /usr/local/Modules/src
-    # tar -xvzf modules-4.1.4.tar.gz
-    # cd modules-4.1.4
+    # cp modules-4.5.2.tar.gz /usr/local/Modules/src
+    # tar -xvzf modules-4.5.2.tar.gz
+    # cd modules-4.5.2
     # ./configure
     # make
     # make install
@@ -442,7 +442,13 @@
 - Even though there could be some minor errors like "warning: unnecessary parentheses in the declaration of 'assert_mot_arg' [-Wparentheses]", it didn't make any error during compiling Rifdock.
 - **Caution: If multiple versions of boost are installed, it makes an error when compiling RifDock. So, if you want to use another version of boost, it is recommended to delete the previous boost (check /usr/local/include /usr/local/lib /usr/lib) and install a new one.**
 
-#### 2) Install re2c - Needed to run Ninja
+#### 2) Load gcc-6.5.0 by modules.
+##### - From here to installing rifdock, I mounted gcc-6.5.0 by using Environment modules. See 6.2)-(8)
+    $ module load gcc/6.5.0
+    $ which gcc
+    ~/packages/gcc/bin/gcc
+
+#### 3) Install re2c - Needed to run Ninja
 ##### (1) Download re2c from downloading site (https://opensuse.pkgs.org/15.3/opensuse-oss-x86_64/re2c-1.0.3-1.18.aarch64.rpm.html).
 ##### (2) Install re2c by using following commands (Ref: https://re2c.org/build/build.html).
     $ tar -xvzf re2c-1.0.3.tar.gz
@@ -455,7 +461,7 @@
     $ export PATH=$PATH:/path/to/re2c-1.0.3/build
 - Add the path to the dirctory where "re2c" executable is installed to $PATH.
 
-#### 3) Install Ninja
+#### 4) Install Ninja
 ###### - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
 ##### (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref:https://github.com/ninja-build/ninja/wiki, https://github.com/ninja-build/ninja) 
  
