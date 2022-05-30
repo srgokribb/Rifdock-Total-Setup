@@ -45,7 +45,7 @@
 - These are the major directories which are involved in setting up rifdock
 
 ### 1. Install HDF5 and Rosetta 3.13
-#### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
+### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
 ##### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1.
 
 ##### (2) Login as administer and make the "packages" directory (This directory will be used to install new libraries, compilers, and etc).
@@ -126,7 +126,7 @@
 - Do not add multiple versions of hdf5 to PATH or LD_LIBRARY_PATH. It will make a fatal error.
 - Because the addresses are added to ".bashrc", it will be maintained after you close your terminal or open a new terminal. If you don't need hdf5 anymore, remove the address to hdf5 binary and library from ".bashrc".
 
-#### 2) Install Rosetta 3.13 and compile with HDF5
+### 2) Install Rosetta 3.13 and compile with HDF5
 - Check whether the version of compilers in your machine and environment supports Rosetta before the installation (https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support).
 - GCC/g++: Version 4.8 or later (https://gcc.gnu.org/releases.html)
 - Clang/llvm on Linux: Version 3.3 or later (https://releases.llvm.org/download.html)
@@ -211,7 +211,6 @@
 
 
 ### 5. Install PsiPred
-#### 1) Install PsiPred
 - PSIPRED Version 4.0 By David Jones, January 2016
 ##### (1) Download PsiPred source code from Git-hub pirspred/pirspred (https://github.com/psipred/psipred).
 - The file name will be "psipred-master.zip".
@@ -321,7 +320,7 @@
             $ more example.horiz
             
 ### 6. Set the environment to install and run rifdock (Environment modules, gcc-6.5.0)
-#### 1) Install Environment modules
+### 1) Install Environment modules
 ##### (1) Check whether your computer have Environment Modules.
 - **[Caution] Before you install Environment modules, it is critical to check whether there is already installed Environment modules. If you install additional module, the previous path settings of modules will be corrupted and it will cause a lot of fatal problems.**
 - You can check whether you have moduels by below commands.
@@ -343,7 +342,7 @@
     # make
     # make install
 
-#### 2) Install GCC 6.5.0
+### 2) Install GCC 6.5.0
 ##### (1) Current GCC verison could be identified by using
      $ gcc --version
 - The version of other compilers also could be identified by using '--version'.
@@ -424,7 +423,7 @@
 - Install Boost version 1.65 or later
 - Tested CentOS8(Red Hat gcc 8.3.1) with Boost-1.65.0
 
-#### 1) Install Boost
+### 1) Install Boost
 **Notification: I recommend you to log in as "root" or "administer" to the properly install boost.**
 
 ##### (1) Download Boost version 1.65.0 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_0.html). 
@@ -447,13 +446,13 @@
 - Even though there could be some minor errors like "warning: unnecessary parentheses in the declaration of 'assert_mot_arg' [-Wparentheses]", it didn't make any error during compiling Rifdock.
 - **Caution: If multiple versions of boost are installed, it makes an error when compiling RifDock. So, if you want to use another version of boost, it is recommended to delete the previous boost (check /usr/local/include /usr/local/lib /usr/lib) and install a new one.**
 
-#### 2) Load gcc-6.5.0 by modules.
+### 2) Load gcc-6.5.0 by modules.
 ##### - From here to installing rifdock, I mounted gcc-6.5.0 by using Environment modules. See 6.2)-(8)
     $ module load gcc/6.5.0
     $ which gcc
     ~/packages/gcc/bin/gcc
 
-#### 3) Install re2c - Needed to run Ninja
+### 3) Install re2c - Needed to run Ninja
 ##### (1) Download re2c from downloading site (https://opensuse.pkgs.org/15.3/opensuse-oss-x86_64/re2c-1.0.3-1.18.aarch64.rpm.html).
 ##### (2) Install re2c by using following commands (Ref: https://re2c.org/build/build.html).
     $ tar -xvzf re2c-1.0.3.tar.gz
@@ -466,7 +465,7 @@
     $ export PATH=$PATH:/path/to/re2c-1.0.3/build
 - Add the path to the dirctory where "re2c" executable is installed to $PATH.
 
-#### 4) Install Ninja
+### 4) Install Ninja
 ###### - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
 ##### (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref:https://github.com/ninja-build/ninja/wiki, https://github.com/ninja-build/ninja) 
  
@@ -483,7 +482,7 @@
 
 ### 8. Build Rosetta cxx11_omp and RifDock
 - This is the final stage of installing RifDock
-#### 1) Build Rosetta 3.9 as cxx11_omp using Ninja
+### 1) Build Rosetta 3.9 as cxx11_omp using Ninja
 ##### (1) Download Rosetta 3.9 source (2.8G) file (rosetta_src_3.9_bundle.tgz) and copy the source file to the directory where the Rosetta 3.9 will be installed. 
 
 ##### (2) Unpack Rosetta
@@ -501,7 +500,7 @@
      $ which -a gcc
 - It is not necessary to compile rosetta 3.9 with HDF5 or others while building RifDock.
 
-#### 2) Build RifDock
+### 2) Build RifDock
 ##### (1) Copy rifdock repository and build Rifdock (https://github.com/rifdock/rifdock)
      $ unzip rifdock-master.zip
      $ mv rifdock-master rifdock
@@ -620,7 +619,7 @@
      $ make test_libscheme
      
 ### 9. Running Rifdock
-##### 1) The executable files for RifDock are built at:
+#### 1) The executable files for RifDock are built at:
     $ rifdock/build/apps/rosetta/rifgen
     $ rifdock/build/apps/rosetta/rif_dock_test
     
@@ -635,13 +634,13 @@
     CMakeFiles           Makefile  rif_dock_test  riflib
     cmake_install.cmake  python    rifgen
 
-##### 2) The unit tests executable file is at:
+#### 2) The unit tests executable file is at:
     $ rifdock/build/schemelib/test/test_libscheme
 ##### ※ Step #7 and #8 were tested more than two times.
  
 
 ### 10. Download misc(cao_2021_protocol, scilent_tools, ppi_tools, scaffolds) for RifDock
-#### 1) Download cao_2021_protocol
+### 1) Download cao_2021_protocol
 ##### (1) Download design scripts and main pdb files from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scripts_and_main_pdbs.tar.gz
 ##### (2) Move the file to 'resources' directory and unpack the tar file.
     $ cd resources
@@ -653,7 +652,7 @@
   
 ##### (4) Add the PATH to cao_2021_protocol to .bashrc (This will be covered in step #10).
 
-#### 2) Download scilent_tools and ppi_tools
+### 2) Download scilent_tools and ppi_tools
 ##### (1) scilent_tools and ppi_tools are in cao_2021_protocol/github_backup. So, copy them to rosetta directory.
     $ cd cao_2021_protocol/github_backup/
     $ cp -r scilent_tools ../../
@@ -662,7 +661,7 @@
 
 ##### (2) Add the PATH to scilent_toosl and ppi_tools to .bashrc (This will be covered in step #10).
 
-#### 3) Download Miniprotein Scaffold Library
+### 3) Download Miniprotein Scaffold Library
 ##### (1) Download all the scaffolds from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scaffolds.tar.gz
 ##### (2) Move the file to 'resources' directory and unpack the tar file.
     $ cd resources
