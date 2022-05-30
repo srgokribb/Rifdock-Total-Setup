@@ -306,7 +306,7 @@
      # module avail                             //If you check the available modules, then you can see the modulefile of gcc is updated.
      gcc/6.5.0
      
-#### (8) Load new gcc using environment modules.
+#### (8) Login as local user and load new gcc using environment modules.
      $ module load gcc/6.5.0
      
     If you want to automatically load gcc-6.5.0, open .bashrc and add "module load gcc/6.5.0" at the end of the file.
