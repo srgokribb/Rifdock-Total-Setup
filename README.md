@@ -4,8 +4,7 @@
 - GCC-6.5.0 loaded using Environment modules when building Rifdock
 - Written by SeongRyeong Go on 28 Apr 2022.
 - **If you want to directly see the method to build RifDock, see the step #8**
-- This is the result that I struggled with compiling and installing Rifdock more than 1 month.
-- Basically I'm not an expert of computer science or Linux. So, there could be some errors that I missed.
+- **Basically I'm not an expert of computer science or Linux. So, there could be some errors that I missed.**
 
 ### These are the required files to design protein binders with RifDock
 - Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
@@ -13,13 +12,12 @@
 - PyRosetta4
 - PatchDock
 - PsiPred
-- silent_tools
-- motif_clustering/cluster
-- Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)
-- RifDock (Boost 1.65.0 is needed)
-- Scaffolds
 - Environment modules 4.5.2 (It is necessary to load other version of GCC.)
 - GCC-6.5.0 (Necessary to build and run rifdock)
+- Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)
+- RifDock (Boost 1.65.0 is needed)
+- silent_tools
+- Scaffolds
 
 ### Notice
 - In this protocol, the command line which starts with **"#"** means **"root"** or **"administer"**, and the command line which starts with **"$"** means **"local user"**.
