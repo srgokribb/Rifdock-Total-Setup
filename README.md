@@ -321,6 +321,7 @@
 ##### (1) Check whether your computer have Environment Modules.
 - **[Caution] Before you install Environment modules, it is critical to check whether there is already installed Environment modules. If you install additional module, the previous path settings of modules will be corrupted and it will cause a lot of fatal problems.**
 - You can check whether you have moduels by below commands.
+#####
     $ module --version
     $ which module
     $ whereis Module
