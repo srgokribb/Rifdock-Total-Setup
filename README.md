@@ -250,11 +250,9 @@
     $ cd BLAST+
     $ vi runpsipredplus
     
-- Basically, cao_2021_protocol used runpsipred_single, nor older version nither recent version of blast do not have blastpgp which is required to execute runpsipred or runpsipred_single
-- However, runpsipredplus in BLAST+/ directory uses psipred in BLAST_2022/bin and it actually works.
-- So, I tried to use runpsipredplus instead of runpsipred_single.
-
-
+- Eventhough runpsipred_single is used in cao_2021_protocol, nor older version nither recent version of blast do not have blastpgp which is required to execute runpsipred or runpsipred_single. If you read "user_mannual.pdf" in the ftp server, you will find that blastpgp is integrated to psiblast.
+- There is an another option. runpsipredplus in BLAST+/ directory uses psipred in BLAST_2022/bin and it actually works.
+- So, I tried to use runpsipredplus to follow cao's protocol instead of using runpsipred_single.
 
 #### (9) Test whether the psipred is run
     $ cd example
