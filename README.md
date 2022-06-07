@@ -173,6 +173,7 @@
 
 #### (2) Type "make" to build DAIphaBall.
     $ make
+- DAlphaBall.gcc will be made.
 
 ## 3. Install PyRosetta
 #### (1) Get the license for PyRosetta in Rosetta Commons(https://www.rosettacommons.org/software/license-and-download)
@@ -220,7 +221,7 @@
     $ unzip psipred-master.zip
     $ mv psipred-master PSIPRED
 
-#### (4) Compile and install psipred.
+#### (4) Install psipred.
     $ cd PSIPRED
     $ cd src
     $ make
@@ -229,7 +230,33 @@
 - If the installation is finished, executable "psipred" will be in bin directory
 - You can use "runpsipred" to run psipred program.
 
-#### (5) Test whether the psipred is run
+#### (5) Install Blast 2.13.0 version (https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.13.0/)
+- Download "ncbi-blast-2.13.0+-x64-linux.tar.gz" and unpack it to the packages directory.
+####
+    $ tar -xvzf ncbi-blast-2.13.0+-x64-linux.tar.gz
+    $ mv ncbi-blast-2.13.0+ BLAST_2022
+- I changed the name of the blast directory to "BLAST_2022".
+
+#### (6) Download UNIREF90 from uniprot FTP (https://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/)
+- Download "uriref90.fasta.gz" and unpack it to the packages directory.
+- This is the main database file for psipred.
+####
+    $ tar -xvzf uniref.fasta.gz
+    $ mkdir UNIREF90
+    
+
+#### (7) Open "runpsipredplus" in psipred/BLAST+ directory. Then, revise the path to the UNIREF90 (dename) and psipred (ncbidir).
+    $ cd psipred
+    $ cd BLAST+
+    $ vi runpsipredplus
+    
+- Basically, cao_2021_protocol used runpsipred_single, nor older version nither recent version of blast do not have blastpgp which is required to execute runpsipred or runpsipred_single
+- However, runpsipredplus in BLAST+/ directory uses psipred in BLAST_2022/bin and it actually works.
+- So, I tried to use runpsipredplus instead of runpsipred_single.
+
+
+
+#### (9) Test whether the psipred is run
     $ cd example
     $ runpsipred example.fasta
 - If you didn't install PSI-BLAST, there will be the error that cannot find .blast files to run the psipred.
