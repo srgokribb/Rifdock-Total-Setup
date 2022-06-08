@@ -24,7 +24,7 @@
 
 ### Directory Structure
         
-        home/   root/    usr/  
+        home/   root/    usr/   opt/
 
         /root/packages/
                         hdf/     boost-1.65.0/    
@@ -241,9 +241,11 @@
 - Download "uriref90.fasta.gz" and unpack it to the packages directory.
 - This is the main database file for psipred.
 ####
-    $ tar -xvzf uniref.fasta.gz
+    $ cd rifdock/packages/
     $ mkdir UNIREF90
-    
+    $ cd UNIREF90 
+    $ cp /path/to/uniref90.fasta.gz .
+    $ gzip -d uniref.fasta.gz
 
 #### (7) Open "runpsipredplus" in psipred/BLAST+ directory. Then, revise the path to the UNIREF90 (dename) and psipred (ncbidir).
     $ cd psipred
