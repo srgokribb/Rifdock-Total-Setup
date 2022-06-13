@@ -1,4 +1,4 @@
-# RifDock Setup Protocol ver 1.2
+# RifDock Setup Protocol ver 1.1
 - Setup protocol to build Rosetta and RifDock
 - Tested on Red Hat 8.3.1 CentOS 8
 - GCC-6.5.0 loaded using Environment modules to build Rifdock corecctly.
