@@ -1,8 +1,9 @@
 # RifDock Setup Protocol ver 1.0
 - Setup protocol to build Rosetta and RifDock
 - Tested on Red Hat 8.3.1 CentOS 8
-- GCC-6.5.0 loaded using Environment modules when building Rifdock
+- GCC-6.5.0 loaded using Environment modules to build Rifdock corecctly.
 - Written by SeongRyeong Go on 28 Apr 2022.
+- Last revised on 13 June 2022.
 - **If you want to directly see the method to build RifDock, see the step #8**
 - **Basically I'm not an expert of computer science or Linux. So, there could be some mistakes that I missed.**
 
@@ -219,48 +220,47 @@
 
 #### (3) Unpack the zip file by
     $ unzip psipred-master.zip
-    $ mv psipred-master PSIPRED
+    $ mv psipred-master pripred
 
 #### (4) Install psipred.
-    $ cd PSIPRED
+    $ cd psipred
     $ cd src
     $ make
     $ make install
     $ export PATH=$PATH:/path/to/psipred
 - If the installation is finished, executable "psipred" will be in bin directory
-- You can use "runpsipred" to run psipred program.
+- You can use "runpsipred_single" to run psipred program.
 
-#### (5) Install Blast 2.13.0 version (https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.13.0/)
-- Download "ncbi-blast-2.13.0+-x64-linux.tar.gz" and unpack it to the packages directory.
-####
-    $ tar -xvzf ncbi-blast-2.13.0+-x64-linux.tar.gz
-    $ mv ncbi-blast-2.13.0+ BLAST_2022
-- I changed the name of the blast directory to "BLAST_2022".
-
-#### (6) Download UNIREF90 from uniprot FTP (https://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/)
-- Download "uriref90.fasta.gz" and unpack it to the packages directory.
-- This is the main database file for psipred.
-####
-    $ cd rifdock/packages/
-    $ mkdir UNIREF90
-    $ cd UNIREF90 
-    $ cp /path/to/uniref90.fasta.gz .
-    $ gzip -d uniref.fasta.gz
-
-#### (7) Open "runpsipredplus" in psipred/BLAST+ directory. Then, revise the path to the UNIREF90 (dename) and psipred (ncbidir).
+#### (5) Open "runpsipre_single" and revise the path to the "execdir" and "datadir".
     $ cd psipred
-    $ cd BLAST+
-    $ vi runpsipredplus
+    $ vi runpsipred_single
+    
+        #!/bin/tcsh
+
+        # This is a simple script which will carry out all of the basic steps
+        # required to make a PSIPRED prediction. Note that it assumes that the
+        # following programs are available in the appropriate directories:
+        # seq2mtx - PSIPRED V4 program
+        # psipred - PSIPRED V4 program
+        # psipass2 - PSIPRED V4 program
+
+        # NOTE: Script modified to be more cluster friendly (DTJ April 2008)
+
+        # Where the PSIPRED V4 programs have been installed
+        set execdir = ./bin                                               // Change here to /path/to/psipred/bin
+
+        # Where the PSIPRED V4 data files have been  installed
+        set datadir = ./data                                              // Change here to /path/to/psipred/data
     
 - Eventhough runpsipred_single is used in cao_2021_protocol, nor older version nither recent version of blast do not have blastpgp which is required to execute runpsipred or runpsipred_single. If you read "user_mannual.pdf" in the ftp server, you will find that blastpgp is integrated to psiblast.
 - There is an another option. runpsipredplus in BLAST+/ directory uses psipred in BLAST_2022/bin and it actually works.
 - So, I tried to use runpsipredplus to follow cao's protocol instead of using runpsipred_single.
 
-#### (9) Test whether the psipred is run
+#### (6) Test whether the psipred is run
     $ cd example
-    $ runpsipred example.fasta
-- If you didn't install PSI-BLAST, there will be the error that cannot find .blast files to run the psipred.
-- However, Rifdock only requires "runpsipred_single" executable file, so there could be no need to install PSI-Blast, NCBI Toolkit, UNIREF90 and etc. 
+    $ ../runpsipred_single example.fasta
+    
+- Rifdock only requires "runpsipred_single" executable file, so there is no need to install PSI-Blast, NCBI Toolkit, UNIREF90 and etc. 
             
 ## 6. Set the environment to install and run rifdock (Environment modules, gcc-6.5.0)
 ### 1) Install Environment modules
@@ -381,7 +381,7 @@
 
 #### (3) Select the location to install the boost by using
      # ./bootstrap.sh --prefix=/path/to/install/boost/
-- **If you are logged in as "root" or administer and want to make them automatically added to /usr/local directory, you don't need to add --prefix option. Check whether libboost_xxx.so and libboost_xxx.so.1.65.0 files are generated in /usr/local/lib and /usr/local/include.**
+- **If you are sign in as "root" or administer and want to make them automatically added to /usr/local directory, you don't need to add --prefix option. Check whether libboost_xxx.so and libboost_xxx.so.1.65.0 files are generated in /usr/local/lib and /usr/local/include.**
 
 #### (4) Start installation
      # ./b2 install
@@ -625,7 +625,7 @@
     $vi .bashrc
 - It is strongly recommended to copy the .bashrc to backup directory for safe.
 
-#### (2) Set the cusor in the empty line and change to "insert mode" by press "Shift + S" buttons and add the PATH.
+#### (2) Set the cusor in the empty line and change to "insert mode" by press "Shift + i" buttons and add the PATH.
 
 from 
 
