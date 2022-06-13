@@ -4,7 +4,7 @@
 - GCC-6.5.0 loaded using Environment modules when building Rifdock
 - Written by SeongRyeong Go on 28 Apr 2022.
 - **If you want to directly see the method to build RifDock, see the step #8**
-- **Basically I'm not an expert of computer science or Linux. So, there could be some errors that I missed.**
+- **Basically I'm not an expert of computer science or Linux. So, there could be some mistakes that I missed.**
 
 ### These are the required files to design protein binders with RifDock
 - Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
