@@ -695,7 +695,7 @@ to
 - Bash: Bourne Again Shell(BASH) is the free software that replaces Bourne shell. BASH is the basic UNIX shell of GNU, Linux, Mac OS X. Shell is the interface that is used when executing the command and program. Shell connects the kernel and user, it receives the command from the user and executes the program.
 - UNIX: A multitasking, multiuser computer operating system(OS)
 - Kernel: The core program of OS. It manages Security, Resource, Memory, and Abstraction of complicated information.
-- CMake: The program which generates build files(such as Makefile) that build a specific project. It is not the building program itself, but it is a program to generate build files. CMakeList.txt --(CMake)--> Makefile --(make)--> Excutalbles 
+- CMake: The program which generates build files(such as Makefile) that build a specific project. It is not the building program itself, but it is a program to generate build files. CMakeList.txt --(CMake)--> Makefile --(make)--> Excutables 
 In CMakeList.txt, there are two kinds of information. One is the minimum required version of CMake and another is the information about the project. For CMake has been changed from previous old ones(especially ver. 2.x), you need to identify whether the CMake which is installed in your computer is compatible to do its proper function.
 - make: File Maganement Utility which execute compile based on the dependencies described in "Makefile"
 - makefile: Setting file for "make" program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependancies to compile source files with make command.
