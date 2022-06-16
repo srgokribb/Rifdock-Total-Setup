@@ -571,7 +571,7 @@ In CMakeList.txt, there are two kinds of information. One is the minimum require
 - make: File Maganement Utility which execute compile based on the dependencies described in "Makefile"
 - makefile: Setting file for "make" program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependancies to compile source files with make command.
 - C++11: New standard of C++. ISO assigned it at 12th Agust 2011. It made from gcc 4.3 to 4.8. Multi-threading programming API was standardized in this version. So, multi-thread programming could be performed without limitation of OS(Windows, Linux, IOS, and Android).\
-- API: 
+- API: Aplication Programming Interface
 - OpenMP:
 - OpenMPI:
 
