@@ -3,11 +3,11 @@
 - Tested on Red Hat 8.3.1 CentOS 8
 - GCC-6.5.0 loaded using Environment modules to build Rifdock correctly.
 - Written by SeongRyeong Go on 28 Apr 2022.
-- Last revised on 13 June 2022.
+- Last revised on 16 June 2022.
 - **If you want to directly see the method to build RifDock, see the step #8**
 - **Basically I'm a beginner to Linux. So, there could be some mistakes that I missed.**
 - I tried to made this mannual as easy as possible, so that anyone, who patiently follows the mannual, could successfully install rifdock.
-- I really hope this guide could be helpful to others.
+- **Specially give thanks to Longxing Cao and Brian Coventry, who are the members of David Baker's group in UW, for sharing Rifdock.**
 
 ### These are the required program or files for RifDock
 - Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
