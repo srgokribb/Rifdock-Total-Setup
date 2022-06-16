@@ -312,11 +312,11 @@
      $ cd ..
      $ mkdir objdir
      $ cd objdir
-     $../configure --prefix=$HOME/GCC-6.5.0 --enable-languages=c,c++,fortran --disable-multilib
+     $../configure --prefix=$HOME/path/to/make/GCC-6.5.0 --enable-languages=c,c++,fortran --disable-multilib
      $ make
      $ make install
      $ cd ~ && vi .bashrc
- - I used "$../configure --prefix=$/home/users/srgo/packages/gcc --enable-languages=c,c++,fortran --diable-multilib" to install gcc in local directory.
+- "--disable-multilib" is used not to make libraries for 32-bit, bacause my linux environment is 64-bit. Check whether the options are fit to your environment.
  
 #### (6) Make "modulefile" for new gcc in /user/share/Modules/modulefiles.
      # cd /usr/share/Modules/modulefiles              //Go to the directory where Modules is installed.
