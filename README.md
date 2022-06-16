@@ -9,7 +9,8 @@
 - I tried to made this mannual as easy as possible, so that anyone, who patiently follows the mannual, could successfully install rifdock.
 - **Specially give thanks to Longxing Cao and Brian Coventry, who are the members of David Baker's group in UW, for sharing Rifdock.**
 
-### These are the required program or files for RifDock
+### These are the required programs or resources to run RifDock
+**(Bolded programs are directly necessary to build Rifdock)**
 - Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
 - DAIphaBall(Part of Rosetta)
 - PyRosetta4
@@ -17,10 +18,11 @@
 - PsiPred
 - Environment modules 4.5.2 (It is necessary to load other version of GCC.)
 - GCC-6.5.0 (Necessary to build and run rifdock)
-- Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)
-- RifDock (Boost 1.65.0 is needed)
+- **Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)**
+- **RifDock (Boost 1.65.0 is needed)**
 - silent_tools
-- Scaffolds
+- Scaffolds\
+
 
 ### Notice
 - In this protocol, the command line which starts with **"#"** means **"root"** or **"administer"**, and the command line which starts with **"$"** means **"local user"**.
