@@ -394,10 +394,12 @@
 - **Caution: If multiple versions of boost are installed, it makes an error when compiling RifDock. So, if you want to use another version of boost, it is recommended to delete the previous boost (check /usr/local/include /usr/local/lib /usr/lib) and install a new one.**
 
 ### 2) Load gcc-6.5.0 by modules.
-#### - From here to installing rifdock, I mounted gcc-6.5.0 by using Environment modules. See 6.2)-(8)
+#### - **Important: From here to finishing the building rifdock, keep gcc-6.5.0 mounted on the terminals. See 6.2)-(8)**
     $ module load gcc/6.5.0
     $ which gcc
     ~/packages/gcc/bin/gcc
+- If you don't compile rifdock using GCC 5.x, 6.x, or 7.x, you can not install really working rifdock.
+- You can install rifdock eventhough you do not change GCC version, you will eventually get "ASSERTION ERROR" when you try to use rifgen, one of the major executable in Rifdock.
 
 ### 3) Install re2c - Needed to run Ninja
 #### (1) Download re2c from downloading site (https://opensuse.pkgs.org/15.3/opensuse-oss-x86_64/re2c-1.0.3-1.18.aarch64.rpm.html).
@@ -442,12 +444,7 @@
      
 #### (4) build rosetta cxx11_omp using Ninja(Ref: See 'Extra tools' in https://ninja-build.org/manual.html)
      $ cd rosetta_src_release_bundle/main/source
-     $ CXX=/usr/bin/g++ CC=/usr/bin/gcc ./ninja_build.py cxx11_omp -t rosetta_scripts -remake
-- You can check the location of C++ and GCC by
-     $ which -a c++
-     $ which -a cc
-     $ which -a gcc
-- It is not necessary to compile rosetta 3.9 with HDF5 or others while building RifDock.
+     $ CXX=/path/to/gcc-6.5.0/bin/g++ CC=/path/to/gcc-6.5.0/bin/gcc ./ninja_build.py cxx11_omp -t rosetta_scripts -remake
 
 ### 2) Build RifDock
 #### (1) Copy rifdock repository and build Rifdock (https://github.com/rifdock/rifdock)
@@ -456,7 +453,7 @@
      $ cd rifdock
      $ mkdir build
      $ cd build
-     $ CXX=/usr/bin/g++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/Path/to/a/rosetta/main CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_cxx11_omp cmake .. -DCMAKE_BUILD_TYPE=Release
+     $ CXX=/path/to/gcc-6.5.0/bin/g++ CC=/path/to/gcc-6.5.0/bin/gcc CMAKE_ROSETTA_PATH=/Path/to/a/rosetta/main CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_cxx11_omp cmake .. -DCMAKE_BUILD_TYPE=Release
      $ make -j10 rif_dock_test rifgen
 - When later version of Boost(Boost-1.74.0 or Boost-1.78.0) was used to build rifdock, instead of Boost-1.65.0, it caused BOOST_BITMASK error during "make" step.
 
@@ -471,18 +468,16 @@
     $ cd resources
     $ tar -xvzf scripts_and_main_pdbs.tar.gz
     
-#### (3) Copy "cao_2021_protocl" directory to 'rosetta' directory.
+#### (3) Check the files in cao_2021_protocol.
     $ cd scripts_and_main_pdbs/supplemental_files/
-    $ cp -r cao_2021_protocol/ ../../../rosetta
+- There will be cao_2021_protocol_guide.txt which is the practical guide to run rifdock.
+- There will be .xml, .py, .flags, .sh, .ipynb and etc. The usage of the files are described in cao_2021_protocol_guide.txt.
   
 ### 2) Download scilent_tools and ppi_tools
-#### (1) scilent_tools and ppi_tools are in cao_2021_protocol/github_backup. So, copy them to rosetta directory.
+#### (1) scilent_tools and ppi_tools are in cao_2021_protocol/github_backup.
     $ cd cao_2021_protocol/github_backup/
-    $ cp -r scilent_tools ../../
-    $ cp -r ppi_tools ../../
-- Currnt working directory is $HOME/rosetta/cao_2021_protocol/github_backup/
 
-#### (2) Add the PATH to scilent_toosl and ppi_tools to .bashrc (This will be covered in step #11).
+#### (2) Add the PATH to scilent_tools to .bashrc (This will be covered in step #11).
 
 ### 3) Download Miniprotein Scaffold Library
 #### (1) Download all the scaffolds from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scaffolds.tar.gz
@@ -495,6 +490,10 @@
     $ cp -r supplemental_files/scaffolds ../rosetta
 
 #### (4) Add the PATH scaffold directory to .bashrc (This will be covered in step #11).
+
+### 4) Download modular repeat protein database
+#### (1) Download ss_grouped_vall_all.h5 (files.ipd.uw.edu/pub/modular_repeat_protein_2020/ss_grouped_vall_all.h5)
+- This file will be used for some steps in cao's protocol to make better output.
 
 ## 11. Set the proper PATH to all binaries
 #### (1) Move to $HOME and open .bashrc
@@ -535,17 +534,14 @@ to
         # User specific environment
         PATH="$HOME/.local/bin:$HOME/bin:$PATH"
         export PATH
-        PATH=$PATH:/home/users/srgo/rosetta/rosetta_src_2021.16.61629_bundle/main/source/bin:/home/users/srgo/rosetta/rifdock/build/apps/rosetta:/home/users/srgo/rosetta/scaffolds:/home/users/srgo/rosetta/cao_2021_protocol:/home/users/srgo/rosetta/psipred:/home/users/srgo/rosetta/psipred/bin:/home/users/srgo/rosetta/PatchDock:/home/users/srgo/rosetta/silent_tools:/home/users/srgo/rosetta/NCBI/BLAST/bin
+        PATH=$PATH:/home/users/srgo/rosetta/rosetta_src_2021.16.61629_bundle/main/source/bin:/home/users/srgo/rosetta/scaffolds:/home/users/srgo/rosetta/silent_tools
         export PATH
 
         LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
         export LD_LIBRARY_PATH
+        
+        module load rifdock/rifdock
 
-
-        # Uncomment the following line if you don't like systemctl's auto-paging feature:
-        # export SYSTEMD_PAGER=
-
-        # User specific aliases and functions
 
 #### (3) If you finished the revision, press "ESC" button to exit from "insert mode" and press ":" button and type "wq" and press "Enter" button to save the changes and exit from the file.
         :wq
@@ -556,8 +552,8 @@ to
     $ echo $PATH
     
 ## 12. Try rifdock_tutorial
-#### I'm still working to follow the cao's protocol who made rifgen and rifdock. 
-#### I will update the entire process when I stably setup and finiched to follow the protocol.
+#### I'm still working to follow the cao's protocol. 
+#### I will update the entire process after I finished to follow the protocol.
 
 ## Glossaries
 ### Basic programming concepts
