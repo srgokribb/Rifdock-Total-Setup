@@ -1,4 +1,4 @@
-# RifDock Setup Protocol ver 1.1
+# RifDock Setup Protocol ver 1.2
 - Setup protocol to build Rosetta and RifDock
 - Tested on Red Hat 8.3.1 CentOS 8
 - GCC-6.5.0 loaded using Environment modules to build Rifdock correctly.
@@ -8,6 +8,10 @@
 - **Basically I'm a beginner to Linux. So, there could be some mistakes that I missed.**
 - I tried to made this mannual as easy as possible, so that anyone, who patiently follows the mannual, could successfully install rifdock.
 - **Specially give thanks to Longxing Cao and Brian Coventry, who are the members of David Baker's group in UW, for sharing Rifdock.**
+
+## Least spec to run rifdock
+- Recommended by authors of Rifdock: 32+ core CPU, 16-80GB RAM depending on the size of the target
+- As for me, Sensibly recommned 50 core CPU or more, 200GB RAM or more **per one target**.
 
 ### These are the required programs or resources to run RifDock
 **(Bolded programs are directly necessary to build Rifdock)**
@@ -21,7 +25,8 @@
 - **Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)**
 - **RifDock (Boost 1.65.0 is needed)**
 - silent_tools
-- Scaffolds\
+- Scaffolds
+- ss_grouped_vall_all.h5(optional)
 
 
 ### Notice
