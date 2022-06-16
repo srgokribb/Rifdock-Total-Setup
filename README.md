@@ -1,13 +1,15 @@
 # RifDock Setup Protocol ver 1.1
 - Setup protocol to build Rosetta and RifDock
 - Tested on Red Hat 8.3.1 CentOS 8
-- GCC-6.5.0 loaded using Environment modules to build Rifdock corecctly.
+- GCC-6.5.0 loaded using Environment modules to build Rifdock correctly.
 - Written by SeongRyeong Go on 28 Apr 2022.
 - Last revised on 13 June 2022.
 - **If you want to directly see the method to build RifDock, see the step #8**
-- **Basically I'm not an expert of computer science or Linux. So, there could be some mistakes that I missed.**
+- **Basically I'm a beginner to Linux. So, there could be some mistakes that I missed.**
+- I tried to made this mannual as easy as possible, so that anyone, who patiently follows the mannual, could successfully install rifdock.
+- I really hope this guide could be helpful to others.
 
-### These are the required files to design protein binders with RifDock
+### These are the required program or files for RifDock
 - Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
 - DAIphaBall(Part of Rosetta)
 - PyRosetta4
@@ -45,16 +47,21 @@
                         
 - These are the major directories which are involved in setting up rifdock
 
-## 1. Install HDF5 and Rosetta 3.13
+## 1. Install HDF5 and Compile Rosetta_3.13 with HDF5
 ### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
+- **Caution: Do not install multiple versions of hdf5 under usr/local. If multiple versions of same compiler are accessible to $PATH or $LD_LIBRARY_PATH, it could make fatal error.** If you are an user of the server and new to linux, be cautious and ask a help to the system manager or expert.
+
 #### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1.
 
 #### (2) Login as administer and make the "packages" directory (This directory will be used to install new libraries, compilers, and etc).
     # mkdir packages
     # cd packages          // pwd is /root/packages/
-     
-#### (3) Move the downloaded file to the directory to install the file and unpack the tar file.             
+    
+- This is just an example, but I recommned you to make your own directory to install compilers or programs.
+
+#### (3) Move the downloaded file to the directory you've made (packages/) and unpack the tar file.             
     # tar -xvzf hdf5-1.12.1-centos8_64.tar.gz
+    
 - If you unpack the tar file, "hdf" directory will be generated.
 
 #### (3) Enter in to the unpacked directory and execute installer file(.sh).
@@ -68,11 +75,11 @@
     # ls
     bin/ include/ lib/ share/
     
-- You can see the new direictory is generated. At the lowest location of the directory, there are "bin", "include", "lib", "and "Share".
+- You can see the new direictory named as "hdf" is generated. At the lowest location of the directory, there are "bin", "include", "lib", "and "Share".
 - "bin" directory: Executables
 - "include" directory: Header files
 - "lib" directory: Library files and linkers(.so)
-- Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to set your files (/usr/local/bin /include /lib). If there are some files which could be overwitten, backup the files to other location and continue to the next step. It is important to keep your previous environment and avoid any fatal mistakes. 
+- **Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to finally install your files (/usr/local/bin /include /lib). If there are some files which could be overwitten, backup the previous files to the other directory and continue to the next step. It is important not to distroy your previous environments and avoid any fatal mistakes.** 
 
 #### (4) Copy the files to proper directory. /usr/local/bin/ user/local/include/ usr/local/lib/
     # cd bin
@@ -84,7 +91,7 @@
 
 #### (5) (Optioanl) Refresh the shared library cache with "ldconfig".
     # ldconfig
-- If your computer have other programs which refreshes the shared library cache, this step could be skipped.
+- If your computer have the system which refreshes the shared library cache, this step could be skipped.
 - If there are some jobs which were already running and should be maintained, it is safer to execute this command after the jobs are finished.
 - ldconfig command only could be executed by administer.
 
@@ -123,8 +130,8 @@
 #### (8) Check whether $PATH and $LD_LIBRARY_PATH are updated.
     $ echo $PATH
     $ echo $LD_LIBRARY_PATH
+    
 - If PATH is updated correctly, you can proceed to rosetta install and compilation.
-- Do not add multiple versions of hdf5 to PATH or LD_LIBRARY_PATH. It will make a fatal error.
 - Because the addresses are added to ".bashrc", it will be maintained after you close your terminal or open a new terminal. If you don't need hdf5 anymore, remove the address to hdf5 binary and library from ".bashrc".
 
 ### 2) Install Rosetta 3.13 and compile with HDF5
@@ -145,7 +152,7 @@
 #### (5) Move to 'source' folder.
     $ cd rosetta_src_release_bundle/main/source
 
-#### (6) Check 'Scons.py' is in the source folder. This file is the software needed to compile Rosetta (already included in the rosetta bundle in main/source folder). 
+#### (6) Check 'scons.py' is in the source folder. This file is the software needed to compile Rosetta (already included in the rosetta bundle in main/source folder). 
 
 #### (7) Compile rosetta in HDF5 format which is the basic form of Rosetta.
     $ ./scons.py -j10 mode=release extras=hdf5 rosetta_scripts
@@ -155,19 +162,16 @@
 - 'mode=debug' or not mentioning any mode include additional checks which slow down Rosetta runs (not recommended).
 - 'extra=hdf5' option is used to build basic rosetta. If you use this option, add 'rosetta_scripts' at the end of the line.
 - 'extras=static' builds static binaries which could be useful to copy or run the apps on other systems.
-- 'extras=mpi' compiles Rosetta in Massage Passing Interface format which supports MPI run (Recommended for CAE-Simulator system)
-- If the extra option is mpi, use "bin/rosetta_scripts.mpi.linuxgccrelease", but if the option is static, then use "bin/rosetta_scripts.default.linuxgccrelease".
-- There are additional option to compile with specific cxx version. In that case, use the form like "$ ./scons.py -j 10 mode=release bin cxx=clang cxx_ver=4.5".
-- This compiling process will take about 1h. The time could be reduced by increasing the number of CPUs ('-j 20' or more)
-- It is general to compile Rosetta bundle with at least two versions (static and mpi).
+- 'extras=mpi' compiles Rosetta in Massage Passing Interface format which supports MPI run (Recommended for the cluster system like HPC)
+- If the extra option is mpi, use "bin/rosetta_scripts.mpi.linuxgccrelease" instead of "rosetta_scripts". If you chose to build as static, then use "bin/rosetta_scripts.default.linuxgccrelease".
+- There are additional option to compile with specific cxx version. In that case, use the form like "./scons.py -j 10 mode=release bin cxx=clang cxx_ver=4.5".
+- The compiling process will take about 1h. The time could be reduced by increasing the number of CPUs ('-j 20' or more)
 
-#### (8) Check the compile result. If the compile was successfully done, the last sentence of the terminal shows the result like below.
+#### (8) Check the compiled result. If the compilation was successfully done, the last sentence of the terminal shows the result like below.
     "Install file: "build/src/release/linux/4.18/64/x86/gcc/8/default/rosetta_scripts.default.linuxgccrelease" as "bin/rosetta_scripts.default.linuxgccrelease"
     scons: done building targets.
     
-#### (9) If the compile was successful, there will be "rosetta_scripts.default.linuxgccrelease" and "rosetta_scripts.linuxgccrelease" in /main/source/bin.
-
-#### **I tried to use recent rosetta compiled with HDF5, but I used rosetta compiled with mpi because of some problems with zlib and our server environment.**
+#### (9) The executable rosetta which is named as "rosetta_scripts.hdf5.linuxgccrelease" will be in /main/source/bin.
 
 ## 2. Install DAIphaBall
 #### (1) DAIphaBall is a part of Rosetta. Move to rosetta_src_release/main/source/external/DAIphaBall.
@@ -251,16 +255,12 @@
 
         # Where the PSIPRED V4 data files have been  installed
         set datadir = ./data                                              // Change here to /path/to/psipred/data
-    
-- Eventhough runpsipred_single is used in cao_2021_protocol, nor older version nither recent version of blast do not have blastpgp which is required to execute runpsipred or runpsipred_single. If you read "user_mannual.pdf" in the ftp server, you will find that blastpgp is integrated to psiblast.
-- There is an another option. runpsipredplus in BLAST+/ directory uses psipred in BLAST_2022/bin and it actually works.
-- So, I tried to use runpsipredplus to follow cao's protocol instead of using runpsipred_single.
 
 #### (6) Test whether the psipred is run
     $ cd example
     $ ../runpsipred_single example.fasta
     
-- Rifdock only requires "runpsipred_single" executable file, so there is no need to install PSI-Blast, NCBI Toolkit, UNIREF90 and etc. 
+- Rifdock protocol only requires "runpsipred_single" executable file, so there is no need to install PSI-Blast, NCBI Toolkit, UNIREF90 and etc. 
             
 ## 6. Set the environment to install and run rifdock (Environment modules, gcc-6.5.0)
 ### 1) Install Environment modules
@@ -358,9 +358,11 @@
 
         # User specific aliases and functions
         module load gcc/6.5.0
+        
 - If you don't want to load gcc-6.5.0, just add "#" infront of "module load gcc/6.5.0" and inactivate it.
 - You need to load gcc-6.5.0 when you build or run rifdock.
- 
+- If you want to make other users to accessible to gcc-6.5.0, you need to change the authority of your directory by using "chmod". Making the system which load gcc-6.5.0 from /opt/gcc/gcc-6.5.0 could be another option (I used this method, but try to build on your local directory first).
+
 ## 7. Install Boost and Ninja to build RifDock
 - To build RifDock, obtain a copy of gcc with version >= 5.0
 - Install Boost version 1.65 or later
@@ -454,134 +456,10 @@
      $ cd build
      $ CXX=/usr/bin/g++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/Path/to/a/rosetta/main CMAKE_FINAL_ROSETTA_PATH=/Path/to/a/rosetta/main/source/cmake/build_cxx11_omp cmake .. -DCMAKE_BUILD_TYPE=Release
      $ make -j10 rif_dock_test rifgen
-- When later version of Boost(Boost-1.74.0 or Boost-1.78.0) was used instead of Boost-1.65.0, it made BOOST_BITMASK error during "make" step.
-
-#### [If you build the RifDock correctly, you can see the building process like this.]
-    [srgo@anode0 rifdock]$ mkdir build
-    [srgo@anode0 rifdock]$ cd build/
-    [srgo@anode0 build]$ CXX=/usr/bin/g++ CC=/usr/bin/gcc CMAKE_ROSETTA_PATH=/home/users/srgo/rosetta/rosetta_src_2018.09.60072_bundle/main CMAKE_FINAL_ROSETTA_PATH=/home/users/srgo/rosetta/rosetta_src_2018.09.60072_bundle/main/source/cmake/build_cxx11_omp cmake .. -DCMAKE_BUILD_TYPE=Release
-    -- The C compiler identification is GNU 8.3.1
-    -- The CXX compiler identification is GNU 8.3.1
-    -- Check for working C compiler: /usr/bin/gcc
-    -- Check for working C compiler: /usr/bin/gcc -- works
-    -- Detecting C compiler ABI info
-    -- Detecting C compiler ABI info - done
-    -- Detecting C compile features
-    -- Detecting C compile features - done
-    -- Check for working CXX compiler: /usr/bin/g++
-    -- Check for working CXX compiler: /usr/bin/g++ -- works
-    -- Detecting CXX compiler ABI info
-    -- Detecting CXX compiler ABI info - done
-    -- Detecting CXX compile features
-    -- Detecting CXX compile features - done
-    build type .................... Release
-    python version ................ 
-    c++ standard .................. c++11
-    path to rosetta binaries ......     /home/users/srgo/rosetta/rosetta_src_2018.09.60072_bundle/main/source/cmake/build_cxx11_omp
-    install prefix ................ /usr/local
-    -- Found PythonInterp: /usr/bin/python (found version "3.6.8") 
-    -- Looking for pthread.h
-    -- Looking for pthread.h - found
-    -- Looking for pthread_create
-    -- Looking for pthread_create - not found
-    -- Looking for pthread_create in pthreads
-    -- Looking for pthread_create in pthreads - not found
-    -- Looking for pthread_create in pthread
-    -- Looking for pthread_create in pthread - found
-    -- Found Threads: TRUE  
-    -- Performing Test HAS_LTO_FLAG
-    -- Performing Test HAS_LTO_FLAG - Success
-    using python include .......... PYTHON_INCLUDE_DIR-NOTFOUND/python3.5m
-    using python lib dir .......... 
-    using python lib .............. -lpython3.5m
-    install python libs to ........ /usr/local/lib/python
-    process pysetta source file: _pysetta_core_import_pose.cc
-    process pysetta source file: _pysetta_core_pose.cc
-    process pysetta source file: _pysetta_devel.cc
-    riflib exe: test_librosetta
-    riflib exe: rifgen
-    riflib exe: rif_dock_test
-    riflib exe: scheme_make_bounding_grids
-    -- Configuring done
-    -- Generating done
-    -- Build files have been written to: /home/users/srgo/rosetta/rifdock/build
-    [srgo@anode0 build]$ make -j10 rif_dock_test rifgen
-    Scanning dependencies of target riflib
-    [  3%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/BurialManager.cc.o
-    [  6%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/DonorAcceptorCache.cc.o
-    [  9%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/EtableParams_init.cc.o
-    [  9%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/HBondedPairGenerator.cc.o
-    [ 12%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/HydrophobicManager.cc.o
-    [ 15%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/RifFactory.cc.o
-    [ 18%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/RotamerGenerator.cc.o
-    [ 18%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/UnsatManager.cc.o
-    [ 21%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rosetta_field.cc.o
-    [ 24%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rotamer_energy_tables.cc.o
-    [ 27%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/seeding_util.cc.o
-    [ 27%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/util.cc.o
-    [ 30%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/util_complex.cc.o
-    [ 33%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rif/RifGeneratorApoHSearch.cc.o
-    [ 33%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rif/RifGeneratorSimpleHbonds.cc.o
-    [ 36%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rif/RifGeneratorUserHotspots.cc.o
-    [ 39%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rif/make_hbond_geometries.cc.o
-    [ 42%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rif/requirements_util.cc.o
-    [ 42%] Building CXX object  apps/rosetta/riflib/CMakeFiles/riflib.dir/rifdock_tasks/CompileAndFilterResultsTasks.cc.o
-    [ 45%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rifdock_tasks/HSearchTasks.cc.o
-    [ 48%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rifdock_tasks/HackPackTasks.cc.o
-    [ 51%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rifdock_tasks/MorphTasks.cc.o
-    [ 51%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rifdock_tasks/OutputResultsTasks.cc.o
-    [ 54%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rifdock_tasks/RosettaScoreAndMinTasks.cc.o
-    [ 57%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rifdock_tasks/SasaTasks.cc.o
-    [ 60%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rifdock_tasks/SeedingPositionTasks.cc.o
-    [ 60%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rifdock_tasks/SetFaModeTasks.cc.o
-    [ 63%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/rifdock_tasks/UtilTasks.cc.o
-    [ 66%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/scaffold/Baseline9AScaffoldProvider.cc.o
-    [ 66%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/scaffold/MorphingScaffoldProvider.cc.o
-    [ 69%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/scaffold/NineAManager.cc.o
-    [ 72%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/scaffold/SingleFileScaffoldProvider.cc.o
-    [ 75%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/scaffold/util.cc.o
-    [ 75%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/task/AnyPointTask.cc.o
-    [ 78%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/task/RifDockResultTask.cc.o
-    [ 81%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/task/SearchPointTask.cc.o
-    [ 84%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/task/SearchPointWithRotsTask.cc.o
-    [ 84%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/task/Task.cc.o
-    [ 87%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/task/TaskProtocol.cc.o
-    [ 90%] Building CXX object apps/rosetta/riflib/CMakeFiles/riflib.dir/task/util.cc.o
-    [ 93%] Linking CXX shared library libriflib.so
-    [ 93%] Built target riflib
-    Scanning dependencies of target rif_dock_test
-    [ 96%] Building CXX object apps/rosetta/CMakeFiles/rif_dock_test.dir/rif_dock_test.cc.o
-    [100%] Linking CXX executable rif_dock_test
-    [100%] Built target rif_dock_test
-    [ 96%] Built target riflib
-    Scanning dependencies of target rifgen
-    [100%] Building CXX object apps/rosetta/CMakeFiles/rifgen.dir/rifgen.cc.o
-    [100%] Linking CXX executable rifgen
-    [100%] Built target rifgen
-    [srgo@anode0 rifdock]$
-    
-#### (2) Do a Unit Test to check whether the build was successful.
-     $ make test_libscheme
-     
-## 9. Running Rifdock
-### 1) The executable files for RifDock are built at:
-    $ rifdock/build/apps/rosetta/rifgen
-    $ rifdock/build/apps/rosetta/rif_dock_test
-    
-    [srgo@anode0 build]$ ls
-    apps            CMakeFiles           external  schemelib
-    CMakeCache.txt  cmake_install.cmake  Makefile
-    [srgo@anode0 build]$ cd apps
-    [srgo@anode0 apps]$ ls
-    CMakeFiles  cmake_install.cmake  Makefile  rosetta
-    [srgo@anode0 apps]$ cd rosetta
-    [srgo@anode0 rosetta]$ ls
-    CMakeFiles           Makefile  rif_dock_test  riflib
-    cmake_install.cmake  python    rifgen
+- When later version of Boost(Boost-1.74.0 or Boost-1.78.0) was used to build rifdock, instead of Boost-1.65.0, it caused BOOST_BITMASK error during "make" step.
 
 ### 2) The unit tests executable file is at:
     $ rifdock/build/schemelib/test/test_libscheme
-#### ※ Step #7 and #8 were tested more than two times.
  
 
 ## 10. Download misc(cao_2021_protocol, scilent_tools, ppi_tools, scaffolds) for RifDock
@@ -595,8 +473,6 @@
     $ cd scripts_and_main_pdbs/supplemental_files/
     $ cp -r cao_2021_protocol/ ../../../rosetta
   
-#### (4) Add the PATH to cao_2021_protocol to .bashrc (This will be covered in step #10).
-
 ### 2) Download scilent_tools and ppi_tools
 #### (1) scilent_tools and ppi_tools are in cao_2021_protocol/github_backup. So, copy them to rosetta directory.
     $ cd cao_2021_protocol/github_backup/
@@ -604,7 +480,7 @@
     $ cp -r ppi_tools ../../
 - Currnt working directory is $HOME/rosetta/cao_2021_protocol/github_backup/
 
-#### (2) Add the PATH to scilent_toosl and ppi_tools to .bashrc (This will be covered in step #10).
+#### (2) Add the PATH to scilent_toosl and ppi_tools to .bashrc (This will be covered in step #11).
 
 ### 3) Download Miniprotein Scaffold Library
 #### (1) Download all the scaffolds from http://files.ipd.uw.edu/pub/robust_de_novo_design_minibinders_2021/supplemental_files/scaffolds.tar.gz
@@ -616,8 +492,7 @@
 #### (3) Copy scaffold directory to rosetta directory.
     $ cp -r supplemental_files/scaffolds ../rosetta
 
-#### (4) Add the PATH scaffold directory to .bashrc (This will be covered in step #10).
-
+#### (4) Add the PATH scaffold directory to .bashrc (This will be covered in step #11).
 
 ## 11. Set the proper PATH to all binaries
 #### (1) Move to $HOME and open .bashrc
@@ -625,7 +500,7 @@
     $vi .bashrc
 - It is strongly recommended to copy the .bashrc to backup directory for safe.
 
-#### (2) Set the cusor in the empty line and change to "insert mode" by press "Shift + i" buttons and add the PATH.
+#### (2) Set the cursor in the empty line and change to "insert mode" by press "Shift + i" buttons and add the PATH.
 
 from 
 
