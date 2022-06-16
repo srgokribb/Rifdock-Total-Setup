@@ -45,7 +45,7 @@
 
         /home/users/local_user/rosetta/
                  rosetta_src_release_3.9/     PyRosetta4/      rosetta_src_release_3.13/    rifdock/    scaffolds/    
-                 psipred/     PatchDock/       ppi_tools/       silent_tools/      ncbi-blast/    ncbi_tools/
+                 psipred/     PatchDock/       ppi_tools/       silent_tools/
 
         /usr/local/
                  bin/   lib/  include/  share/
@@ -358,12 +358,6 @@
         PATH=$PATH:/home/users/srgo/packages/re2c-1.0.3/build:/home/users/srgo/packages/ninja-1.10.2
         export PATH
 
-        LD_LIBRARY_PATH=/home/users/srgo/packages/gcc/lib64:/opt/ompi/4.1.0-gt/lib:/opt/intel/mkl/8.1.1/lib/em64t:/opt/intel/mkl/8.1.1/lib/em64t
-        export LD_LIBRARY_PATH
-
-        # Uncomment the following line if you don't like systemctl's auto-paging feature:
-        # export SYSTEMD_PAGER=
-
         # User specific aliases and functions
         module load gcc/6.5.0
         
@@ -433,7 +427,7 @@
      $ echo $PATH
      $ export PATH=$PATH:/home/users/local/ninja-1.10.2/
      $ echo $PATH
-- You can add PATH by using "export PATH=$PATH:/new_adress_to_add"
+- You can add new PATH by using "export PATH=$PATH:/path/to/directory"
 
 ## 8. Build Rosetta cxx11_omp and RifDock
 - Rifdock is made based on OpenMP(OMP) which is the compiler could make single thread program to multithread program.
@@ -540,13 +534,13 @@ to
         # User specific environment
         PATH="$HOME/.local/bin:$HOME/bin:$PATH"
         export PATH
-        PATH=$PATH:/home/users/srgo/rosetta/rosetta_src_2021.16.61629_bundle/main/source/bin:/home/users/srgo/rosetta/scaffolds:/home/users/srgo/rosetta/silent_tools
+        PATH=$PATH:/home/users/srgo/rosetta/rosetta_src_2021.16.61629_bundle/main/source/bin:/home/users/srgo/rosetta/rifdock/build/apps/rosetta:/home/users/srgo/rosetta/scaffolds:/home/users/srgo/rosetta/silent_tools
         export PATH
 
         LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
         export LD_LIBRARY_PATH
         
-        module load rifdock/rifdock
+        module load gcc/6.5.0
 
 
 #### (3) If you finished the revision, press "ESC" button to exit from "insert mode" and press ":" button and type "wq" and press "Enter" button to save the changes and exit from the file.
