@@ -318,13 +318,7 @@
      $ cd ~ && vi .bashrc
  - I used "$../configure --prefix=$/home/users/srgo/packages/gcc --enable-languages=c,c++,fortran --diable-multilib" to install gcc in local directory.
  
-#### (6) Add the path to gcc/lib64 to LD_LIBRAY_PATH.
-     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/users/srgo/packages/gcc/lib64
-     export LD_LIBRARY_PATH
-     
- - In later stage, "CXX=/path/to/gcc/bin/g++ CC=/path/to/gcc/bin/gcc" option will be used to build rifdock.
-
-#### (7) Make "modulefile" for new gcc in /user/share/Modules/modulefiles.
+#### (6) Make "modulefile" for new gcc in /user/share/Modules/modulefiles.
      # cd /usr/share/Modules/modulefiles              //Go to the directory where Modules is installed.
      # mkdir gcc
      # cd gcc
@@ -341,7 +335,7 @@
      # module avail                             //If you check the available modules, then you can see the modulefile of gcc is updated.
      gcc/6.5.0
      
-#### (8) Login as local user and load new gcc using environment modules.
+#### (7) Login as local user and load new gcc using environment modules.
      $ module load gcc/6.5.0
      
     If you want to automatically load gcc-6.5.0, open .bashrc and add "module load gcc/6.5.0" at the end of the file.
@@ -364,6 +358,10 @@
 - If you don't want to load gcc-6.5.0, just add "#" infront of "module load gcc/6.5.0" and inactivate it.
 - You need to load gcc-6.5.0 when you build or run rifdock.
 - If you want to make other users to accessible to gcc-6.5.0, you need to change the authority of your directory by using "chmod". Making the system which load gcc-6.5.0 from /opt/gcc/gcc-6.5.0 could be another option (I used this method, but try to build on your local directory first).
+
+#### (8) Check whether the current GCC version is changed to gcc-6.5.0
+    $ which gcc
+    ~/path/to/gcc-6.5.0/bin/gcc
 
 ## 7. Install Boost and Ninja to build RifDock
 - To build RifDock, obtain a copy of gcc with version >= 5.0
