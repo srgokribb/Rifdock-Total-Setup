@@ -87,7 +87,7 @@
 - "bin" directory: Executables
 - "include" directory: Header files
 - "lib" directory: Library files and linkers(.so)
-- **Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to finally install your files (/usr/local/bin /include /lib). If there are some files which could be overwitten, backup the previous files to the other directory and continue to the next step. It is important not to distroy your previous environments and avoid any fatal mistakes.** 
+- **Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to finally install your files (/usr/local/bin /include /lib). If there are some files which could be overwitten, backup the previous files to the other directory and continue to the next step. It is important not to destroy your previous environments and avoid any fatal mistakes.** 
 
 #### (4) Copy the files to proper directory. /usr/local/bin/ user/local/include/ usr/local/lib/
     # cd bin
