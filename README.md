@@ -17,7 +17,7 @@
 ### These are the required programs or resources to run RifDock
 **(Bolded programs are directly necessary to build Rifdock)**
 - Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
-- DAIphaBall(Part of Rosetta)
+- DAIphaBall (Part of Rosetta)
 - PyRosetta4
 - PatchDock
 - PsiPred
@@ -27,7 +27,7 @@
 - **RifDock (Boost 1.65.0 is needed)**
 - silent_tools
 - Scaffolds
-- ss_grouped_vall_all.h5(optional)
+- ss_grouped_vall_all.h5 (optional)
 
 
 ### Notice
