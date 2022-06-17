@@ -7,7 +7,8 @@
 - **If you want to directly see the method to build RifDock, see the step #8**
 - **Basically I'm a beginner to Linux. So, there could be some mistakes that I missed.**
 - I tried to made this mannual as easy as possible, so that anyone, who patiently follows the mannual, could successfully install rifdock.
-- **Specially give thanks to Longxing Cao and Brian Coventry, who are the members of David Baker's group in UW, for sharing Rifdock.**
+- **Specially give thanks to Longxing Cao and Brian Coventry et al., who are the members of David Baker's group in UW, for developing and sharing Rifdock.**
+- The paper of Rifdock: https://www.nature.com/articles/s41586-022-04654-9
 
 ## Least spec to run rifdock
 - Recommended by authors of Rifdock: 32+ core CPU, 16-80GB RAM depending on the size of the target
