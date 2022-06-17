@@ -13,7 +13,7 @@
 - Recommended by authors of Rifdock: 32+ core CPU, 16-80GB RAM depending on the size of the target
 - As for installation, ~10 cpus were enough.
 
-## Programs and Resources required to setup RifDock
+## Programs and Resources required to run RifDock
 **(Bolded programs are directly necessary to build Rifdock)**
 - Rosetta_3.13 (Recent Rosetta later than 2020, HDF5 is needed)
 - DAIphaBall (Part of Rosetta)
