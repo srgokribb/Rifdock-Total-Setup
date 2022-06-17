@@ -12,7 +12,6 @@
 ## Least spec to run rifdock
 - Recommended by authors of Rifdock: 32+ core CPU, 16-80GB RAM depending on the size of the target
 - As for installation, ~10 cpus were enough.
-- As for run, I sensibly recommend 50 core CPU or more, 200GB RAM or more 
 
 ## These are the required programs or resources to run RifDock
 **(Bolded programs are directly necessary to build Rifdock)**
