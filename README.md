@@ -5,7 +5,7 @@
 - Written by SeongRyeong Go on 28 Apr 2022.
 - Last revised on 18 June 2022.
 - **If you want to directly see the method to build RifDock, see the step #8**
-- **Basically I'm a beginner to Linux. So, there could be some mistakes that I missed.**
+- Basically, I'm a amateur to Linux. So, there could be some mistakes that I missed.
 - **Specially give thanks to Longxing Cao and Brian Coventry et al., who are the members of David Baker's group in UW, for developing and sharing Rifdock.**
 - The research paper of Rifdock is available in here: https://www.nature.com/articles/s41586-022-04654-9
 
