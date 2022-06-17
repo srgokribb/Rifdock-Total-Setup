@@ -124,10 +124,6 @@
             export LD_LIBRARY_PATH
 
 
-            # Uncomment the following line if you don't like systemctl's auto-paging feature:
-            # export SYSTEMD_PAGER=
-
-            # User specific aliases and functions
 
 #### (7) Apply the changed environment.
     $ source .bashrc
