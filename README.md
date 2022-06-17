@@ -551,8 +551,8 @@ to
     $ echo $PATH
     
 ### Good job! You've finished the long journey to install Rifdock.
-###
-###
+###   
+###   
 
 
 ## Glossaries
