@@ -6,14 +6,14 @@
 - Last revised on 17 June 2022.
 - **If you want to directly see the method to build RifDock, see the step #8**
 - **Basically I'm a beginner to Linux. So, there could be some mistakes that I missed.**
-- I tried to made this mannual as easy as possible, so that anyone, who patiently follows the mannual, could successfully install rifdock.
+- I tried to made this manual as easy as possible, so that anyone, who patiently follows the manual, could successfully install rifdock.
 - **Specially give thanks to Longxing Cao and Brian Coventry et al., who are the members of David Baker's group in UW, for developing and sharing Rifdock.**
 - The paper of Rifdock: https://www.nature.com/articles/s41586-022-04654-9
 
 ## Least spec to run rifdock
 - Recommended by authors of Rifdock: 32+ core CPU, 16-80GB RAM depending on the size of the target
 - As for installation, ~10 cpus were enough.
-- As for run, I sensibly recommned 50 core CPU or more, 200GB RAM or more 
+- As for run, I sensibly recommend 50 core CPU or more, 200GB RAM or more 
 
 ## These are the required programs or resources to run RifDock
 **(Bolded programs are directly necessary to build Rifdock)**
@@ -22,7 +22,7 @@
 - PyRosetta4
 - PatchDock
 - PsiPred
-- Environment modules 4.5.2 (It is necessary to load other version of GCC.)
+- Environment modules 4.5.2 (It is necessary to load another version of GCC.)
 - GCC-6.5.0 (Necessary to build and run rifdock)
 - **Rosetta_3.9 compiled as cxx11_omp (Re2c and Ninja are needed)**
 - **RifDock (Boost 1.65.0 is needed)**
@@ -66,7 +66,7 @@
     # mkdir packages
     # cd packages          // pwd is /root/packages/
     
-- This is just an example, but I recommned you to make your own directory to install compilers or programs.
+- This is just an example, but I recommend you to make your own directory to install compilers or programs.
 
 #### (3) Move the downloaded file to the directory you've made (packages/) and unpack the tar file.             
     # tar -xvzf hdf5-1.12.1-centos8_64.tar.gz
@@ -84,11 +84,11 @@
     # ls
     bin/ include/ lib/ share/
     
-- You can see the new direictory named as "hdf" is generated. At the lowest location of the directory, there are "bin", "include", "lib", "and "Share".
+- You can see the new directory named as "hdf" is generated. At the lowest location of the directory, there are "bin", "include", "lib", "and "Share".
 - "bin" directory: Executables
 - "include" directory: Header files
 - "lib" directory: Library files and linkers(.so)
-- **Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to finally install your files (/usr/local/bin /include /lib). If there are some files which could be overwitten, backup the previous files to the other directory and continue to the next step. It is important not to destroy your previous environments and avoid any fatal mistakes.** 
+- **Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to finally install your files (/usr/local/bin /include /lib). If there are some files which could be overwritten, backup the previous files to the other directory and continue to the next step. It is important not to destroy your previous environments and avoid any fatal mistakes.** 
 
 #### (4) Copy the files to proper directory. /usr/local/bin/ user/local/include/ usr/local/lib/
     # cd bin
@@ -148,7 +148,7 @@
 - GCC/g++: Version 4.8 or later (https://gcc.gnu.org/releases.html)
 - Clang/llvm on Linux: Version 3.3 or later (https://releases.llvm.org/download.html)
 
-#### (1) Go to Rosetta commons and apply for academic liscence (https://www.rosettacommons.org/software/license-and-download). 
+#### (1) Go to Rosetta commons and apply for academic license (https://www.rosettacommons.org/software/license-and-download). 
 
 #### (2) After login in with the ID and password of the license, go to 'Downloads' and enter Rosetta 3.13 - Download Rosetta 3.13. 
 
@@ -299,12 +299,12 @@
      $ gcc --version
 - The version of other compilers also could be identified by using '--version'.
 
-#### (2) Check the kernerl version of your system.
+#### (2) Check the kernel version of your system.
      $ uname -r
 - You need to check whether gcc-6.5.0 is compatible with the kernel version of your computer.
 
 #### (3) Download GCC 6.5.0 from GNU server(https://ftp.gnu.org/gnu/gcc/gcc-6.5.0/). 
-#### (4) Move the tar.gz file to rosetta folder and unpack the file..
+#### (4) Move the tar.gz file to "packages" directory and unpack the file..
      $ tar -xvzf gcc-6.5.0.tar.gz
      
 #### (5) Install GCC-6.5.0. on the local directory (Ref: https://gcc.gnu.org/wiki/InstallingGCC).
@@ -370,7 +370,7 @@
 - Tested CentOS8(Red Hat gcc 8.3.1) with Boost-1.65.0
 
 ### 1) Install Boost
-**Notification: I recommend you to log in as "root" or "administer" to the properly install boost.**
+**Notification: You need to log in as "root" or "administer" to the properly install boost.**
 
 #### (1) Download Boost version 1.65.0 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_0.html). 
 - Latest version of Boost (1.74.0 or 1.78.0) was not compatible with Rifdock.
@@ -397,8 +397,8 @@
     $ module load gcc/6.5.0
     $ which gcc
     ~/packages/gcc/bin/gcc
-- If you don't compile rifdock using GCC 5.x, 6.x, or 7.x, you can not install really working rifdock.
-- You can install rifdock eventhough you do not change GCC version, you will eventually get "ASSERTION ERROR" when you try to use rifgen, one of the major executable in Rifdock.
+- If you don't compile rifdock using GCC 5.x, 6.x, or 7.x, you cannot install really working rifdock.
+- You can install rifdock even though you do not change GCC version, you will eventually get "ASSERTION ERROR" when you try to use rifgen, one of the major executables in Rifdock.
 
 ### 3) Install re2c - Needed to run Ninja
 #### (1) Download re2c from downloading site (https://opensuse.pkgs.org/15.3/opensuse-oss-x86_64/re2c-1.0.3-1.18.aarch64.rpm.html).
@@ -411,10 +411,10 @@
     
 #### (3) Add the path to executable re2c
     $ export PATH=$PATH:/path/to/re2c-1.0.3/build
-- Add the path to the dirctory where "re2c" executable is installed to $PATH.
+- Add the path to the directory where "re2c" executable is installed to $PATH.
 
 ### 4) Install Ninja
-#### - In order to build rosetta cxx11_omp, Ninja shold be installed and proper PATH of Ninja need to be set.
+#### - In order to build rosetta cxx11_omp, Ninja should be installed and proper PATH of Ninja need to be set.
 #### (1) Download Ninja 1.10.2 from Git-hub(https://github.com/ninja-build/ninja/releases). (Ref:https://github.com/ninja-build/ninja/wiki, https://github.com/ninja-build/ninja) 
  
 #### (2) Install Ninja
@@ -569,14 +569,14 @@ to
 - Kernel: The core program of OS. It manages Security, Resource, Memory, and Abstraction of complicated information.
 - CMake: The program which generates build files(such as Makefile) that build a specific project. It is not the building program itself, but it is a program to generate build files. CMakeList.txt --(CMake)--> Makefile --(make)--> Excutables 
 In CMakeList.txt, there are two kinds of information. One is the minimum required version of CMake and another is the information about the project. For CMake has been changed from previous old ones(especially ver. 2.x), you need to identify whether the CMake which is installed in your computer is compatible to do its proper function.
-- make: File Maganement Utility which execute compile based on the dependencies described in "Makefile"
-- makefile: Setting file for "make" program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependancies to compile source files with make command.
+- make: File Management Utility which execute compile based on the dependencies described in "Makefile"
+- makefile: Setting file for "make" program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependencies to compile source files with make command.
 - C++11: New standard of C++. ISO assigned it at 12th Agust 2011. It made from gcc 4.3 to 4.8. Multi-threading programming API was standardized in this version. So, multi-thread programming could be performed without limitation of OS(Windows, Linux, IOS, and Android).\
-- API: Aplication Programming Interface
+- API: Application Programming Interface
 - OpenMP:
 - OpenMPI:
 
-### Basic concepts to install program in linux
+### Basic concepts and commands to install programs in linux
 - / - root directory
 - ./ - current directory
 - ../ - superior directory
