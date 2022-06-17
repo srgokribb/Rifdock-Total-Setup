@@ -550,7 +550,7 @@ to
     $ source .bashrc
     $ echo $PATH
     
-## Good job. You've finished the long journey to install Rifdock.
+### Good job! You've finished the long journey to install Rifdock.
 
 ## Glossaries
 ### Basic programming concepts
