@@ -550,9 +550,7 @@ to
     $ source .bashrc
     $ echo $PATH
     
-## 12. Try rifdock_tutorial
-#### I'm still working to follow the cao's protocol. 
-#### I will update the entire process after I finished to follow the protocol.
+## Good job. You've finished the long journey to install Rifdock.
 
 ## Glossaries
 ### Basic programming concepts
