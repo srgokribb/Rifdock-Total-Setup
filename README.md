@@ -1,13 +1,10 @@
 # RifDock Setup Protocol ver 1.2.0
 - Setup protocol to build Rosetta and RifDock
 - Tested on Red Hat 8.3.1 CentOS 8
-- GCC-6.5.0 loaded using Environment modules to build Rifdock correctly.
-- Written by SeongRyeong Go on 28 Apr 2022.
-- Last revised on 18 June 2022.
 - **If you want to directly see the method to build RifDock, see the step #8**
-- Basically, I'm a amateur to Linux. So, there could be some mistakes that I missed.
-- **Specially give thanks to Longxing Cao and Brian Coventry et al., who are the members of David Baker's group in UW, for developing and sharing Rifdock.**
-- The research paper of Rifdock is available in here: https://www.nature.com/articles/s41586-022-04654-9
+- All copyright of Rifdock is on Longxing Cao and Brian Coventry et al., who developed and shared Rifdock.
+- The original resources of Rifdock are in https://github.com/rifdock/rifdock
+- The research paper of Rifdock is available in https://www.nature.com/articles/s41586-022-04654-9
 
 ## Least spec to run rifdock
 - Recommended by authors of Rifdock: 32+ core CPU, 16-80GB RAM depending on the size of the target
