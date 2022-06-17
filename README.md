@@ -571,8 +571,8 @@ to
 In CMakeList.txt, there are two kinds of information. One is the minimum required version of CMake and another is the information about the project. For CMake has been changed from previous old ones(especially ver. 2.x), you need to identify whether the CMake which is installed in your computer is compatible to do its proper function.
 - make: File Management Utility which execute compile based on the dependencies described in "Makefile"
 - makefile: Setting file for "make" program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependencies to compile source files with make command.
-- C++11: New standard of C++. ISO assigned it at 12th Agust 2011. It made from gcc 4.3 to 4.8. Multi-threading programming API was standardized in this version. So, multi-thread programming could be performed without limitation of OS(Windows, Linux, IOS, and Android).
-- API: Application Programming Interface (API) is a connection between computers or between softwares. It is an mechanism that enables the communication between the softwares using a set of definitions and protocols.
+- C++11: New standard of C++. ISO assigned it at 12th August 2011. It made from gcc 4.3 to 4.8. Multi-threading programming API was standardized in this version. So, multi-thread programming could be performed without limitation of OS(Windows, Linux, IOS, and Android).
+- API: Application Programming Interface (API) is a connection between computers or between softwares. It is an mechanism that enables the communication between two software using a set of definitions and protocols.
 - OpenMP: Open Multi-Processing is API that supports multi-platform shared-memory multiprocessing programming in C, C++, and Fortran. OpenMP uses multi-threads and shared memory. Even though OpenMP runs well under multi-core system, but it cannot be used on the distributed memory system like parallelly connected computers.
 - OpenMPI: Open MPI is Message Passing Interface (MPI) library which is necessary for parallel computing. MPICH, LAM MPI, OpenMPI are majorly used.
 
