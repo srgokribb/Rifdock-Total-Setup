@@ -552,7 +552,7 @@ to
     
 ### Good job! You've finished the long journey to install Rifdock.
 \
-\
+
 ## Glossaries
 ### Basic programming concepts
 - compile: Change a file written in one language to another language
