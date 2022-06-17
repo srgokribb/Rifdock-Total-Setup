@@ -6,7 +6,6 @@
 - Last revised on 18 June 2022.
 - **If you want to directly see the method to build RifDock, see the step #8**
 - **Basically I'm a beginner to Linux. So, there could be some mistakes that I missed.**
-- I tried to made this manual as easy as possible, so that anyone, who patiently follows the manual, could successfully install rifdock.
 - **Specially give thanks to Longxing Cao and Brian Coventry et al., who are the members of David Baker's group in UW, for developing and sharing Rifdock.**
 - The research paper of Rifdock is available in here: https://www.nature.com/articles/s41586-022-04654-9
 
