@@ -559,7 +559,7 @@ to
 - compile: Change a file written in one language to another language
 - build: a compiled version of a program
 - bin: bin stands for the binary file which is a "non-text file". A Binary file is compiled file which could be directly understood and used by a computer.
-- cxx: C++\
+- cxx: C++
 - gcc: GNU Compiler Collection includes front ends(like UI for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). It is the basic compiler of Unix and Linux-based systems.
 - front end: Front part of the system which is close to the user. The starting point or input part of the system. GUI, FEP, etc.
 - back end: The part that supports the system on the backside like the database. Only accessible to programmers or administer.
@@ -571,10 +571,10 @@ to
 In CMakeList.txt, there are two kinds of information. One is the minimum required version of CMake and another is the information about the project. For CMake has been changed from previous old ones(especially ver. 2.x), you need to identify whether the CMake which is installed in your computer is compatible to do its proper function.
 - make: File Management Utility which execute compile based on the dependencies described in "Makefile"
 - makefile: Setting file for "make" program, which could simplify the iterative compile process. It defines macro, targets, rules, commands, and dependencies to compile source files with make command.
-- C++11: New standard of C++. ISO assigned it at 12th Agust 2011. It made from gcc 4.3 to 4.8. Multi-threading programming API was standardized in this version. So, multi-thread programming could be performed without limitation of OS(Windows, Linux, IOS, and Android).\
-- API: Application Programming Interface
-- OpenMP:
-- OpenMPI:
+- C++11: New standard of C++. ISO assigned it at 12th Agust 2011. It made from gcc 4.3 to 4.8. Multi-threading programming API was standardized in this version. So, multi-thread programming could be performed without limitation of OS(Windows, Linux, IOS, and Android).
+- API: Application Programming Interface (API) is a connection between computers or between softwares. It is an mechanism that enables the communication between the softwares using a set of definitions and protocols.
+- OpenMP: Open Multi-Processing is API that supports multi-platform shared-memory multiprocessing programming in C, C++, and Fortran. OpenMP uses multi-threads and shared memory. Even though OpenMP runs well under multi-core system, but it cannot be used on the distributed memory system like parallelly connected computers.
+- OpenMPI: Open MPI is Message Passing Interface (MPI) library which is necessary for parallel computing. MPICH, LAM MPI, OpenMPI are majorly used.
 
 ### Basic concepts and commands to install programs in linux
 - / - root directory
