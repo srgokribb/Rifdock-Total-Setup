@@ -92,9 +92,9 @@
     # cd ../lib
     # cp -r * /usr/local/lib
     
-- **Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to finally install your files (/usr/local/bin /include /lib). If there are some files which could be overwritten, backup the previous files to the other directory and continue to the next step. It is important not to destroy your previous environments and avoid any fatal mistakes.** 
+- **Caution: If there are some files which could be overwritten, backup the previous files to the other directory and continue to the next step.** 
 
-#### (5) (Optioanl) Refresh the shared library cache with "ldconfig".
+#### (5) Refresh the shared library cache with "ldconfig".
     # ldconfig
 - If your computer have the system which refreshes the shared library cache, this step could be skipped.
 - If there are some jobs which were already running and should be maintained, it is safer to execute this command after the jobs are finished.
@@ -144,15 +144,15 @@
 
 #### (2) After login in with the ID and password of the license, go to 'Downloads' and enter Rosetta 3.13 - Download Rosetta 3.13. 
 
-#### (3) Download Rosetta 3.13 source (5.2G) file (rosetta_src_3.13_bundle.tgz) and copy the source file to the folder on the Linux computer where the Rosetta 3.13 will be installed (https://www.rosettacommons.org/downloads/academic/3.13/). 
+#### (3) Download Rosetta 3.13 source (5.2G) file (rosetta_src_3.13_bundle.tgz) and copy the source file to the directory on the Linux computer where the Rosetta 3.13 will be installed (https://www.rosettacommons.org/downloads/academic/3.13/). 
 
-#### (4) Unpack the tar file.
+#### (4) Unpack the downloaded file.
      $ tar -xvzf rosetta_src_3.13_bundle.tgz
 
-#### (5) Move to 'source' folder.
+#### (5) Move to 'source' directory.
     $ cd rosetta_src_release_bundle/main/source
 
-#### (6) Check 'scons.py' is in the source folder. This file is the software needed to compile Rosetta (already included in the rosetta bundle in main/source folder). 
+#### (6) Check 'scons.py' is in the source directory. This file is the software needed to compile Rosetta (already included in the rosetta bundle in main/source directory). 
 
 #### (7) Compile rosetta with HDF5.
     $ ./scons.py -j10 mode=release extras=hdf5 rosetta_scripts
@@ -366,7 +366,7 @@
 #### (1) Download Boost version 1.65.0 from Boost C++ Library server(https://www.boost.org/users/history/version_1_65_0.html). 
 - Latest version of Boost (1.74.0 or 1.78.0) was not compatible with Rifdock.
 
-#### (2) Move the downloaded file to the folder to install and unpack the file (Ref: https://valelab4.ucsf.edu/svn/3rdpartypublic/boost/more/getting_started/windows.html).
+#### (2) Move the downloaded file to the directory to install and unpack the file (Ref: https://valelab4.ucsf.edu/svn/3rdpartypublic/boost/more/getting_started/windows.html).
      # cd /root/
      # mkdir packages
      # cd packages
@@ -429,7 +429,7 @@
 #### (2) Unpack Rosetta
      $ tar -xvzf rosetta_src_3.9_bundle.tgz
 
-#### (3) Move to main/source folder
+#### (3) Move to main/source directory
      $ cd rosetta_src_release_bundle/main/source
      
 #### (4) build rosetta cxx11_omp using Ninja(Ref: See 'Extra tools' in https://ninja-build.org/manual.html)
