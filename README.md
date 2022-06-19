@@ -28,6 +28,7 @@
 
 ### Notice
 - In this protocol, the command line which starts with **"#"** means **"root"** or **"administer"**, and the command line which starts with **"$"** means **"local user"**.
+- **Caution: Do not install multiple versions of compilers or libraries under usr/local. If multiple versions of same compiler are accessible to $PATH or $LD_LIBRARY_PATH, the compiler will not work properly and could make fatal error.** If you are an user of the server and new to linux, be cautious and ask a help to the system manager or expert.
 
 ### Directory Structure
         
@@ -53,7 +54,6 @@
 
 ## 1. Install HDF5 and Compile Rosetta_3.13 with HDF5
 ### 1) Install HDF5 (Ref: https://fossies.org/linux/hdf5/release_docs/INSTALL)
-- **Caution: Do not install multiple versions of hdf5 under usr/local. If multiple versions of same compiler are accessible to $PATH or $LD_LIBRARY_PATH, it could make fatal error.** If you are an user of the server and new to linux, be cautious and ask a help to the system manager or expert.
 
 #### (1) Download HDF5 source file from The HDF5 Group server(https://www.hdfgroup.org/downloads/hdf5) . - Install ver 1.12.1.
 
@@ -83,7 +83,6 @@
 - "bin" directory: Executables
 - "include" directory: Header files
 - "lib" directory: Library files and linkers(.so)
-- **Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to finally install your files (/usr/local/bin /include /lib). If there are some files which could be overwritten, backup the previous files to the other directory and continue to the next step. It is important not to destroy your previous environments and avoid any fatal mistakes.** 
 
 #### (4) Copy the files to proper directory. /usr/local/bin/ user/local/include/ usr/local/lib/
     # cd bin
@@ -92,6 +91,8 @@
     # cp -r * /usr/local/include
     # cd ../lib
     # cp -r * /usr/local/lib
+    
+- **Caution: You need to check whether there are the files which have the same names with the HDF5 library files in the directory to finally install your files (/usr/local/bin /include /lib). If there are some files which could be overwritten, backup the previous files to the other directory and continue to the next step. It is important not to destroy your previous environments and avoid any fatal mistakes.** 
 
 #### (5) (Optioanl) Refresh the shared library cache with "ldconfig".
     # ldconfig
@@ -131,8 +132,8 @@
     $ echo $PATH
     $ echo $LD_LIBRARY_PATH
     
-- If PATH is updated correctly, you can proceed to rosetta install and compilation.
-- Because the addresses are added to ".bashrc", it will be maintained after you close your terminal or open a new terminal. If you don't need hdf5 anymore, remove the address to hdf5 binary and library from ".bashrc".
+- If PATH is updated correctly, you can proceed to rosetta installation.
+- Because the addresses are added to ".bashrc", current $PATh and $LD_LIBRARY_PATH will be maintained after you close your terminal or open a new terminal.
 
 ### 2) Install Rosetta 3.13 and compile with HDF5
 - Check whether the version of compilers in your machine and environment supports Rosetta before the installation (https://new.rosettacommons.org/docs/latest/build_documentation/Cxx11Support).
@@ -147,14 +148,13 @@
 
 #### (4) Unpack the tar file.
      $ tar -xvzf rosetta_src_3.13_bundle.tgz
-- The installation takes 20~30 min and rosetta_scr_release_bundle folder will be generated.
 
 #### (5) Move to 'source' folder.
     $ cd rosetta_src_release_bundle/main/source
 
 #### (6) Check 'scons.py' is in the source folder. This file is the software needed to compile Rosetta (already included in the rosetta bundle in main/source folder). 
 
-#### (7) Compile rosetta in HDF5 format which is the basic form of Rosetta.
+#### (7) Compile rosetta with HDF5.
     $ ./scons.py -j10 mode=release extras=hdf5 rosetta_scripts
 
 - '-j 10' means using 10 cores of CPU for compiling 
