@@ -3,8 +3,8 @@
 - Tested on Red Hat 8.3.1 CentOS 8
 - **If you want to directly see the method to build RifDock, see the step #8**
 - All copyright of Rifdock is on Longxing Cao and Brian Coventry et al., who developed and shared Rifdock.
-- The original resources of Rifdock are in https://github.com/rifdock/rifdock
-- The research paper of Rifdock is available in https://www.nature.com/articles/s41586-022-04654-9
+- The original resources of Rifdock are available from https://github.com/rifdock/rifdock
+- The research paper of Rifdock is available from https://www.nature.com/articles/s41586-022-04654-9
 
 ## Least spec to run rifdock
 - Recommended by authors of Rifdock: 32+ core CPU, 16-80GB RAM depending on the size of the target
