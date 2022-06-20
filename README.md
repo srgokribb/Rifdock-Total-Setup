@@ -1,4 +1,4 @@
-# RifDock Setup Protocol for Linux (CentOS 8)
+# RifDock Setup Protocol for Linux
 - Setup protocol to build Rosetta and RifDock
 - Tested on Red Hat 8.3.1 CentOS 8
 - **If you want to directly see the method to build RifDock, see the step #8**
