@@ -5,6 +5,7 @@
 - All copyright of Rifdock is on Longxing Cao and Brian Coventry et al., who developed and shared Rifdock.
 - The original resources of Rifdock are available from https://github.com/rifdock/rifdock
 - The research paper of Rifdock is available from https://www.nature.com/articles/s41586-022-04654-9
+- I made simple wiki for this page: https://github.com/srgokribb/Rifdock-Total-Setup/wiki
 
 ## Least spec to run rifdock
 - Recommended by authors of Rifdock: 32+ core CPU, 16-80GB RAM depending on the size of the target
