@@ -1,5 +1,5 @@
 # RifDock Setup Protocol for Linux
-- Setup protocol to build Rosetta and RifDock
+- This is the install guide to build all requirements for RifDock and RifDock itself.
 - Tested on Red Hat 8.3.1 CentOS 8
 - **If you want to directly see the method to build RifDock, see the step #8**
 - All copyright of Rifdock is on Longxing Cao and Brian Coventry et al., who developed and shared Rifdock.
