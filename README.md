@@ -302,7 +302,6 @@
 #### (5) Install GCC-6.5.0. on the local directory (Ref: https://gcc.gnu.org/wiki/InstallingGCC).
      $ cd gcc-6.5.0
      $ ./contrib/download_prerequisites
-     $ cd ..
      $ mkdir objdir
      $ cd objdir
      $../configure --prefix=$HOME/path/to/make/GCC-6.5.0 --enable-languages=c,c++,fortran --disable-multilib
